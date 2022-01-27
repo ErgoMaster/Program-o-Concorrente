@@ -6,11 +6,13 @@
 * Nome.............: Calculadora de IMC
 * Funcao...........: Calcula o IMC do usuário e demonstra se ele está ou não em sobrepeso
 *************************************************************** */
+package src; 
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.stage.Stage;
+
 
 public class Principal extends Application {
     public static void main(String[] args) throws Exception {
@@ -21,9 +23,8 @@ public class Principal extends Application {
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("CalculadoraIMC.fxml"));
         Parent root = fxmlloader.load();
-        Scene menuInicial = new Scene(root);
 
-        primaryStage.setScene(menuInicial);
+        primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
 }
