@@ -1,7 +1,7 @@
 /* ***************************************************************
 * Autor............: Gabriel Uzel Fonseca
 * Matricula........: 202010028
-* Inicio...........: 27/01
+* Inicio...........: 27/01/2022
 * Ultima alteracao.: XX
 * Nome.............: Calculadora de IMC
 * Funcao...........: Calcula o IMC do usuário e demonstra se ele está ou não em sobrepeso
@@ -21,10 +21,14 @@ public class Principal extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        /* Esse é o processo básico para rodar um programa feito em javafx com a adição de uma chamada para
+        utilizar css dentro do programa */ 
         FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("CalculadoraIMC.fxml"));
         Parent root = fxmlloader.load();
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
 
-        primaryStage.setScene(new Scene(root));
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 }
