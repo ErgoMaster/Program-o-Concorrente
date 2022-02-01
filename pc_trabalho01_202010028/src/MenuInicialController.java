@@ -15,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import java.lang.Math;
+import java.text.DecimalFormat;
 
 public class MenuInicialController {
     // Chamada dos elementos da tela principal (buttons, labels e textfields) 
@@ -59,7 +60,7 @@ public class MenuInicialController {
             String classificacao = atribuirClassificacao(imc);      
             
             // Faz a atribuicao dos resultados a outros textfield e os mostra ao usuario
-            IMCTextField.setText(String.valueOf(imc));
+            IMCTextField.setText(String.valueOf(new DecimalFormat(".##").format(imc)));
             ClassificacaoTextField.setText(classificacao);
         } catch(NumberFormatException e) {
             /* Tratamento de excessao para caso o usuario forneca um tipo errado de informacao 
