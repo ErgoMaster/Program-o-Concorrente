@@ -2,7 +2,7 @@
 * Autor............: Gabriel Uzel Fonseca
 * Matricula........: 202010028
 * Inicio...........: 27/01/2022
-* Ultima alteracao.: xx
+* Ultima alteracao.: 01/02/2022
 * Nome.............: Controller da tela principal
 * Funcao...........: Adicionar funcionalidades aos elementos gráficos do programa
 *************************************************************** */
@@ -46,6 +46,9 @@ public class MenuInicialController {
     @FXML
     public void calcular(ActionEvent event) throws IOException {
         try {
+            // Limpar a mensagem de erro para que ela so apareca quando de fato o usuario errar
+            ErroTextField.clear();
+
             // Recebe dos textfield as informacoes da altura e peso do usuario
             double altura = Integer.parseInt(AlturaTextField.getText());
             double peso = Double.parseDouble(PesoTextField.getText());
@@ -66,6 +69,7 @@ public class MenuInicialController {
             /* Tratamento de excessao para caso o usuario forneca um tipo errado de informacao 
             (por exemplo: na caixa de texto de peso o usuario digitar uma cadeia de caracteres) */
             ErroTextField.setText("Informações digitadas estão incorretas");
+            //ErroTextField.clear();
         } catch(ValorInvalidoException e) {
             /* Tratamento de excecao para caso o usuario forneca um valor absurdo de informacao
             (por exemplo: na caixa de texto de peso o usuario digitar o valor de uma tonelada) */

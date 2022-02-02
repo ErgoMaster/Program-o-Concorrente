@@ -6,13 +6,6 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Launch teste",
-            "request": "launch",
-            "mainClass": "src.teste",
-            "projectName": "Programacao-Concorrente_bb337a28"
-        },
-        {
-            "type": "java",
             "name": "Launch Principal",
             "request": "launch",
             "mainClass": "src.Principal",
