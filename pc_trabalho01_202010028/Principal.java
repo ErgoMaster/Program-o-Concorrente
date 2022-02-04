@@ -7,8 +7,6 @@
 * Funcao...........: Calcula o IMC do usuário e demonstra se ele está ou não em sobrepeso
 *************************************************************** */
 
-package src; 
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -23,11 +21,12 @@ public class Principal extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         /* Esse eh o processo basico para rodar um programa feito em javafx */ 
-        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("CalculadoraIMC.fxml"));
+        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("src/CalculadoraIMC.fxml"));
         Parent root = fxmlloader.load();
         Scene scene = new Scene(root);
 
         primaryStage.setScene(scene);
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 }
