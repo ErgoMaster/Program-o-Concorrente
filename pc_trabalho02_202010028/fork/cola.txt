@@ -1,0 +1,14 @@
+1. cout << "Nasce o pai" << endl;
+2. cout << "Nasce o filho 1 - o pai tem 22 anos" << endl;
+3. cout << "Nasce o filho 2 - o pai tem 25 anos" << endl;
+4. cout << "Nasce o filho 3 - o pai tem 32 anos" << endl;
+5. cout << "Nasce o neto 1 (filho 1) - o pai tem 38 anos" << endl;
+6. cout << "Nasce o neto 2 (filho 2) - o pai tem 45 anos" << endl;
+7. cout << "Nasce o bisneto 1 (filho 1) - o pai tem 68 anos" << endl;
+8. cout << "Morre o neto 1 (filho 1) - o pai tem 73 anos" << endl;
+9. cout << "Morre o neto 2 (filho 2) - o pai tem 78 anos" << endl;
+10. cout << "Morre o bisneto 1 (filho 1) - o pai tem 80 anos" << endl;
+11. cout << "Morre o filho 2 - o pai tem 80 anos" << endl;
+12. cout << "Morre o filho 1 - o pai tem 83 anos" << endl;
+13. cout << "Morre o filho 3 - o pai tem 87 anos" << endl;
+14. cout << "Morre o pai aos 90 anos" << endl;
