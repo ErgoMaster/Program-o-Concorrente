@@ -12,3 +12,19 @@
 12. cout << "Morre o filho 1 - o pai tem 83 anos" << endl;
 13. cout << "Morre o filho 3 - o pai tem 87 anos" << endl;
 14. cout << "Morre o pai aos 90 anos" << endl;
+
+ProcessoPai processo0 = new ProcessoPai();
+ProcessoFilho1 processo1 = new ProcessoFilho1();
+ProcessoFilho2 processo2 = new ProcessoFilho2();
+ProcessoFilho3 processo3 = new ProcessoFilho3();
+ProcessoNeto1 processo4 = new ProcessoNeto1();
+ProcessoNeto2 processo5 = new ProcessoNeto2();
+ProcessoBisneto processo6 = new ProcessoBisneto();
+
+processo0.start();
+processo1.start();
+processo2.start();
+processo3.start();
+processo4.start();
+processo5.start();
+processo6.start();
