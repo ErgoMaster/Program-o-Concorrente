@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import util.ArvoreGenealogicaController;
 
 public class Principal extends Application {
     public static void main(String[] args) {
@@ -21,6 +22,7 @@ public class Principal extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         // Inicializacao da tela fxml
+        ArvoreGenealogicaController controller = new ArvoreGenealogicaController();
         Parent root = FXMLLoader.load(getClass().getResource("util/ArvoreGenealogica.fxml"));
         Scene scene = new Scene(root);
 
