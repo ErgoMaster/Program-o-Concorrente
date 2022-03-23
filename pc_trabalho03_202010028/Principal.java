@@ -7,6 +7,7 @@
 * Funcao...........: Simula uma situacao em que 2 trens precisam passar por 1 unico tunel
 *************************************************************** */
 
+import Util.SimulacaoTremController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,10 +19,17 @@ public class Principal extends Application {
         launch(args);
     }
 
+    /* ***************************************************************
+    * Metodo: start
+    * Funcao: Inicializa a tela fxml
+    * Parametros: Stage
+    * Retorno: Void
+    *************************************************************** */
     @Override
     public void start(Stage stage) throws Exception {
         // Inicializacao da tela fxml
-        Parent root = FXMLLoader.load(getClass().getResource("util/ArvoreGenealogica.fxml"));
+        SimulacaoTremController controller = new SimulacaoTremController();
+        Parent root = FXMLLoader.load(getClass().getResource("Util/SimulacaoTrem.fxml"));
         Scene scene = new Scene(root);
 
         stage.setResizable(false); // Trava o tamanho da tela
