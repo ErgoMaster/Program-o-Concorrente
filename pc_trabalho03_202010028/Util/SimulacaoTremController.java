@@ -2,7 +2,7 @@
 * Autor............: Gabriel Uzel Fonseca
 * Matricula........: 202010028
 * Inicio...........: 20/03/2022
-* Ultima alteracao.: xx
+* Ultima alteracao.: 27/03/2022
 * Nome.............: Controller da simulacao
 * Funcao...........: Controla o programa de forma a criar as threads
 *************************************************************** */
@@ -11,7 +11,6 @@ package Util;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import Model.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -77,14 +76,14 @@ public class SimulacaoTremController implements Initializable {
         sliderTrem1.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> arg0, Number arg1, Number arg2) {
-                duracaoTrem1 = (int) sliderTrem1.getValue();
+                duracaoTrem1 = (int) sliderTrem1.getValue(); // Pega o valor do slider e atribui ao valor da velocidade do trem 1 
             }
         });
 
         sliderTrem2.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> arg0, Number arg1, Number arg2) {
-                duracaoTrem2 = (int) sliderTrem2.getValue();
+                duracaoTrem2 = (int) sliderTrem2.getValue(); // Pega o valor do slider e atribui ao valor da velocidade do trem 2
             }
         });
     }

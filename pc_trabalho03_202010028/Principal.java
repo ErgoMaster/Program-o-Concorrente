@@ -2,7 +2,7 @@
 * Autor............: Gabriel Uzel Fonseca
 * Matricula........: 202010028
 * Inicio...........: 20/03/2022
-* Ultima alteracao.: xx
+* Ultima alteracao.: 27/03/2022
 * Nome.............: Simulacao do trem
 * Funcao...........: Simula uma situacao em que 2 trens precisam passar por 1 unico tunel
 *************************************************************** */

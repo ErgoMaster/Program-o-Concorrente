@@ -2,7 +2,7 @@
 * Autor............: Gabriel Uzel Fonseca
 * Matricula........: 202010028
 * Inicio...........: 20/03/2022
-* Ultima alteracao.: xx
+* Ultima alteracao.: 27/03/2022
 * Nome.............: Trem 2
 * Funcao...........: Modifica a posicao do trem 2 na simulacao
 *************************************************************** */
@@ -26,15 +26,21 @@ public class Trem2 extends Thread {
         this.trem = trem;
     }
 
+    /* ***************************************************************
+    * Metodo: run
+    * Funcao: Eh a parte logica da thread
+    * Parametros: Void
+    * Retorno: Move o trem 2 no programa
+    *************************************************************** */
     public void run() {
-        int pauseInteiro = 0;
-        Variavel.setVelocidade(self, duracao);
+        int pauseInteiro = 0; // Inidica a qunatidade de tempo que uma thread ficara esperando a outra passar pela regiao critica
+        Variavel.setVelocidade(self, duracao); // Seta a velocidade da thread atual 
 
         // Regiao nao critica 1
-        TranslateTransition translate1 = new TranslateTransition(Duration.millis(duracao), trem);
+        TranslateTransition translate1 = new TranslateTransition(Duration.millis(duracao), trem); // Move o trem
         translate1.setByX(-130);
 
-        TranslateTransition translate2 = new TranslateTransition(Duration.millis(duracao), trem);
+        TranslateTransition translate2 = new TranslateTransition(Duration.millis(duracao), trem); // Move o trem
         translate2.setByX(-30);
         translate2.setByY(30);
 
@@ -49,23 +55,22 @@ public class Trem2 extends Thread {
             pauseInteiro++; // Loop de espera
         } 
 
-        PauseTransition pause = new PauseTransition(Duration.millis(pauseInteiro));
-        System.out.println("\t" + pauseInteiro);
+        PauseTransition pause = new PauseTransition(Duration.millis(pauseInteiro)); // Variavel que ira para a animacao caso seja necessario
 
-        TranslateTransition translate3 = new TranslateTransition(Duration.millis(duracao), trem);
+        TranslateTransition translate3 = new TranslateTransition(Duration.millis(duracao), trem); // Move o trem
         translate3.setByX(-160);
         Variavel.setVez(0); // Seta a vez para a outra thread
-        Variavel.setFlag(self, 0); // Sinaliza que a thread atual nao possui mais interesse em passar pela regiao critica */
+        Variavel.setFlag(self, 0); // Sinaliza que a thread atual nao possui mais interesse em passar pela regiao critica 
 
         // Regiao nao critica 2
-        TranslateTransition translate4 = new TranslateTransition(Duration.millis(duracao), trem);
+        TranslateTransition translate4 = new TranslateTransition(Duration.millis(duracao), trem); // MOve o trem
         translate4.setByY(30);
         translate4.setByX(-30);
 
-        TranslateTransition translate5 = new TranslateTransition(Duration.millis(duracao), trem);
+        TranslateTransition translate5 = new TranslateTransition(Duration.millis(duracao), trem); // Move o trem
         translate5.setByX(-140);
 
         SequentialTransition seqT = new SequentialTransition(translate1, translate2, pause, translate3, translate4, translate5);
-        seqT.play();
+        seqT.play(); // Inicia todas as animacoes
     }
 }
