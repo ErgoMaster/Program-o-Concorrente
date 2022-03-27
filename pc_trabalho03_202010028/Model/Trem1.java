@@ -9,16 +9,36 @@
 
 package Model;
 
+import javafx.animation.PauseTransition;
+import javafx.animation.SequentialTransition;
+import javafx.animation.TranslateTransition;
+import javafx.scene.image.ImageView;
+import javafx.util.Duration;
+
 public class Trem1 extends Thread {
     private int self; // Variavel que indica o index representante do trem para a solucao de Peterson
+    private ImageView trem; // Variavel do tipo image view para a manipulacao da parte grafica
+    private int duracao; // Duracao da animacao que indicara a velocidade do trem
 
-    public Trem1() {
+    public Trem1(ImageView trem, int duracao) {
         self = 0; // Para o trem 1, essa variavel sera 0
+        this.trem = trem; 
+        this.duracao = duracao;
     }
 
     public void run() {
-        andarAteParada(); // Regiao nao critica 1
+        int pauseInteiro = 0;
+        Variavel.setVelocidade(self, duracao);
 
+        // Regiao nao critica 1
+        TranslateTransition translate1 = new TranslateTransition(Duration.millis(duracao), trem);
+        translate1.setByX(120);
+
+        TranslateTransition translate2 = new TranslateTransition(Duration.millis(duracao), trem);
+        translate2.setByX(30);
+        translate2.setByY(30);
+
+        
         Variavel.setFlag(self, 1); // Indica intecao de passar pela regiao critica
         Variavel.setVez(1 - self); // Seta a vez para a outra thread 
 
@@ -26,52 +46,26 @@ public class Trem1 extends Thread {
         a thread atual entrara no loop e eseperara a outra thread terminar de executar a regiao critica, caso seja a sua vez de passar 
         ou a outra thread nao tenha interesse, a thread atual continuara normalmente para a regiao critica */
         while(Variavel.getFlagB() == 1 && Variavel.getVez() == 1 - self) {
-            // loop de espera
-        }
+            pauseInteiro++; // Loop de espera
+        } 
 
-        andarPeloTunel(); // Regiao critica
+        PauseTransition pause = new PauseTransition(Duration.millis(pauseInteiro));
+        System.out.println(pauseInteiro);
+
+        TranslateTransition translate3 = new TranslateTransition(Duration.millis(duracao), trem);
+        translate3.setByX(160);
         Variavel.setVez(1); // Seta a vez para a outra thread
-        Variavel.setFlag(self, 0); // Sinaliza que a thread atual nao possui mais interesse em passar pela regiao critica
+        Variavel.setFlag(self, 0); // Sinaliza que a thread atual nao possui mais interesse em passar pela regiao critica */
 
-        terminarTrajeto(); // Regiao nao critica 2
-    }
+        // Regiao nao critica 2
+        TranslateTransition translate4 = new TranslateTransition(Duration.millis(duracao), trem);
+        translate4.setByY(30);
+        translate4.setByX(30);
 
-    /* ***************************************************************
-    * Metodo: anadrAteParada
-    * Funcao: Atualiza o trem atual ate um certo momento antes do tunel
-    * Parametros: Void
-    * Retorno: Void
-    *************************************************************** */
-    public static void andarAteParada() {
-        System.out.println("Andou com o trem");
-        System.out.println("Andou com o trem");
-        System.out.println("Andou com o trem");
+        TranslateTransition translate5 = new TranslateTransition(Duration.millis(duracao), trem);
+        translate5.setByX(150);
 
-        System.out.println("Chegou no ponto de parada");
-    }
-
-    /* ***************************************************************
-    * Metodo: andarPeloTunel
-    * Funcao: Atualiza o trem atual atual passando pelo tunel
-    * Parametros: Void
-    * Retorno: Void
-    *************************************************************** */
-    public static void andarPeloTunel() {
-        System.out.println("Andou pelo tunel");
-        System.out.println("Andou pelo tunel");
-    }
-
-    /* ***************************************************************
-    * Metodo: terminarTrajeto
-    * Funcao: Atualiza o trem atual terminado o trajeto 
-    * Parametros: Void
-    * Retorno: Void
-    *************************************************************** */
-    public static void terminarTrajeto() {
-        System.out.println("Andou o resto do trajeto");
-        System.out.println("Andou o resto do trajeto");
-        System.out.println("Andou o resto do trajeto");
-
-        System.out.println("Terminou trajeto");
+        SequentialTransition seqT = new SequentialTransition(translate1, translate2, pause, translate3, translate4, translate5);
+        seqT.play();
     }
 }

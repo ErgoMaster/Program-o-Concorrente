@@ -12,6 +12,7 @@ package Model;
 public class Variavel {
     private static int vez; // Indica de qual thread eh a vez de executar a regiao critica
     private static int flag[] = {0,0}; // Vetor que indica o interesse ou desinteresse das threads em entrar na regiao critica 
+    private static int velocidade[] = {0,0}; // Vetor que indica a velocidade dos trens
 
     /* ***************************************************************
     * Metodo: getVez
@@ -59,6 +60,22 @@ public class Variavel {
             }
             case 1: { // Trem 2
                 flag[1] = valor; // Modificacao do valor
+                break;
+            }
+        } // Fim do Switch
+    }
+
+    public static int getVelocidadeA() { return velocidade[0]; }
+    public static int getVelocidadeB() { return velocidade[1]; }
+
+    public static void setVelocidade(int self, int valor) {
+        switch(self) { // Verificacao do valor de "self"
+            case 0: { // Trem 1
+                velocidade[0] = valor; // Modificacao do valor
+                break;
+            }
+            case 1: { // Trem 2
+                velocidade[1] = valor; // Modificacao do valor
                 break;
             }
         } // Fim do Switch
