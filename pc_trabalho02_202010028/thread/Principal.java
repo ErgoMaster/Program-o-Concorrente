@@ -23,7 +23,7 @@ public class Principal extends Application {
     public void start(Stage stage) throws Exception {
         // Inicializacao da tela fxml
         ArvoreGenealogicaController controller = new ArvoreGenealogicaController();
-        Parent root = FXMLLoader.load(getClass().getResource("util/ArvoreGenealogica.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("View/ArvoreGenealogica.fxml"));
         Scene scene = new Scene(root);
 
         stage.setResizable(false); // Trava o tamanho da tela
