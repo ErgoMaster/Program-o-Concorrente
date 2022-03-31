@@ -1,10 +1,12 @@
 package Model;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.concurrent.Semaphore;
 
 public class Buffer {
     private static Semaphore mutex, cheio, vazio;
-    private static int numero;
+    private static Queue<Integer> fila = new LinkedList<>() {};
 
     public Buffer(Semaphore mutexNovo, Semaphore cheioNovo, Semaphore vazioNovo) {
         mutex = mutexNovo;
@@ -17,7 +19,7 @@ public class Buffer {
             vazio.acquire(); 
             mutex.acquire();
 
-            numero = valor;
+            fila.add(valor);
             System.out.println("Produtor " + idThread + " produziu o valor: " + valor);
         }  
         catch (InterruptedException e) { e.printStackTrace(); }
@@ -32,7 +34,7 @@ public class Buffer {
             cheio.acquire(); 
             mutex.acquire();
 
-            System.out.println("Consumidor " + idThread + " consumiu o valor: " + numero);
+            System.out.println("\tConsumidor " + idThread + " consumiu o valor: " + fila.poll());
         }   
         catch (InterruptedException e) { e.printStackTrace(); }
         finally {

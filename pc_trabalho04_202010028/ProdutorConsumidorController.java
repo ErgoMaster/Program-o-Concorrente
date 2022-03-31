@@ -1,7 +1,9 @@
-import Model.*;
+import java.util.concurrent.Semaphore;
+import Model.Buffer;
+import Model.Consumidor;
+import Model.Produtor;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import java.util.concurrent.Semaphore;
 
 public class ProdutorConsumidorController {
     // Declaracao dos controles da tela
