@@ -2,21 +2,19 @@
 
 package Model;
 
-public class Produtor extends Thread {
+public class Consumidor1 extends Thread {
     private int velocidade;
-    private int numeroDeLivros;
 
-    public Produtor(int velocidade, int numeroDeLivros) {
+    public Consumidor1(int velocidade) {
         this.velocidade = velocidade;
-        this.numeroDeLivros = numeroDeLivros;
     }
 
     @Override
     public void run() {
-        for(int i = 0; i < numeroDeLivros; i++) {
-            try { sleep(velocidade); } 
+        while(true) {
+            try { sleep(velocidade + 100); } 
             catch (InterruptedException e) { e.printStackTrace(); }
-            Buffer.produzir();
+            Buffer.consumir();
             try { sleep(velocidade); } 
             catch (InterruptedException e) { e.printStackTrace(); }
         }

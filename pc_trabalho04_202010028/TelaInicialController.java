@@ -1,7 +1,11 @@
-import Model.Buffer;
-import java.util.concurrent.Semaphore;
-import Model.Consumidor;
-import Model.Produtor;
+/* ***************************************************************
+* Autor............: Gabriel Uzel Fonseca
+* Matricula........: 202010028
+* Inicio...........: 30/03/2022
+* Ultima alteracao.: xx
+* Nome.............: TelaInicialController
+* Funcao...........: Controla a tela inicial e leva o programa a proxima tela para comecar a simulacao
+*************************************************************** */
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,19 +20,14 @@ public class TelaInicialController {
     @FXML
     private Label LabelTitulo;
 
+    /* ***************************************************************
+    * Metodo: trocarTela
+    * Funcao: Trocar a tela do menu inicial para a tela da animacao
+    * Parametros: Event que representara o clique no botao
+    * Retorno: Void
+    *************************************************************** */
     @FXML
     void trocarTela(ActionEvent event) {
         Principal.trocarTela("Simulacao");
-
-        Semaphore mutex = new Semaphore(1);
-        Semaphore cheio = new Semaphore(0);
-        Semaphore vazio = new Semaphore(1);
-
-        Buffer buffer = new Buffer(mutex, cheio, vazio);
-        Produtor produtor = new Produtor();
-        Consumidor consumidor = new Consumidor();
-
-        produtor.start();
-        consumidor.start();
     }
 }
