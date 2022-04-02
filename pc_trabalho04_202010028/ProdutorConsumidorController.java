@@ -1,3 +1,5 @@
+
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.concurrent.Semaphore;
@@ -14,9 +16,12 @@ import javafx.scene.input.MouseEvent;
 
 public class ProdutorConsumidorController implements Initializable {
     Produtor produtor;
-    Consumidor1 consumidor;
+    Consumidor1 consumidor1;
+    Consumidor2 consumidor2;
+    Consumidor3 consumidor3;
     private int estadoDeExcecucao = 0;
     private int velocidadeProdutor, velocidadeConsumidor;
+    private int numeroDeConsumidores;
 
     // Declaracao dos controles da tela
     @FXML
@@ -38,6 +43,27 @@ public class ProdutorConsumidorController implements Initializable {
     private ImageView voltarImage;
 
     @FXML
+    private ImageView ImageLeitor1;
+
+    @FXML
+    private ImageView ImageLeitor2;
+
+    @FXML
+    private ImageView ImageLeitor3;
+
+    @FXML
+    private ImageView ImageConsumidorConsumiu1;
+
+    @FXML
+    private ImageView ImageConsumidorConsumiu2;
+
+    @FXML
+    private ImageView ImageConsumidorConsumiu3;
+
+    @FXML
+    private ImageView ImageProdutorProduziu;
+
+    @FXML
     private Slider SliderConsumidor;
 
     @FXML
@@ -50,31 +76,118 @@ public class ProdutorConsumidorController implements Initializable {
 
     @FXML
     public void start(ActionEvent event) {
-        switch(estadoDeExcecucao) {
-            case 0: {
-                produtor = new Produtor(velocidadeProdutor, 15);
-                consumidor = new Consumidor1(velocidadeConsumidor);
-
-                Semaphore mutex = new Semaphore(1);
-                Semaphore cheio = new Semaphore(0);
-                Semaphore vazio = new Semaphore(4);
-                Buffer buffer = new Buffer(mutex, cheio, vazio, ImageLivro1, ImageLivro2, ImageLivro3, ImageLivro4);
-
-                produtor.start();
-                consumidor.start();
-
-                break;
-            }
+        switch(numeroDeConsumidores) {
             case 1: {
-                produtor.suspend();
-                consumidor.suspend();
-                estadoDeExcecucao = 2;
-
+                switch(estadoDeExcecucao) {
+                    case 0: {
+                        produtor = new Produtor(velocidadeProdutor, 15);
+                        consumidor1 = new Consumidor1(velocidadeConsumidor);
+        
+                        Semaphore mutex = new Semaphore(1);
+                        Semaphore cheio = new Semaphore(0);
+                        Semaphore vazio = new Semaphore(4);
+                        Buffer buffer = new Buffer(mutex, cheio, vazio, ImageLivro1, ImageLivro2, ImageLivro3, ImageLivro4, 
+                        ImageProdutorProduziu, ImageConsumidorConsumiu1, ImageConsumidorConsumiu2, ImageConsumidorConsumiu3);
+        
+                        produtor.start();
+                        consumidor1.start();
+        
+                        break;
+                    }
+                    case 1: {
+                        produtor.suspend();
+                        consumidor1.suspend();
+                        estadoDeExcecucao = 2;
+        
+                        break;
+                    }
+                    case 2: {
+                        produtor.resume();
+                        consumidor1.resume();
+        
+                        break;
+                    }
+                }
+                
                 break;
             }
             case 2: {
-                produtor.resume();
-                consumidor.resume();
+                switch(estadoDeExcecucao) {
+                    case 0: {
+                        produtor = new Produtor(velocidadeProdutor, 15);
+                        consumidor1 = new Consumidor1(velocidadeConsumidor);
+                        consumidor2 = new Consumidor2(velocidadeConsumidor);
+        
+                        Semaphore mutex = new Semaphore(1);
+                        Semaphore cheio = new Semaphore(0);
+                        Semaphore vazio = new Semaphore(4);
+                        Buffer buffer = new Buffer(mutex, cheio, vazio, ImageLivro1, ImageLivro2, ImageLivro3, ImageLivro4, 
+                        ImageProdutorProduziu, ImageConsumidorConsumiu1, ImageConsumidorConsumiu2, ImageConsumidorConsumiu3);
+        
+                        produtor.start();
+                        consumidor1.start();
+                        consumidor2.start();
+        
+                        break;
+                    }
+                    case 1: {
+                        produtor.suspend();
+                        consumidor1.suspend();
+                        consumidor2.suspend();
+                        estadoDeExcecucao = 2;
+        
+                        break;
+                    }
+                    case 2: {
+                        produtor.resume();
+                        consumidor1.resume();
+                        consumidor2.resume();
+        
+                        break;
+                    }
+                }
+
+                break;
+            }
+            case 3: {
+                switch(estadoDeExcecucao) {
+                    case 0: {
+                        produtor = new Produtor(velocidadeProdutor, 15);
+                        consumidor1 = new Consumidor1(velocidadeConsumidor);
+                        consumidor2 = new Consumidor2(velocidadeConsumidor);
+                        consumidor3 = new Consumidor3(velocidadeConsumidor);
+        
+                        Semaphore mutex = new Semaphore(1);
+                        Semaphore cheio = new Semaphore(0);
+                        Semaphore vazio = new Semaphore(4);
+                        Buffer buffer = new Buffer(mutex, cheio, vazio, ImageLivro1, ImageLivro2, ImageLivro3, ImageLivro4, 
+                        ImageProdutorProduziu, ImageConsumidorConsumiu1, ImageConsumidorConsumiu2, ImageConsumidorConsumiu3);
+        
+                        produtor.start();
+                        consumidor1.start();
+                        consumidor2.start();
+                        consumidor3.start();
+        
+                        break;
+                    }
+                    case 1: {
+                        produtor.suspend();
+                        consumidor1.suspend();
+                        consumidor2.suspend();
+                        consumidor3.suspend();
+                        estadoDeExcecucao = 2;
+        
+                        break;
+                    }
+                    case 2: {
+                        produtor.resume();
+                        consumidor1.resume();
+                        consumidor2.resume();
+                        consumidor3.resume();
+        
+                        break;
+                    }
+                }
 
                 break;
             }
@@ -91,6 +204,12 @@ public class ProdutorConsumidorController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         velocidadeConsumidor = 2000;
         velocidadeProdutor = 2000;
+        numeroDeConsumidores = 3;
+
+        /*ImageConsumidorConsumiu2.setVisible(false);
+        ImageConsumidorConsumiu3.setVisible(false);
+        ImageLeitor2.setVisible(false);
+        ImageLeitor3.setVisible(false); */
 
         SliderProdutor.valueProperty().addListener(new ChangeListener<Number>() {
             @Override

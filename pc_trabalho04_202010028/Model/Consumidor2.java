@@ -10,7 +10,15 @@ public class Consumidor2 extends Thread {
     @Override
     public void run() {
         while(true) {
-            Buffer.consumir();
+            try { sleep(velocidade + 100); } 
+            catch (InterruptedException e) { e.printStackTrace(); }
+            Buffer.consumir(2);
+            Buffer.changeConsumiuImage(2, 1);
+            try { sleep(1000); } 
+            catch (InterruptedException e) { e.printStackTrace(); }
+            Buffer.changeConsumiuImage(2, 2);
+            try { sleep(velocidade); } 
+            catch (InterruptedException e) { e.printStackTrace(); }
         }
     }
 }
