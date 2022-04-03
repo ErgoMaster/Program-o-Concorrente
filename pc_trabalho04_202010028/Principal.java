@@ -48,7 +48,7 @@ public class Principal extends Application {
 
     /* ***************************************************************
     * Metodo: trocarTela
-    * Funcao: Trocar a tela do menu inicial para a tela da da animacao (e vice-versa)
+    * Funcao: Trocar a tela do menu inicial para a tela da simulacao (e vice-versa)
     * Parametros: String arg que indicara qual tela sera inicializada
     * Retorno: Void
     *************************************************************** */

@@ -2,7 +2,9 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -20,7 +22,7 @@
             <Image url="@IMGvoltar.png" />
          </image>
       </ImageView>
-      <Button fx:id="ButtonIniciar" layoutX="322.0" layoutY="423.0" mnemonicParsing="false" onAction="#start" prefHeight="37.0" prefWidth="106.0" style="-fx-background-color: #D3D3D3; -fx-background-radius: 10; -fx-font-family: &quot;Times New Roman&quot;, Times, serif;" text="Iniciar">
+      <Button fx:id="ButtonIniciar" layoutX="43.0" layoutY="420.0" mnemonicParsing="false" onAction="#start" prefHeight="37.0" prefWidth="106.0" style="-fx-background-color: #D3D3D3; -fx-background-radius: 10; -fx-font-family: &quot;Times New Roman&quot;, Times, serif;" text="Iniciar">
          <font>
             <Font size="19.0" />
          </font></Button>
@@ -44,7 +46,7 @@
             <Image url="@IMGLivro.png" />
          </image>
       </ImageView>
-      <Button fx:id="ButtonPause" layoutX="458.0" layoutY="425.0" mnemonicParsing="false" onAction="#pause" prefHeight="37.0" prefWidth="106.0" style="-fx-background-color: #D3D3D3; -fx-background-radius: 10; -fx-font-family: &quot;Times New Roman&quot;, Times, serif;" text="Pausar">
+      <Button fx:id="ButtonPause" layoutX="182.0" layoutY="418.0" mnemonicParsing="false" onAction="#pause" prefHeight="37.0" prefWidth="106.0" style="-fx-background-color: #D3D3D3; -fx-background-radius: 10; -fx-font-family: &quot;Times New Roman&quot;, Times, serif;" text="Pausar">
          <font>
             <Font size="19.0" />
          </font>
@@ -54,7 +56,6 @@
             <Image url="@IMGBibliotecaria.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="ImageLeitor1" fitHeight="81.0" fitWidth="97.0" layoutX="670.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@IMGLeitor.png" />
@@ -112,5 +113,28 @@
             <Image url="@IMGConsumiuOUProduziu.png" />
          </image>
       </ImageView>
+      <Label layoutX="378.0" layoutY="429.0" style="-fx-font-family: &quot;Times New Roman&quot;, Times, serif;" text="Numero de consumidores:" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <RadioButton fx:id="radioButtonNumeroConsumidores1" layoutX="620.0" layoutY="432.0" mnemonicParsing="false" onAction="#setNumeroConsumidores" selected="true" style="-fx-font-family: &quot;Times New Roman&quot;, Times, serif;" text="1" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="consumidores" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="radioButtonNumeroConsumidores2" layoutX="668.0" layoutY="433.0" mnemonicParsing="false" onAction="#setNumeroConsumidores" style="-fx-font-family: &quot;Times New Roman&quot;, Times, serif;" text="2" textFill="WHITE" toggleGroup="$consumidores">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="radioButtonNumeroConsumidores3" layoutX="721.0" layoutY="433.0" mnemonicParsing="false" onAction="#setNumeroConsumidores" style="-fx-font-family: &quot;Times New Roman&quot;, Times, serif;" text="3" textFill="WHITE" toggleGroup="$consumidores">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </RadioButton>
    </children>
 </AnchorPane>
