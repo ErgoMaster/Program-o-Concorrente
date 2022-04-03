@@ -2,7 +2,7 @@
 * Autor............: Gabriel Uzel Fonseca
 * Matricula........: 202010028
 * Inicio...........: 30/03/2022
-* Ultima alteracao.: xx
+* Ultima alteracao.: 03/04/2022
 * Nome.............: Controller Produtor/Consumidor
 * Funcao...........: Classe que controla a tela da simulacao
 *************************************************************** */

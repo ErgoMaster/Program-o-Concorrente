@@ -2,7 +2,7 @@
 * Autor............: Gabriel Uzel Fonseca
 * Matricula........: 202010028
 * Inicio...........: 30/03/2022
-* Ultima alteracao.: xx
+* Ultima alteracao.: 03/04/2022
 * Nome.............: TelaInicialController
 * Funcao...........: Controla a tela inicial e leva o programa a proxima tela para comecar a simulacao
 *************************************************************** */
