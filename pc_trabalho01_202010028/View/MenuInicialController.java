@@ -7,7 +7,7 @@
 * Funcao...........: Adicionar funcionalidades aos elementos gráficos do programa
 *************************************************************** */
 
-package src;
+package View;
 
 import java.io.IOException;
 import javafx.event.ActionEvent;
@@ -18,30 +18,19 @@ import java.lang.Math;
 import java.text.DecimalFormat;
 
 public class MenuInicialController {
-    // Chamada dos elementos da tela principal (buttons, labels e textfields) 
-    @FXML
-    private TextField AlturaTextField;
+    @FXML private TextField AlturaTextField;
+    @FXML private TextField PesoTextField;
+    @FXML private TextField IMCTextField;
+    @FXML private TextField ClassificacaoTextField;
+    @FXML private TextField ErroTextField;
 
-    @FXML
-    private TextField PesoTextField;
-
-    @FXML
-    private TextField ErroTextField;
-
-    @FXML
-    private Button CalcularButton;
-
-    @FXML
-    private TextField IMCTextField;
-
-    @FXML
-    private TextField ClassificacaoTextField;
+    @FXML private Button CalcularButton;
 
     /* ***************************************************************
     * Metodo: calcular
     * Funcao: Retorna ao usuario as informacoes sobre seu imc e sua classificacao 
     * Parametros: Recebe um ActionEvent relacionado ao apertar de um botao
-    * Retorno: Retorna um "void"
+    * Retorno: Void
     *************************************************************** */
     @FXML
     public void calcular(ActionEvent event) throws IOException {
@@ -69,7 +58,6 @@ public class MenuInicialController {
             /* Tratamento de excessao para caso o usuario forneca um tipo errado de informacao 
             (por exemplo: na caixa de texto de peso o usuario digitar uma cadeia de caracteres) */
             ErroTextField.setText("Informações digitadas estão incorretas");
-            //ErroTextField.clear();
         } catch(ValorInvalidoException e) {
             /* Tratamento de excecao para caso o usuario forneca um valor absurdo de informacao
             (por exemplo: na caixa de texto de peso o usuario digitar o valor de uma tonelada) */

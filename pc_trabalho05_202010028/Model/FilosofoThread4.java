@@ -15,9 +15,11 @@ public class FilosofoThread4 extends Thread {
     public void run() {
         while(true) {
             try {
-                Mesa.pensar(id, duracaoPensamento);
+                Mesa.pensar(id);
+                sleep(duracaoPensamento);
                 Mesa.pegarGarfos(id, FILOSOFO_ESQUERDA, FILOSOFO_DIREITA);
-                Mesa.comer(id, duracaoRefeicao);
+                Mesa.comer(id);
+                sleep(duracaoPensamento);
                 Mesa.devolverGarfos(id, FILOSOFO_ESQUERDA, FILOSOFO_DIREITA);
             } catch (InterruptedException e) {
                 e.printStackTrace();

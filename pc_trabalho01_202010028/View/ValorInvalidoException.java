@@ -7,7 +7,7 @@
 * Funcao...........: Excecao personalizada relacionada ao input do usuario
 *************************************************************** */
 
-package src;
+package View;
 
 public class ValorInvalidoException extends Exception {
     /* Essa eh a excecao que diz sobre o input de altura e peso do usuario, caso
