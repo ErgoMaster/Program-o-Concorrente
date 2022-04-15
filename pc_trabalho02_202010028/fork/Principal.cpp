@@ -15,107 +15,75 @@
 
 using namespace std;
 
-int main() { // Início da main
-    // Para cada ano representado no problema, sera passado um comando sleep(x) que pausara o programa em x segundos
-    // Declaracao dos processos que serao utilizados
-    pid_t pID1;
-    pid_t pID2;
-    pid_t pID3;
-    pid_t pID4;
-    pid_t pID5;
+int main() {
+    // Inicio do processo
+    pid_t idProcesso;
+    cout << "Nasce o pai" << endl;
 
-    pID1 = fork(); // Inicio do processo 1
+    idProcesso = fork();
 
-    switch(pID1) { 
-        case 0: { // Processo do filho 1
-            sleep(22); 
-            cout << "Nasce o filho 1 - o pai tem 22 anos" << endl; // Nasce o filho 1
+    if(idProcesso == 0) { // Parte do filho 1
+        sleep(22);
+        cout << "Nasce o filho 1 - o pai tem 22 anos" << endl;
+        idProcesso = fork();
 
-            pID2 = fork(); // Inicio do processo 2
+        if(idProcesso == 0) { // Parte do neto 1 - Nascer
+            sleep(16);
+            cout << "Nasce o neto 1 (filho 1) - o pai tem 38 anos" << endl;
+            idProcesso = fork();
 
-            switch(pID2) {
-                case 0: { // Processso do filho 2 e filho 3
-                    sleep(3);
-                    cout << "Nasce o filho 2 - o pai tem 25 anos" << endl; // Nasce o filho 2 
-                    sleep(7);
-                    cout << "Nasce o filho 3 - o pai tem 32 anos" << endl; // Nasce o filho 3
+            if(idProcesso == 0) { // Parte do bisneto - Nascer e morrer
+                sleep(30);
+                cout << "Nasce o bisneto 1 (filho 1) - o pai tem 68 anos" << endl;
 
-                    pID3 = fork(); // Início do processo 3
-
-                    switch(pID3) {
-                        case 0: { // Processo do neto 1 e neto 2
-                            sleep(6);
-                            cout << "Nasce o neto 1 (filho 1) - o pai tem 38 anos" << endl;
-                            sleep(7);
-                            cout << "Nasce o neto 2 (filho 2) - o pai tem 45 anos" << endl;
-
-                            pID4 = fork(); // Inicio do processo 4
-
-                            switch(pID4) {
-                                case 0: { // Processo do bisneto 1, neto 1 e neto 2
-                                    pID5 = fork(); // Inicio do processo 5
-
-                                    switch(pID5) {
-                                        case 0: { // Processo do bisneto 1
-                                            sleep(23);
-                                            cout << "Nasce o bisneto 1 (filho 1) - o pai tem 68 anos" << endl; // Nasce o bisneto
-
-                                            break;
-                                        }
-                                        default: {
-                                            waitpid(0, NULL, 0); // Processo 5 esperando pelo fim do processo 6
-                                            sleep(5);
-                                            cout << "Morre o neto 1 (filho 1) - o pai tem 73 anos" << endl; // Morre o neto 1
-                                            sleep(5);
-                                            cout << "Morre o neto 2 (filho 2) - o pai tem 78 anos" << endl; // Morre o neto 2
-
-                                            break;
-                                        }
-                                    } // Fim do processo 5
-
-                                    break;
-                                }
-                                default: {
-                                    waitpid(0, NULL, 0); // Processo 4 esperando pelo fim do processo 5
-                                    sleep(2);
-                                    cout << "Morre o bisneto 1 (filho 1) - o pai tem 80 anos" << endl; // Morre o bisneto
-
-                                    break;
-                                } 
-                            } // Fim do processo 4
-
-                            break;
-                        }
-                        default: {
-                            waitpid(0, NULL, 0); // Processo 3 esperando pelo fim do processo 4
-                            cout << "Morre o filho 2 - o pai tem 80 anos" << endl; // Morre o filho 2
-
-                            break;
-                        }
-                    } // Fim do processo 3
-
-                    break;
-                }
-                default: {
-                    waitpid(0, NULL, 0); // Processo 2 esperando pelo fim do processo 3
-                    sleep(3);
-                    cout << "Morre o filho 1 - o pai tem 83 anos" << endl; // Morre o filho 1
-                    sleep(4);
-                    cout << "Morre o filho 3 - o pai tem 87 anos" << endl; // Morre o filho 3
-
-                    break;
-                }
-            } // Fim do processo 2
-
-            break;
+                sleep(12);
+                cout << "Morre o bisneto 1 (filho 1) - o pai tem 80 anos" << endl;
+                // Fim do processo do bisneto
+            } else { // Parte do neto 1 - Morrer
+                sleep(35);
+                cout << "Morre o neto 1 (filho 1) - o pai tem 73 anos" << endl;
+                // Fim do processo do neto 1
+            }
+        } else { // Parte do filho 1 - Morrer
+            sleep(61);
+            cout << "Morre o filho 1 - o pai tem 83 anos" << endl;
+            // Fim do processo do filho 1
         }
-        default: {
-            cout << "Nasce o pai" << endl; // Nascimento do pai e inicio do programa
-            waitpid(0, NULL, 0); // Processo 1 esprando pelo fim do processo 2
-            sleep(3);
-            cout << "Morre o pai aos 90 anos" << endl; // Morte do pai e fim do programa
+    } else { // Parte do pai + filho 2 e 3
+        idProcesso = fork();
 
-            break;
-        }
-    } // Fim do processo 1
+        if(idProcesso == 0) { // Parte do filho 2 - Nascer
+            sleep(25);
+            cout << "Nasce o filho 2 - o pai tem 25 anos" << endl;
+            idProcesso = fork();
+
+            if(idProcesso == 0) { // Parte do neto 2 - Nascer e morrer
+                sleep(20);
+                cout << "Nasce o neto 2 (filho 2) - o pai tem 45 anos" << endl;
+
+                sleep(33);
+                cout << "Morre o neto 2 (filho 2) - o pai tem 78 anos" << endl;
+                // Fim do processo do neto 2
+            } else { // Parte do filho 2 - Morrer
+                sleep(55);
+                cout << "Morre o filho 2 - o pai tem 80 anos" << endl;
+                // Fim do processo do filho 2
+            } 
+        } else { // Parte do Pai + filho 3
+            idProcesso = fork();
+
+            if(idProcesso == 0) { // Parte do filho 3 - Nascer e morrer
+                sleep(32);
+                cout << "Nasce o filho 3 - o pai tem 32 anos" << endl; 
+
+                sleep(55);
+                cout << "Morre o filho 3 - o pai tem 87 anos" << endl;
+                // Fim do processo do filho 3
+            } else { // Parte do pai - Morrer
+                sleep(90);
+                cout << "Morre o pai aos 90 anos" << endl;
+                // Fim do processo do pai
+            } 
+        } 
+    } 
 } // Fim da main
