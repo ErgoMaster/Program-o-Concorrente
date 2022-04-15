@@ -14,7 +14,7 @@ import javafx.scene.shape.Line;
 
 public class ThreadFilho1 extends Thread {
     /* A classe possui um botao que representa a pessoa que ira nascer e morrer ao passar do tempo 
-    e possui tambem uma linha que indicara o parentesco da pessoa com o resto da familia*/
+    e possui tambem uma linha que indicara o parentesco da pessoa com o resto da familia */
     Button filho1Button;
     Line lineFilho1;
 
@@ -25,6 +25,12 @@ public class ThreadFilho1 extends Thread {
         lineFilho1.setVisible(false); // Inicia a simulacao com a linha invisivel
     }
 
+    /* ***************************************************************
+    * Metodo: run
+    * Funcao: Inicializa a thread
+    * Parametros: Void
+    * Retorno: Void
+    *************************************************************** */
     public void run() { // Inicio da thread
         try { sleep(22000); } 
         catch (InterruptedException e) { e.printStackTrace(); }

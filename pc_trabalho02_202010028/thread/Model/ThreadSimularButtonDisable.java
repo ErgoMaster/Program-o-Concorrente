@@ -20,6 +20,12 @@ public class ThreadSimularButtonDisable extends Thread {
         simularButton.setDisable(true); // Desabilita o botao logo apos ser pressionado
     }
     
+    /* ***************************************************************
+    * Metodo: run
+    * Funcao: Inicializa a thread
+    * Parametros: Void
+    * Retorno: Void
+    *************************************************************** */
     public void run() { // Inicio da Thread
         try { sleep(90000); } 
         catch (InterruptedException e) { e.printStackTrace(); }

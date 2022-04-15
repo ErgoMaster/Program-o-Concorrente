@@ -12,7 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import util.ArvoreGenealogicaController;
+import View.ArvoreGenealogicaController;
 
 public class Principal extends Application {
     public static void main(String[] args) {
@@ -21,13 +21,14 @@ public class Principal extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        // Inicializacao da tela fxml
-        ArvoreGenealogicaController controller = new ArvoreGenealogicaController();
+        // Esse eh o processo basico para rodar um programa feito em javafx 
+        ArvoreGenealogicaController controller = new ArvoreGenealogicaController(); // Chamada do controller para evitar erro no programa
+
         Parent root = FXMLLoader.load(getClass().getResource("View/ArvoreGenealogica.fxml"));
         Scene scene = new Scene(root);
 
-        stage.setResizable(false); // Trava o tamanho da tela
+        stage.setResizable(false);
         stage.setScene(scene);
-        stage.show(); // Mostra a tela
+        stage.show(); 
     }
 }

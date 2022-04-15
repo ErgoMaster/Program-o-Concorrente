@@ -20,6 +20,12 @@ public class ThreadPai extends Thread {
         paiButton.setVisible(false); // Inicia a simulacao com o botao invisivel
     }
 
+    /* ***************************************************************
+    * Metodo: run
+    * Funcao: Inicializa a thread
+    * Parametros: Void
+    * Retorno: Void
+    *************************************************************** */
     public void run() { // Inicio da thread
         nasce();
         try { sleep(90000); } 
