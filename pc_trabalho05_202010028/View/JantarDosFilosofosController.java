@@ -1,3 +1,12 @@
+/* ***************************************************************
+* Autor............: Gabriel Uzel Fonseca
+* Matricula........: 202010028
+* Inicio...........: 10/04/2022
+* Ultima alteracao.: 17/04/2022
+* Nome.............: Controller do jantar dos filosofos
+* Funcao...........: Iniciar as threads do programa
+*************************************************************** */
+
 package View;
 
 import java.net.URL;
@@ -13,9 +22,10 @@ import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
 
 public class JantarDosFilosofosController implements Initializable {
-    private int duracaoPensamento;
-    private int duracaoRefeicao; 
+    private int duracaoPensamento; // Variavel para controlar a velocidade do pensar dos filosofos
+    private int duracaoRefeicao; // Variavel para controlar a velocidade do comer dos filosofos
 
+    // Delaracao dos image view e sliders do programa
     @FXML private ImageView Garfo0Image;
     @FXML private ImageView Garfo1Image;
     @FXML private ImageView Garfo2Image;
@@ -33,11 +43,19 @@ public class JantarDosFilosofosController implements Initializable {
     
     @FXML private Button StartButton;
 
+    /* ***************************************************************
+    * Metodo: start
+    * Funcao: Iniciar a simulacao do jantar dos filosofos
+    * Parametros: Recebe um ActionEvent relacionado ao apertar de um botao
+    * Retorno: Void
+    *************************************************************** */
     @FXML
     void start(ActionEvent event) {
+        // Iniciaizacao da mesa, passando no construtor os image view que sofrerao modificacoes no decorrer do programa
         Mesa mesa = new Mesa(Garfo0Image, Garfo1Image, Garfo2Image, Garfo3Image, Garfo4Image,
         EstadoFilosofo0, EstadoFilosofo1, EstadoFilosofo2, EstadoFilosofo3, EstadoFilosofo4);
 
+        // Chamada e inicializacao das threads
         FilosofoThread0 filosofo0 = new FilosofoThread0(duracaoPensamento, duracaoRefeicao);
         FilosofoThread1 filosofo1 = new FilosofoThread1(duracaoPensamento, duracaoRefeicao);
         FilosofoThread2 filosofo2 = new FilosofoThread2(duracaoPensamento, duracaoRefeicao);
@@ -51,11 +69,19 @@ public class JantarDosFilosofosController implements Initializable {
         filosofo4.start();
     }
 
+    /* ***************************************************************
+    * Metodo: initialize
+    * Funcao: Observar os valores dos sliders de velocidade
+    * Parametros: Valores do jabafx
+    * Retorno: Void
+    *************************************************************** */
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+        // Valores padrão para a velocidade das threads
         duracaoPensamento = 2000;
         duracaoRefeicao = 2000;
         
+        // Listener que ira pegar o valor do slider da velocidade de pensamento e ira atribuir a variavel de controle
         SliderVelocidadePensamento.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> arg0, Number arg1, Number arg2) {
@@ -63,6 +89,7 @@ public class JantarDosFilosofosController implements Initializable {
             }
         });        
 
+        // Listener que ira pegar o valor do slider da velocidade dq refeicao e ira atribuir a variavel de controle
         SliderVelocidadeRefeicao.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> arg0, Number arg1, Number arg2) {

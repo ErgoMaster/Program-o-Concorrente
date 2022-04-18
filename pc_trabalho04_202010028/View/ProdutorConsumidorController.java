@@ -331,7 +331,7 @@ public class ProdutorConsumidorController implements Initializable {
         ImageLeitor2.setVisible(false);
         ImageLeitor3.setVisible(false); 
 
-        // Listener que ira pegar o valor do slider do produtor e guardar an variavel a ser utilizada no programa
+        // Listener que ira pegar o valor do slider do produtor e guardar na variavel a ser utilizada no programa
         SliderProdutor.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> arg0, Number arg1, Number arg2) {
@@ -339,7 +339,7 @@ public class ProdutorConsumidorController implements Initializable {
             }
         });        
 
-        // Listener que ira pegar o valor do slider do produtor e guardar an variavel a ser utilizada no programa
+        // Listener que ira pegar o valor do slider do produtor e guardar na variavel a ser utilizada no programa
         SliderConsumidor.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> arg0, Number arg1, Number arg2) {
