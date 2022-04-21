@@ -22,7 +22,7 @@ public class Mesa {
 
     private static Semaphore mutex = new Semaphore(1); // Semaforo para travar a area critica
     private static int[] estadosDosFilosofos = {PENSANDO, PENSANDO, PENSANDO, PENSANDO, PENSANDO}; // Vetor que representa os estados dos 5 filosofos 
-    private static Semaphore semaforosParaGarfos[] = {new Semaphore(1), new Semaphore(1), new Semaphore(1), new Semaphore(1), new Semaphore(1)}; // Semaforo para cada filosofo
+    private static Semaphore semaforosParaFilosofos[] = {new Semaphore(1), new Semaphore(1), new Semaphore(1), new Semaphore(1), new Semaphore(1)}; // Semaforo para cada filosofo
 
     private static ImageView garfo0, garfo1, garfo2, garfo3, garfo4; // Image view de cada garfo
     private static ImageView estadoFilosofo0, estadoFilosofo1, estadoFilosofo2, estadoFilosofo3, estadoFilosofo4; // Image view para indicar se o filosofo esta comendo ou pensando
@@ -55,7 +55,7 @@ public class Mesa {
 
         // Da um down nos semaforos de cada filosofo
         for(int i = 0; i < 5; i++) {
-            try { semaforosParaGarfos[i].acquire(); } 
+            try { semaforosParaFilosofos[i].acquire(); } 
             catch (InterruptedException e) { e.printStackTrace(); }
         }
     }
@@ -114,7 +114,7 @@ public class Mesa {
         tentarObterGarfos(id, idFiloEsquerda, idFiloDireita); // Verifica se os garfos estao livres
 
         mutex.release(); // Destrava a regiao critica
-        semaforosParaGarfos[id].acquire(); // Da um down no semaforo do filosofo que chama o metodo
+        semaforosParaFilosofos[id].acquire(); // Da um down no semaforo do filosofo que chama o metodo
     }
 
     /* ***************************************************************
@@ -129,7 +129,7 @@ public class Mesa {
         seus garfos e assim, liberar os seus vizinhos para comer) */
         if(estadosDosFilosofos[id] == FOME && estadosDosFilosofos[idFiloEsquerda] != COMENDO && estadosDosFilosofos[idFiloDireita] != COMENDO) {
             estadosDosFilosofos[id] = COMENDO; // Seta o estado do filosofo para comendo
-            semaforosParaGarfos[id].release(); // Da um up no semaforo do filosofo que chama o metodo
+            semaforosParaFilosofos[id].release(); // Da um up no semaforo do filosofo que chama o metodo
         }
     }
 
