@@ -27,10 +27,10 @@ public class Mesa {
     private static ImageView garfo0, garfo1, garfo2, garfo3, garfo4; // Image view de cada garfo
     private static ImageView estadoFilosofo0, estadoFilosofo1, estadoFilosofo2, estadoFilosofo3, estadoFilosofo4; // Image view para indicar se o filosofo esta comendo ou pensando
 
-    /* Aqui temos algumas imagens que servirao para indicar o estado de comendo ou de pensando. assim como se um garfos esta livre ou nao.
+    /* Aqui temos algumas imagens que servirao para indicar o estado de comendo ou de pensando. Assim como se um dos garfos esta livre ou nao.
     Quando um garfo esta livre, estara na cor branca (indicado pelo image "garfoLivre") e quando esta ocupado, ele estara vermelho 
     (indicado pelo image garfoOcupado). Caso um filosofo esteja comendo, seu image view representante sera um ponto de exclamacao 
-    (indicado pelo image "estadoComendo") e quando ele esta pensando, seu image view representante sera uma reticencias (]indicado pelo 
+    (indicado pelo image "estadoComendo") e quando ele esta pensando, seu image view representante sera uma reticencias (indicado pelo 
     image "estadoPensando") */
     private static Image garfoOcupado = new Image("Img/IMGGarfoOcupado.png");
     private static Image garfoLivre = new Image("Img/IMGGarfoLivre.png");
