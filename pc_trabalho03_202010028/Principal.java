@@ -28,8 +28,9 @@ public class Principal extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         // Inicializacao da tela fxml
-        SimulacaoTremController controller = new SimulacaoTremController();
-        Parent root = FXMLLoader.load(getClass().getResource("Util/SimulacaoTrem.fxml"));
+        SimulacaoTremController controller = new SimulacaoTremController(); // Chamada do controller para evitar erro no programa
+        
+        Parent root = FXMLLoader.load(getClass().getResource("View/SimulacaoTrem.fxml"));
         Scene scene = new Scene(root);
 
         primaryStage.setResizable(false); 

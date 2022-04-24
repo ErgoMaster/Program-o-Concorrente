@@ -29,8 +29,8 @@ public class Principal extends Application {
     public void start(Stage primaryStage) throws Exception {
         // Inicializacao da tela fxml
         ProdutorConsumidorController controller = new ProdutorConsumidorController(); // Chamada do controller para evitar excecao
-        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("View/FXMLProdutorConsumidor.fxml"));        
-        Parent root = fxmlloader.load();
+
+        Parent root = FXMLLoader.load(getClass().getResource("View/FXMLProdutorConsumidor.fxml"));
         Scene scene = new Scene(root);
 
         primaryStage.setResizable(false); 

@@ -29,7 +29,8 @@ public class Principal extends Application {
     public void start(Stage primaryStage) throws Exception {
         // Esse eh o processo basico para rodar um programa feito em javafx 
         JantarDosFilosofosController controller = new JantarDosFilosofosController(); // Chamada do controller para evitar erro no programa
-        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("View/JantarDosFilosofos.fxml")); 
+
+        Parent root = FXMLLoader.load(getClass().getResource("View/JantarDosFilosofos.fxml"));
         Scene scene = new Scene(root);
 
         primaryStage.setScene(scene);

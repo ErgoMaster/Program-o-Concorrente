@@ -24,8 +24,7 @@ public class Principal extends Application {
         // Esse eh o processo basico para rodar um programa feito em javafx 
         MenuInicialController controller = new MenuInicialController(); // Chamada do controller para evitar erro no programa
 
-        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("View/CalculadoraIMC.fxml"));
-        Parent root = fxmlloader.load();
+        Parent root = FXMLLoader.load(getClass().getResource("View/CalculadoraIMC.fxml"));
         Scene scene = new Scene(root);
 
         primaryStage.setScene(scene);
