@@ -7,6 +7,7 @@
 * Funcao...........: Solucao do problema do jantar dos filosofos usando semaforos
 *************************************************************** */
 
+import View.JantarDosFilosofosController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -21,8 +22,8 @@ public class Principal extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         // Esse eh o processo basico para rodar um programa feito em javafx 
-        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("View/JantarDosFilosofos.fxml")); // Chamada do controller para evitar erro no programa
-        Parent root = fxmlloader.load();
+        JantarDosFilosofosController controller = new JantarDosFilosofosController(); // Chamada do controller para evitar erro no programa
+        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("View/JantarDosFilosofos.fxml")); 
         Scene scene = new Scene(root);
 
         primaryStage.setScene(scene);

@@ -14,29 +14,27 @@ import java.util.concurrent.Semaphore;
 import javafx.scene.image.ImageView;
 
 public class Buffer {
-    private static Semaphore mutex, cheio, vazio; // Semaforos
-    private static Stack<Livro> pilha = new Stack<Livro>() {}; // Pilha que guarda os livros que foram produzidos pelo produtor
+    // Semaforos
+    private static Semaphore mutex = new Semaphore(1);
+    private static Semaphore cheio = new Semaphore(0);
+    private static Semaphore vazio = new Semaphore(4);
+
+    // Pilha que guarda os livros que foram produzidos pelo produtor
+    private static Stack<Livro> pilha = new Stack<Livro>() {}; 
 
     // Todos os image view que serao usados como elementos graficos no programa
     private static ImageView imagem1, imagem2, imagem3, imagem4; // Image view dos livros
     private static ImageView imagemProduziu; // Image view do produtor que indicara quando que houve uma producao
-    private static ImageView imagemConsumiu1, imagemConsumiu2, imagemConsumiu3; // Image view dos consumidores que indicara quando que houve um consumo
+    private static ImageView imagemConsumiu; // Image view do consumidor que indicara quando que houve um consumo
 
-    // Atribuicao atraves do construtor dos semaforos e image views
-    public Buffer(Semaphore mutexNovo, Semaphore cheioNovo, Semaphore vazioNovo, 
-    ImageView imagemNova1, ImageView imagemNova2, ImageView imagemNova3, ImageView imagemNova4, 
-    ImageView imagemProduziuNovo, ImageView imagemConsumiu1Novo, ImageView imagemConsumiu2Novo, ImageView imagemConsumiu3Novo) {
-        mutex = mutexNovo;
-        cheio = cheioNovo;
-        vazio = vazioNovo;
+    // Atribuicao atraves do construtor dos image views
+    public Buffer(ImageView imagemNova1, ImageView imagemNova2, ImageView imagemNova3, ImageView imagemNova4, ImageView imagemProduziuNovo, ImageView imagemConsumiu1Novo) {
         imagem1 = imagemNova1;
         imagem2 = imagemNova2;
         imagem3 = imagemNova3;
         imagem4 = imagemNova4;
         imagemProduziu = imagemProduziuNovo;
-        imagemConsumiu1 = imagemConsumiu1Novo;
-        imagemConsumiu2 = imagemConsumiu2Novo;
-        imagemConsumiu3 = imagemConsumiu3Novo; 
+        imagemConsumiu = imagemConsumiuNovo;
     }
 
     /* ***************************************************************
@@ -88,7 +86,7 @@ public class Buffer {
     * Retorno: Void
     *************************************************************** */
     public static void produziu(Livro valor, int idImageView) {
-        pilha.push(valor); // Retira o livro da pilha
+        pilha.push(valor); // Insere o livro da pilha
         setImageViewStyleProduzir(idImageView); // Modifica o image view 
     }
 
@@ -190,50 +188,16 @@ public class Buffer {
     * Parametros: Um int que representa qual modificacao sera feita e um int que represebta qual exclamacao de qual thread sera modificado
     * Retorno: Void
     *************************************************************** */
-    public static void changeConsumiuImage(int idThread, int index) {
-        switch(idThread) {
-            case 1: { // Modifica a "exclamacao da thread 1"
-                switch(index) {
-                    case 1: { // Modifica o image view para opacidade 100%
-                        imagemConsumiu1.setStyle("-fx-opacity: 100%");
-                        break;
-                    }
-                    case 2: { // Modifica o image view para opacidade 20%
-                        imagemConsumiu1.setStyle("-fx-opacity: 30%");
-                        break;
-                    }
-                } // Fim do switch do estado da "piscada" 
-
+    public static void changeConsumiuImage(int index) {
+        switch(index) {
+            case 1: { // Modifica o image view para opacidade 100%
+                imagemConsumiu.setStyle("-fx-opacity: 100%");
                 break;
             }
-            case 2: { // Modifica a "exclamacao da thread 2"
-                switch(index) {
-                    case 1: { // Modifica o image view para opacidade 100%
-                        imagemConsumiu2.setStyle("-fx-opacity: 100%");
-                        break;
-                    }
-                    case 2: { // Modifica o image view para opacidade 20%
-                        imagemConsumiu2.setStyle("-fx-opacity: 30%");
-                        break;
-                    }
-                } // Fim do switch do estado da "piscada" 
-
+            case 2: { // Modifica o image view para opacidade 20%
+                imagemConsumiu.setStyle("-fx-opacity: 30%");
                 break;
             }
-            case 3: { // Modifica a "exclamacao da thread 3"
-                switch(index) {
-                    case 1: { // Modifica o image view para opacidade 100%
-                        imagemConsumiu3.setStyle("-fx-opacity: 100%");
-                        break;
-                    }
-                    case 2: { // Modifica o image view para opacidade 20%
-                        imagemConsumiu3.setStyle("-fx-opacity: 30%");
-                        break;
-                    }
-                } // Fim do switch do estado da "piscada" 
-
-                break;
-            }
-        } // Fim do switch do id da thread
+        } // Fim do switch do estado da "piscada" 
     }
 }

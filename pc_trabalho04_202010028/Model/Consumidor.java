@@ -9,11 +9,11 @@
 
 package Model;
 
-public class Consumidor1 extends Thread {
+public class Consumidor extends Thread {
     private int velocidade; // Indica a velocidade da thread
 
     // Construtor
-    public Consumidor1(int velocidade) {
+    public Consumidor(int velocidade) {
         this.velocidade = velocidade;
     }
 
@@ -30,10 +30,10 @@ public class Consumidor1 extends Thread {
             catch (InterruptedException e) { e.printStackTrace(); }
             Buffer.consumir(); // Consome item
 
-            Buffer.changeConsumiuImage(1, 1); // Modifica o image view da exclacao para opacidade 100%
+            Buffer.changeConsumiuImage(1); // Modifica o image view da exclacao para opacidade 100%
             try { sleep(1000); } 
             catch (InterruptedException e) { e.printStackTrace(); }
-            Buffer.changeConsumiuImage(1, 2); // Modifica o image view da exclacao para opacidade 20%
+            Buffer.changeConsumiuImage(2); // Modifica o image view da exclacao para opacidade 20%
 
             try { sleep(velocidade); } 
             catch (InterruptedException e) { e.printStackTrace(); }
