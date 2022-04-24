@@ -19,6 +19,12 @@ public class Principal extends Application {
         launch(args);
     }
 
+    /* ***************************************************************
+    * Metodo: start
+    * Funcao: Inicializa a tela fxml
+    * Parametros: Stage
+    * Retorno: Void
+    *************************************************************** */
     @Override
     public void start(Stage primaryStage) throws Exception {
         // Esse eh o processo basico para rodar um programa feito em javafx 
