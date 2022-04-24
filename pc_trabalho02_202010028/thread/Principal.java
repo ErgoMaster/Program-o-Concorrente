@@ -20,15 +20,15 @@ public class Principal extends Application {
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage primaryStage) throws Exception {
         // Esse eh o processo basico para rodar um programa feito em javafx 
         ArvoreGenealogicaController controller = new ArvoreGenealogicaController(); // Chamada do controller para evitar erro no programa
 
         Parent root = FXMLLoader.load(getClass().getResource("View/ArvoreGenealogica.fxml"));
         Scene scene = new Scene(root);
 
-        stage.setResizable(false);
-        stage.setScene(scene);
-        stage.show(); 
+        primaryStage.setResizable(false);
+        primaryStage.setScene(scene);
+        primaryStage.show(); 
     }
 }

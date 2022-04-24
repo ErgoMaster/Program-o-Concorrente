@@ -33,8 +33,8 @@ public class Principal extends Application {
         Parent root = fxmlloader.load();
         Scene scene = new Scene(root);
 
-        primaryStage.setResizable(false); // Trava o tamanho da tela
+        primaryStage.setResizable(false); 
         primaryStage.setScene(scene);
-        primaryStage.show(); // Mostra a tela
+        primaryStage.show(); 
     }
 }

@@ -26,14 +26,14 @@ public class Principal extends Application {
     * Retorno: Void
     *************************************************************** */
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage primaryStage) throws Exception {
         // Inicializacao da tela fxml
         SimulacaoTremController controller = new SimulacaoTremController();
         Parent root = FXMLLoader.load(getClass().getResource("Util/SimulacaoTrem.fxml"));
         Scene scene = new Scene(root);
 
-        stage.setResizable(false); // Trava o tamanho da tela
-        stage.setScene(scene);
-        stage.show(); // Mostra a tela
+        primaryStage.setResizable(false); 
+        primaryStage.setScene(scene);
+        primaryStage.show(); 
     }
 }
