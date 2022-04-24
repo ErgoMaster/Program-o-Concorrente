@@ -30,12 +30,12 @@ public class Produtor extends Thread {
         for(int i = 0; i < numeroDeLivros; i++) {
             try { sleep(velocidade); } 
             catch (InterruptedException e) { e.printStackTrace(); }
-            Buffer.produzir(); // Produz item
+            Simulacao.produzir(); // Produz item
             
-            Buffer.changeProduziuImage(1); // Modifica o image view da exclacao para opacidade 100%
+            Simulacao.changeProduziuImage(1); // Modifica o image view da exclacao para opacidade 100%
             try { sleep(1000); } 
             catch (InterruptedException e) { e.printStackTrace(); }
-            Buffer.changeProduziuImage(2); // Modifica o image view da exclacao para opacidade 20%
+            Simulacao.changeProduziuImage(2); // Modifica o image view da exclacao para opacidade 20%
             
             try { sleep(velocidade); } 
             catch (InterruptedException e) { e.printStackTrace(); }

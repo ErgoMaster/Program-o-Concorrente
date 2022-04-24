@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import View.ProdutorConsumidorController;
 
 public class Principal extends Application {
     public static void main(String[] args) {
@@ -32,8 +33,8 @@ public class Principal extends Application {
         Parent root = fxmlloader.load();
         Scene scene = new Scene(root);
 
-        stage.setResizable(false); // Trava o tamanho da tela
-        stage.setScene(sceneInicial);
-        stage.show(); // Mostra a tela
+        primaryStage.setResizable(false); // Trava o tamanho da tela
+        primaryStage.setScene(scene);
+        primaryStage.show(); // Mostra a tela
     }
 }

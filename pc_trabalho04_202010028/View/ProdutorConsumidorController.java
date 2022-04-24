@@ -7,6 +7,8 @@
 * Funcao...........: Classe que controla a tela da simulacao
 *************************************************************** */
 
+package View;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import Model.*;

@@ -13,7 +13,7 @@ import java.util.Stack;
 import java.util.concurrent.Semaphore;
 import javafx.scene.image.ImageView;
 
-public class Buffer {
+public class Simulacao {
     // Semaforos
     private static Semaphore mutex = new Semaphore(1);
     private static Semaphore cheio = new Semaphore(0);
@@ -28,7 +28,7 @@ public class Buffer {
     private static ImageView imagemConsumiu; // Image view do consumidor que indicara quando que houve um consumo
 
     // Atribuicao atraves do construtor dos image views
-    public Buffer(ImageView imagemNova1, ImageView imagemNova2, ImageView imagemNova3, ImageView imagemNova4, ImageView imagemProduziuNovo, ImageView imagemConsumiu1Novo) {
+    public Simulacao(ImageView imagemNova1, ImageView imagemNova2, ImageView imagemNova3, ImageView imagemNova4, ImageView imagemProduziuNovo, ImageView imagemConsumiuNovo) {
         imagem1 = imagemNova1;
         imagem2 = imagemNova2;
         imagem3 = imagemNova3;

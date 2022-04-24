@@ -28,12 +28,12 @@ public class Consumidor extends Thread {
         while(true) {
             try { sleep(velocidade + 100); } 
             catch (InterruptedException e) { e.printStackTrace(); }
-            Buffer.consumir(); // Consome item
+            Simulacao.consumir(); // Consome item
 
-            Buffer.changeConsumiuImage(1); // Modifica o image view da exclacao para opacidade 100%
+            Simulacao.changeConsumiuImage(1); // Modifica o image view da exclacao para opacidade 100%
             try { sleep(1000); } 
             catch (InterruptedException e) { e.printStackTrace(); }
-            Buffer.changeConsumiuImage(2); // Modifica o image view da exclacao para opacidade 20%
+            Simulacao.changeConsumiuImage(2); // Modifica o image view da exclacao para opacidade 20%
 
             try { sleep(velocidade); } 
             catch (InterruptedException e) { e.printStackTrace(); }
