@@ -9,7 +9,6 @@
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.concurrent.Semaphore;
 import Model.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -17,10 +16,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 
 public class ProdutorConsumidorController implements Initializable {
     // Variaveis de controle da velocidade das threads
@@ -52,7 +49,7 @@ public class ProdutorConsumidorController implements Initializable {
         Consumidor consumidor = new Consumidor(velocidadeConsumidor);
 
         // Passagem dos semaforos e elementos graficos do programa para a classe estatica buffer
-        Buffer buffer = new Buffer(ImageLivro1, ImageLivro2, ImageLivro3, ImageLivro4, ImageProdutorProduziu, ImageConsumidorConsumiu);
+        Simulacao simulacao = new Simulacao(ImageLivro1, ImageLivro2, ImageLivro3, ImageLivro4, ImageProdutorProduziu, ImageConsumidorConsumiu);
 
         // Inicilizacao das threads
         produtor.start();
