@@ -198,6 +198,6 @@ public class Simulacao {
                 imagemConsumiu.setStyle("-fx-opacity: 30%");
                 break;
             }
-        } // Fim do switch do estado da "piscada" 
+        } // Fim do switch
     }
 }

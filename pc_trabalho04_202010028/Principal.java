@@ -27,10 +27,10 @@ public class Principal extends Application {
     *************************************************************** */
     @Override
     public void start(Stage primaryStage) throws Exception {
-        // Inicializacao da tela fxml
-        ProdutorConsumidorController controller = new ProdutorConsumidorController(); // Chamada do controller para evitar excecao
+        // Esse eh o processo basico para rodar um programa feito em javafx 
+        ProdutorConsumidorController controller = new ProdutorConsumidorController(); // Chamada do controller para evitar erro no programa
 
-        Parent root = FXMLLoader.load(getClass().getResource("View/FXMLProdutorConsumidor.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("View/FXMLProdutorConsumidor.fxml")); 
         Scene scene = new Scene(root);
 
         primaryStage.setResizable(false); 
