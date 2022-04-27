@@ -7,7 +7,7 @@
 * Funcao...........: Simula uma situacao em que 2 trens precisam passar por 1 unico tunel
 *************************************************************** */
 
-import Util.SimulacaoTremController;
+import View.SimulacaoTremController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

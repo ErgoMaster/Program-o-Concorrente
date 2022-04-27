@@ -7,11 +7,12 @@
 * Funcao...........: Controla o programa de forma a criar as threads
 *************************************************************** */
 
-package Util;
+package View;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import Model.*;
+import Model.Trem1;
+import Model.Trem2;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -22,68 +23,57 @@ import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
 
 public class SimulacaoTremController implements Initializable {
-    int duracaoTrem1; // Variavel para guardar a velocidade do trem 1
-    int duracaoTrem2; // Variavel para guardar a velocidade do trem 2
+    private int velocidadeTrem1;
+    private int velocidadeTrem2;
+    
+    @FXML private Button iniciarButton;
 
-    //Declaracao dos botoes e linhas do programa
-    @FXML
-    private Button SimularButton;
+    @FXML private ImageView trem1ImageView;
+    @FXML private ImageView trem2ImageView;
 
-    @FXML
-    private ImageView trem1;
-
-    @FXML
-    private ImageView trem2;
-
-    @FXML
-    private Slider sliderTrem1;
-
-    @FXML
-    private Slider sliderTrem2;
+    @FXML private Slider slidertrem1;
+    @FXML private Slider slidertrem2;
 
     /* ***************************************************************
     * Metodo: start
-    * Funcao: Inicializa as threads e inicia a simulacao
-    * Parametros: event
+    * Funcao: Iniciar a simulacao do trem
+    * Parametros: Recebe um ActionEvent relacionado ao apertar de um botao
     * Retorno: Void
     *************************************************************** */
     @FXML
-    void start(ActionEvent event) { // Inicio do botao de simulacao 
-        // Setar os trens nas suas posicoes iniciais
+    void start(ActionEvent event) {
+       Trem1 trem1 = new Trem1(trem1ImageView, velocidadeTrem1);
+       Trem2 trem2 = new Trem2(trem2ImageView, velocidadeTrem2);
 
-        // Criacao das threads a serem utilizadas
-        Trem1 TremA = new Trem1(trem1, duracaoTrem1);
-        Trem2 TremB = new Trem2(trem2, duracaoTrem2);
-
-        // Inicializacao das threads
-        TremA.start();
-        TremB.start();
-        
-    } // Fim do botao de simulacao 
+       trem1.start();
+       trem2.start();
+    }
 
     /* ***************************************************************
     * Metodo: initialize
-    * Funcao: Verificar os valores dos sliders
-    * Parametros: URL e ResourceBundle
+    * Funcao: Observar os valores dos sliders de velocidade
+    * Parametros: Valores do javafx
     * Retorno: Void
     *************************************************************** */
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        // Valores padrao para a duracao das animacoes
-        duracaoTrem1 = 5000;
-        duracaoTrem2 = 5000;
-
-        sliderTrem1.valueProperty().addListener(new ChangeListener<Number>() {
+    public void initialize(URL arg0, ResourceBundle arg1) {
+        // Valores padrão para a velocidade das threads
+        velocidadeTrem1 = 8;
+        velocidadeTrem2 = 8;
+        
+        // Listener que ira pegar o valor do slider da velocidade do trem 1 e ira atribuir a variavel de controle
+        slidertrem1.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> arg0, Number arg1, Number arg2) {
-                duracaoTrem1 = (int) sliderTrem1.getValue(); // Pega o valor do slider e atribui ao valor da velocidade do trem 1 
+                velocidadeTrem1 = (int) slidertrem1.getValue();
             }
-        });
+        });        
 
-        sliderTrem2.valueProperty().addListener(new ChangeListener<Number>() {
+        // Listener que ira pegar o valor do slider da velocidade do trem 2 e ira atribuir a variavel de controle
+        slidertrem2.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> arg0, Number arg1, Number arg2) {
-                duracaoTrem2 = (int) sliderTrem2.getValue(); // Pega o valor do slider e atribui ao valor da velocidade do trem 2
+                velocidadeTrem2 = (int) slidertrem2.getValue();
             }
         });
     }

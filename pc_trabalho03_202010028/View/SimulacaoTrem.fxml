@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="854.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.SimulacaoTremController">
+   <children>
+      <ImageView fx:id="trem1ImageView" fitHeight="41.0" fitWidth="51.0" layoutX="93.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Img/trem1.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="iniciarButton" layoutX="390.0" layoutY="431.0" mnemonicParsing="false" onAction="#start" prefHeight="31.0" prefWidth="73.0" text="Iniciar" />
+      <ImageView fx:id="trem2ImageView" fitHeight="41.0" fitWidth="51.0" layoutX="716.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Img/trem2.png" />
+         </image>
+      </ImageView>
+      <Slider fx:id="slidertrem1" layoutX="48.0" layoutY="423.0" max="22.0" min="8.0" />
+      <Slider fx:id="slidertrem2" layoutX="674.0" layoutY="423.0" max="22.0" min="8.0" />
+      <Label layoutX="65.0" layoutY="404.0" text="Velocidade trem 1" textFill="WHITE" />
+      <Label layoutX="687.0" layoutY="404.0" text="Velocidade trem 2" textFill="WHITE" />
+   </children>
+</AnchorPane>
