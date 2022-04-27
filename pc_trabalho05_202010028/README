@@ -1,5 +1,14 @@
-Para compilar (Java 8): 
+Quinto trabalho da disciplina de Programação Concorrente. Esse é o problema clássico do jantar dos filósofos, onde há 5 filósofos sentados
+a mesa onde eles irão realizar 2 tarefas: comer e pensar. Porém, para comer, cada um necessita de dois garfos. Como há apenas 5 garfos na
+mesa, eles devem revezar os garfos entre si, de forma que apenas 2 filósofos, que não estão sentados um do lado do outro, possam comer ao
+mesmo tempo.  
 
-javac Principal.java
+Para compilar:
 
-java Principal
+- Java 8 
+    javac Principal.java
+    java Principal
+
+- Java 17
+    javac --module-path /home/gabriel/Java/openjfx-17.0.2_linux-x64_bin-sdk/javafx-sdk-17.0.2/lib --add-modules javafx.controls,javafx.fxml Principal.java
+    java --module-path /home/gabriel/Java/openjfx-17.0.2_linux-x64_bin-sdk/javafx-sdk-17.0.2/lib --add-modules javafx.controls,javafx.fxml Principal

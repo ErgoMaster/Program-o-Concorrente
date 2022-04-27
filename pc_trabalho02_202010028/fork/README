@@ -1,3 +1,7 @@
+Segundo trabalho da disciplina de Programação Concorrente. Essa é uma simulação de uma árvore genealógica utilizando threads, a partir 
+do nascimento do pai (início do programa), os seus decendentes vão nascendo e morrendo no decorrer do programa separadamente da thread do 
+pai
+
 Para compilar: 
 
 g++ Principal.cpp
