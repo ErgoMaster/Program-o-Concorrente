@@ -11,8 +11,7 @@ package View;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import Model.Trem1;
-import Model.Trem2;
+import Model.SuperThread;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -23,9 +22,11 @@ import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
 
 public class SimulacaoTremController implements Initializable {
+    // Variaveis de controle da velocidade das threads
     private int velocidadeTrem1;
     private int velocidadeTrem2;
     
+    // Declaracao dos controles da tela
     @FXML private Button iniciarButton;
 
     @FXML private ImageView trem1ImageView;
@@ -42,11 +43,15 @@ public class SimulacaoTremController implements Initializable {
     *************************************************************** */
     @FXML
     void start(ActionEvent event) {
-       Trem1 trem1 = new Trem1(trem1ImageView, velocidadeTrem1);
-       Trem2 trem2 = new Trem2(trem2ImageView, velocidadeTrem2);
+        // Seta a posição dos trens para a posição inicial
+        trem1ImageView.setX(0);
+        trem1ImageView.setY(0);
+        trem2ImageView.setX(0);
+        trem2ImageView.setY(0);
 
-       trem1.start();
-       trem2.start();
+        SuperThread thread = new SuperThread(trem1ImageView, trem2ImageView, velocidadeTrem1, velocidadeTrem2, iniciarButton); // Inicialização do programa
+
+        thread.start();
     }
 
     /* ***************************************************************
