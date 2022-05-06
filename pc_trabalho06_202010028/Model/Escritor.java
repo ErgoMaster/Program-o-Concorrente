@@ -9,8 +9,6 @@
 
 package Model;
 
-import java.util.Stack;
-
 public class Escritor extends Thread {
     /* ***************************************************************
     * Metodo: run

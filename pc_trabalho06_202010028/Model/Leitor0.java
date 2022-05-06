@@ -20,31 +20,27 @@ public class Leitor0 extends Thread {
     public void run() { 
         while(true) {
             try {
-                sleep(2000);
                 Variaveis.getMutex().acquire(); // Trava a regiao critica da variavel de controle dos leitores
 
                 Variaveis.incrementaLeitoresRC();
                 // Caso esse seja o primeiro leitor a comecar a ler, trava a base de dados para que o escritor não a modifique indevidamente
-                if(Variaveis.getLeitoresRc() == 1) { 
-                    Variaveis.getDados().acquire();  // Trava a regiao critica da base de dados 
-                }
+                if(Variaveis.getLeitoresRc() == 1) { Variaveis.getDados().acquire(); } // Trava a regiao critica da base de dados 
                 Variaveis.getMutex().release(); // Libera o acesso a variavel de controle
 
                 sleep(500);
-                int idCadeira = Variaveis.geraIndexCadeira();
+                int idCadeira = Variaveis.geraIndexCadeira(); // Gera o index da cadeira que sera requisitada
                 sleep(500);
 
                 Variaveis.getMutex().acquire(); // Trava a regiao critica da variavel de controle dos leitores 
 
                 Variaveis.decrementaLeitoresRC();
                 // Caso esse seja o ultimo leitor a realizar a leitura, libera a base de dados para que o escritor possa modifica-la
-                if(Variaveis.getLeitoresRc() == 0) { 
-                    Variaveis.getDados().release(); // Libera a regiao critica da base de dados
-                }
-                
+                if(Variaveis.getLeitoresRc() == 0) { Variaveis.getDados().release(); } // Libera a regiao critica da base de dados
+                     
                 Variaveis.solicitaCadeira(idCadeira); // Usa o valor lido
 
                 Variaveis.getMutex().release();
+                sleep(5000);
             } catch (InterruptedException e) { 
                 e.printStackTrace(); 
             }
