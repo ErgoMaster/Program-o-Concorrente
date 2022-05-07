@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="854.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.EscritoresLeitoresController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="993.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.EscritoresLeitoresController">
    <children>
       <Label layoutX="281.0" layoutY="17.0" text="Cadeiras de uma sessao de cinema" textFill="WHITE">
          <font>
@@ -114,6 +114,46 @@
             <Image url="@../Img/IMGCadeiraLivre.png" />
          </image>
       </ImageView>
-      <Button fx:id="ButtonIniciar" layoutX="408.0" layoutY="425.0" mnemonicParsing="false" onAction="#start" text="Iniciar" />
+      <Button fx:id="ButtonIniciar" layoutX="408.0" layoutY="425.0" mnemonicParsing="false" onAction="#start" style="-fx-background-color: grey; -fx-background-radius: 15;" text="Iniciar" textFill="WHITE" />
+      <ImageView fitHeight="106.0" fitWidth="112.0" layoutX="86.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Img/IMGPerson.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="112.0" layoutY="156.0" text="Escritor" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="648.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Img/IMGPerson.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="650.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Img/IMGPerson.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="648.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Img/IMGPerson.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="649.0" layoutY="361.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Img/IMGPerson.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="665.0" layoutY="27.0" text="Leitores" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="LabelLeitor0" layoutX="766.0" layoutY="93.0" text="..." textFill="WHITE" />
+      <Label fx:id="LabelLeitor1" layoutX="766.0" layoutY="196.0" text="..." textFill="WHITE" />
+      <Label fx:id="LabelLeitor3" layoutX="768.0" layoutY="404.0" text="..." textFill="WHITE" />
+      <Label fx:id="LabelLeitor2" layoutX="767.0" layoutY="294.0" text="..." textFill="WHITE" />
+      <Label fx:id="LabelEscritor" layoutX="107.0" layoutY="310.0" text="..." textFill="WHITE" />
    </children>
 </AnchorPane>

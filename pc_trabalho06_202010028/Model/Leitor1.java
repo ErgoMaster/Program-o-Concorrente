@@ -2,7 +2,7 @@
 * Autor............: Gabriel Uzel Fonseca
 * Matricula........: 202010028
 * Inicio...........: 27/04/2022
-* Ultima alteracao.: xx
+* Ultima alteracao.: 06/05/2022
 * Nome.............: Leitor 1
 * Funcao...........: Lê da base de dados e reserva uma cadeira
 *************************************************************** */
@@ -38,6 +38,7 @@ public class Leitor1 extends Thread {
                 if(Variaveis.getLeitoresRc() == 0) { Variaveis.getDados().release(); } // Libera a regiao critica da base de dados
                      
                 Variaveis.solicitaCadeira(idCadeira); // Usa o valor lido
+                Variaveis.changeLabelLeitores(1, idCadeira); // Atualiza o label correspondente
 
                 Variaveis.getMutex().release();
                 sleep(5000);

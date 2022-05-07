@@ -2,7 +2,7 @@
 * Autor............: Gabriel Uzel Fonseca
 * Matricula........: 202010028
 * Inicio...........: 27/04/2022
-* Ultima alteracao.: xx
+* Ultima alteracao.: 06/05/2022
 * Nome.............: Leitores/Escritores
 * Funcao...........: Solucao do problema do Leitores/Escritores usando semaforos
 *************************************************************** */

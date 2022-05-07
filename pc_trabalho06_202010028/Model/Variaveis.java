@@ -2,7 +2,7 @@
 * Autor............: Gabriel Uzel Fonseca
 * Matricula........: 202010028
 * Inicio...........: 27/04/2022
-* Ultima alteracao.: xx
+* Ultima alteracao.: 06/05/2022
 * Nome.............: Variaveis
 * Funcao...........: Guarda as variaveis e semaforos que irao ser usados no programa
 *************************************************************** */
@@ -14,6 +14,9 @@ import java.util.Queue;
 import java.util.Random;
 import java.util.Stack;
 import java.util.concurrent.Semaphore;
+
+import javafx.application.Platform;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -22,6 +25,8 @@ public class Variaveis {
     private static Semaphore mutex = new Semaphore(1); // Semáforo que controla a entrada dos leitores
     private static Semaphore dados = new Semaphore(1); // Controla a entrada na base de dados
     private static ImageView[] imagens; // Array com os image view das cadeiras
+    private static Label[] labels; // Array dos labels dos leitores
+    private static Label labelEscritor; // Label do escritor
 
     private static Image cadeiraLivre = new Image("Img/IMGCadeiraLivre.png");
     private static Image cadeiraOcupada = new Image("Img/IMGCadeiraOcupada.png");
@@ -30,8 +35,10 @@ public class Variaveis {
     private static Queue<Integer> requisicoes = new LinkedList<>(); // Fila com as requiscoes de numero de cadeira feitas pelos leitores
 
     // Construtor
-    public Variaveis(ImageView[] arrayImageViews) {
+    public Variaveis(ImageView[] arrayImageViews, Label[] arrayLabels, Label labelEscritorNovo) {
         imagens = arrayImageViews;
+        labels = arrayLabels;
+        labelEscritor = labelEscritorNovo;
 
         for(int i = 0; i < 20; i++) {
             cadeiras[i] = 0;
@@ -94,7 +101,7 @@ public class Variaveis {
             cadeira = lista.get(number); // A cadeira sera igual a uma posicao random dentro da lista
         }
 
-        return cadeira;
+        return cadeira; // Retorna o index da cadeira
     }
 
     /* ***************************************************************
@@ -211,5 +218,42 @@ public class Variaveis {
         }
 
         return lista; // Retorna a lista
+    }
+
+    /* ***************************************************************
+    * Metodo: changeLabelLeitores
+    * Funcao: Atualiza o label de cada leitor para indicar que ele faz uma requisicao de uma cadeira
+    * Parametros: Um int que representa o id do leitor e um int que representa o id da cadeira
+    * Retorno: Void
+    *************************************************************** */
+    public static void changeLabelLeitores(int idLeitor, int idCadeira) {
+        Platform.runLater (
+            () -> {
+                labels[idLeitor].setText("Leitor " + idLeitor + " requisitou a cadeira " + idCadeira);
+            }
+        );
+    }
+
+    /* ***************************************************************
+    * Metodo: changeLabelEscritor
+    * Funcao: Atualiza o label do escritor para indicar que ele atualizou as cadeiras
+    * Parametros: Um int que representa a acao do escritor que pode ser de travar ou liberar cadeiras
+    * Retorno: Void
+    *************************************************************** */
+    public static void changeLabelEscritor(int estado) {
+        Platform.runLater (
+            () -> {
+                switch(estado) {
+                    case 0: {
+                        labelEscritor.setText("Escritor travou cadeiras");
+                        break;
+                    }
+                    case 1: {
+                        labelEscritor.setText("Escritor liberou cadeiras");
+                        break;
+                    }
+                }
+            }
+        );   
     }
 }
