@@ -11,14 +11,7 @@ package View;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import Model.CarroAmarelo;
-import Model.CarroAzul;
-import Model.CarroLaranja;
-import Model.CarroPreto;
-import Model.CarroRoxo;
-import Model.CarroVerde;
-import Model.CarroVermelho;
+import Model.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -26,6 +19,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
+import javafx.scene.image.ImageView;
 
 public class TransitoController implements Initializable {
     private int velocidadeCarroAmarelo;
@@ -37,6 +31,14 @@ public class TransitoController implements Initializable {
     private int velocidadeCarroVermelho;
 
     @FXML private Button ButtonStart;
+
+    @FXML private ImageView ImageViewCarroAmarelo;
+    @FXML private ImageView ImageViewCarroAzul;
+    @FXML private ImageView ImageViewCarroLaranja;
+    @FXML private ImageView ImageViewCarroPreto;
+    @FXML private ImageView ImageViewCarroRoxo;
+    @FXML private ImageView ImageViewCarroVerde;
+    @FXML private ImageView ImageViewCarroVermelho;
 
     @FXML private Slider SliderCarroAmarelo;
     @FXML private Slider SliderCarroAzul;
@@ -55,14 +57,16 @@ public class TransitoController implements Initializable {
     @FXML
     void start(ActionEvent event) {
         ButtonStart.setDisable(true);
-        
-        CarroAmarelo carroA = new CarroAmarelo(velocidadeCarroAmarelo);
-        CarroAzul carroB = new CarroAzul(velocidadeCarroAzul);
-        CarroLaranja carroC = new CarroLaranja(velocidadeCarroLaranja);
-        CarroPreto carroD = new CarroPreto(velocidadeCarroPreto);
-        CarroRoxo carroE = new CarroRoxo(velocidadeCarroRoxo);
-        CarroVerde carroF = new CarroVerde(velocidadeCarroVerde);
-        CarroVermelho carroG = new CarroVermelho(velocidadeCarroVermelho);
+
+        Semaforos semaforos = new Semaforos(); // Inicizalizacao da classe estatica semaforos
+
+        CarroAmarelo carroA = new CarroAmarelo(velocidadeCarroAmarelo, ImageViewCarroAmarelo);
+        CarroAzul carroB = new CarroAzul(velocidadeCarroAzul, ImageViewCarroAzul);
+        CarroLaranja carroC = new CarroLaranja(velocidadeCarroLaranja, ImageViewCarroLaranja);
+        CarroPreto carroD = new CarroPreto(velocidadeCarroPreto, ImageViewCarroPreto);
+        CarroRoxo carroE = new CarroRoxo(velocidadeCarroRoxo, ImageViewCarroRoxo);
+        CarroVerde carroF = new CarroVerde(velocidadeCarroVerde, ImageViewCarroVerde);
+        CarroVermelho carroG = new CarroVermelho(velocidadeCarroVermelho, ImageViewCarroVermelho);
 
         carroA.start();
         carroB.start();
@@ -82,13 +86,13 @@ public class TransitoController implements Initializable {
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         // Valores padrão para a velocidade das threads
-        velocidadeCarroAmarelo = 10;
-        velocidadeCarroAzul = 10;
-        velocidadeCarroLaranja = 10;
-        velocidadeCarroPreto = 10;
-        velocidadeCarroRoxo = 10;
-        velocidadeCarroVerde = 10;
-        velocidadeCarroVermelho = 10;
+        velocidadeCarroAmarelo = 5;
+        velocidadeCarroAzul = 5;
+        velocidadeCarroLaranja = 5;
+        velocidadeCarroPreto = 5;
+        velocidadeCarroRoxo = 5;
+        velocidadeCarroVerde = 5;
+        velocidadeCarroVermelho = 5;
     
         // Listeners para pegar o valor dos sliders de cada carro dentro da simulacao
         SliderCarroAmarelo.valueProperty().addListener(new ChangeListener<Number>() {

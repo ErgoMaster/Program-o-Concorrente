@@ -9,10 +9,35 @@
 
 package Model;
 
-public class CarroAzul extends Thread {
-    private int velocidade;
+import javafx.scene.image.ImageView;
 
-    public CarroAzul(int velocidade) {
+public class CarroAzul extends Thread {
+    private double x;
+    private double y;
+    private int velocidade;
+    private ImageView carro;
+
+    public CarroAzul(int velocidade, ImageView carro) {
         this.velocidade = velocidade;
+        this.carro = carro;
+
+        x = carro.getX();
+        y = carro.getY();
     }
+
+    /*
+    @Override
+    public void run() {
+        try {
+            //while(true) {
+                
+            //}
+        } catch(InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void andarRuaX() {
+
+    } */
 }

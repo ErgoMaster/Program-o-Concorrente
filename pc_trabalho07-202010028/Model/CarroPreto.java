@@ -9,10 +9,19 @@
 
 package Model;
 
-public class CarroPreto extends Thread {
-    private int velocidade;
+import javafx.scene.image.ImageView;
 
-    public CarroPreto(int velocidade) {
+public class CarroPreto extends Thread {
+    private double x;
+    private double y;
+    private int velocidade;
+    private ImageView carro;
+
+    public CarroPreto(int velocidade, ImageView carro) {
         this.velocidade = velocidade;
+        this.carro = carro;
+
+        x = carro.getX();
+        y = carro.getY();
     }
 }
