@@ -76,7 +76,7 @@ public class CarroAmarelo extends Thread {
         }
         
     }
-
+    
     private void andarRua1() throws InterruptedException {
         while(x != 66) {
             Thread.sleep(velocidade); 
@@ -86,7 +86,7 @@ public class CarroAmarelo extends Thread {
 
             x++; 
         }
-    }
+    } 
 
     private void passarCruzamento2() throws InterruptedException {
         Semaforos.getSemaforo(2).acquire();
