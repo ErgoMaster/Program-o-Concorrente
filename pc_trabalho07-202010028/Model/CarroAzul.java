@@ -28,17 +28,23 @@ public class CarroAzul extends Thread {
 
     @Override
     public void run() {
+        boolean primeiraVez = true;
+
         try {
             while(true) {
                 andarRua26();
                 passarCruzamento32();
                 andarRua27();
                 passarCruzamento33();
+
+                if(!primeiraVez) { Semaforos.getSemaforoAL(2).release(); }
+
                 andarRua15B();
                 passarCruzamento27();
                 andarRua23();
                 passarCruzamento28();
                 andarRua20B();
+
                 passarCruzamento34();
                 andarRua29();
                 passarCruzamento35();
@@ -46,12 +52,23 @@ public class CarroAzul extends Thread {
                 passarCruzamento36();
                 andarRua30B();
                 passarCruzamento30();
+
+                if(!primeiraVez) { Semaforos.getSemaforoAAM(1).release(); }
+
                 andarRua25();
                 passarCruzamento29();
                 andarRua24B();
+
+                Semaforos.getSemaforoAAM(2).acquire();
+                Semaforos.getSemaforoAL(1).acquire();
+
                 passarCruzamento23();
                 andarRua19();
                 passarCruzamento22();
+
+                Semaforos.getSemaforoAL(1).release();
+                Semaforos.getSemaforoAAM(2).release();
+
                 andarRua18B();
                 passarCruzamento16();
                 andarRua14();
@@ -67,6 +84,10 @@ public class CarroAzul extends Thread {
                 andarRua4();
                 passarCruzamento4();
                 andarRua3();
+
+                Semaforos.getSemaforoAL(2).acquire();
+                Semaforos.getSemaforoAAM(1).acquire();
+                
                 passarCruzamento3();
                 andarRua2();
                 passarCruzamento2();
@@ -82,6 +103,8 @@ public class CarroAzul extends Thread {
                 passarCruzamento25();
                 andarRua5B();
                 passarCruzamento31();
+
+                primeiraVez = false;
             }
         } catch(InterruptedException e) {
             e.printStackTrace();
@@ -90,7 +113,7 @@ public class CarroAzul extends Thread {
 
     private void andarRua26() throws InterruptedException {
         while(x != 66) {
-            Thread.sleep(velocidade); 
+            Thread.sleep(velocidade);
 
             final double CONST = x;
             Platform.runLater( () -> carro.setX(CONST)); 
@@ -100,8 +123,6 @@ public class CarroAzul extends Thread {
     } 
 
     private void passarCruzamento32() throws InterruptedException {
-        Semaforos.getSemaforo(32).acquire();
-
         while(x != 92) {
             Thread.sleep(velocidade); 
 
@@ -110,8 +131,6 @@ public class CarroAzul extends Thread {
 
             x++; 
         }
-
-        Semaforos.getSemaforo(32).release();
     }
 
     private void andarRua27() throws InterruptedException {
@@ -126,8 +145,6 @@ public class CarroAzul extends Thread {
     }
 
     private void passarCruzamento33() throws InterruptedException {
-        Semaforos.getSemaforo(33).acquire();
-
         while(x != 170) {
             Thread.sleep(velocidade); 
 
@@ -147,8 +164,6 @@ public class CarroAzul extends Thread {
 
             y--; 
         }
-
-        Semaforos.getSemaforo(33).release();
     }
 
     private void andarRua15B() throws InterruptedException {
@@ -163,8 +178,6 @@ public class CarroAzul extends Thread {
     }
 
     private void passarCruzamento27() throws InterruptedException {
-        Semaforos.getSemaforo(27).acquire();
-
         while(y != -92) {
             Thread.sleep(velocidade); 
 
@@ -184,8 +197,6 @@ public class CarroAzul extends Thread {
 
             x++; 
         }
-
-        Semaforos.getSemaforo(27).release();
     }
 
     private void andarRua23() throws InterruptedException {
@@ -200,8 +211,6 @@ public class CarroAzul extends Thread {
     }
 
     private void passarCruzamento28() throws InterruptedException {
-        Semaforos.getSemaforo(28).acquire();
-
         while(x != 260) {
             Thread.sleep(velocidade); 
 
@@ -221,8 +230,6 @@ public class CarroAzul extends Thread {
 
             y++; 
         }
-
-        Semaforos.getSemaforo(28).release();
     }
 
     private void andarRua20B() throws InterruptedException {
@@ -237,8 +244,6 @@ public class CarroAzul extends Thread {
     }
 
     private void passarCruzamento34() throws InterruptedException {
-        Semaforos.getSemaforo(34).acquire();
-
         while(y != 0) {
             Thread.sleep(velocidade); 
 
@@ -258,13 +263,11 @@ public class CarroAzul extends Thread {
 
             x++; 
         }
-
-        Semaforos.getSemaforo(34).release();
     }
 
     private void andarRua29() throws InterruptedException {
         while(x != 336) {
-            Thread.sleep(velocidade); 
+            Thread.sleep(velocidade);
 
             final double CONST = x;
             Platform.runLater( () -> carro.setX(CONST)); 
@@ -274,8 +277,6 @@ public class CarroAzul extends Thread {
     }
 
     private void passarCruzamento35() throws InterruptedException {
-        Semaforos.getSemaforo(35).acquire();
-
         while(x != 364) {
             Thread.sleep(velocidade); 
 
@@ -284,8 +285,6 @@ public class CarroAzul extends Thread {
 
             x++; 
         }
-
-        Semaforos.getSemaforo(35).release();
     }
 
     private void andarRua30() throws InterruptedException {
@@ -300,8 +299,6 @@ public class CarroAzul extends Thread {
     }
 
     private void passarCruzamento36() throws InterruptedException {
-        Semaforos.getSemaforo(36).acquire();
-
         while(x != 442) {
             Thread.sleep(velocidade); 
 
@@ -321,8 +318,6 @@ public class CarroAzul extends Thread {
 
             y--; 
         }
-
-        Semaforos.getSemaforo(36).release();
     }
 
     private void andarRua30B() throws InterruptedException {
@@ -337,8 +332,6 @@ public class CarroAzul extends Thread {
     }
 
     private void passarCruzamento30() throws InterruptedException {
-        Semaforos.getSemaforo(30).acquire();
-
         while(y != -90) {
             Thread.sleep(velocidade); 
 
@@ -358,8 +351,6 @@ public class CarroAzul extends Thread {
 
             x--; 
         }
-
-        Semaforos.getSemaforo(30).release();
     }
 
     private void andarRua25() throws InterruptedException {
@@ -374,8 +365,6 @@ public class CarroAzul extends Thread {
     }
 
     private void passarCruzamento29() throws InterruptedException {
-        Semaforos.getSemaforo(29).acquire();
-
         while(x != 350) {
             Thread.sleep(velocidade); 
 
@@ -395,8 +384,6 @@ public class CarroAzul extends Thread {
 
             y--; 
         }
-
-        Semaforos.getSemaforo(29).release();
     }
 
     private void andarRua24B() throws InterruptedException {
@@ -411,8 +398,6 @@ public class CarroAzul extends Thread {
     }
 
     private void passarCruzamento23() throws InterruptedException {
-        Semaforos.getSemaforo(23).acquire();
-
         while(y != -182) {
             Thread.sleep(velocidade); 
 
@@ -432,8 +417,6 @@ public class CarroAzul extends Thread {
 
             x--; 
         }
-
-        Semaforos.getSemaforo(23).release();
     }
 
     private void andarRua19() throws InterruptedException {
@@ -448,8 +431,6 @@ public class CarroAzul extends Thread {
     }
 
     private void passarCruzamento22() throws InterruptedException {
-        Semaforos.getSemaforo(22).acquire();
-
         while(x != 258) {
             Thread.sleep(velocidade); 
 
@@ -469,8 +450,6 @@ public class CarroAzul extends Thread {
 
             y--; 
         }
-
-        Semaforos.getSemaforo(22).release();
     }
 
     private void andarRua18B() throws InterruptedException {
@@ -485,8 +464,6 @@ public class CarroAzul extends Thread {
     }
 
     private void passarCruzamento16() throws InterruptedException {
-        Semaforos.getSemaforo(16).acquire();
-
         while(y != -274) {
             Thread.sleep(velocidade); 
 
@@ -506,8 +483,6 @@ public class CarroAzul extends Thread {
 
             x++; 
         }
-
-        Semaforos.getSemaforo(16).release();
     }
 
     private void andarRua14() throws InterruptedException {
@@ -522,8 +497,6 @@ public class CarroAzul extends Thread {
     }
 
     private void passarCruzamento17() throws InterruptedException {
-        Semaforos.getSemaforo(17).acquire();
-
         while(x != 364) {
             Thread.sleep(velocidade); 
 
@@ -532,8 +505,6 @@ public class CarroAzul extends Thread {
 
             x++; 
         }
-
-        Semaforos.getSemaforo(17).release();
     }
 
     private void andarRua15() throws InterruptedException {
@@ -548,8 +519,6 @@ public class CarroAzul extends Thread {
     }
 
     private void passarCruzamento18() throws InterruptedException {
-        Semaforos.getSemaforo(18).acquire();
-
         while(x != 442) {
             Thread.sleep(velocidade); 
 
@@ -569,8 +538,6 @@ public class CarroAzul extends Thread {
 
             y--; 
         }
-
-        Semaforos.getSemaforo(18).release();
     }
 
     private void andarRua27B() throws InterruptedException {
@@ -585,8 +552,6 @@ public class CarroAzul extends Thread {
     }
 
     private void passarCruzamento12() throws InterruptedException {
-        Semaforos.getSemaforo(12).acquire();
-
         while(y != -376) {
             Thread.sleep(velocidade); 
 
@@ -595,8 +560,6 @@ public class CarroAzul extends Thread {
 
             y--; 
         }
-
-        Semaforos.getSemaforo(12).release();
     }
 
     private void andarRua26B() throws InterruptedException {
@@ -611,8 +574,6 @@ public class CarroAzul extends Thread {
     }
 
     private void passarCruzamento6() throws InterruptedException {
-        Semaforos.getSemaforo(6).acquire();
-
         while(y != -454) {
             Thread.sleep(velocidade); 
 
@@ -632,8 +593,6 @@ public class CarroAzul extends Thread {
 
             x--; 
         }
-
-        Semaforos.getSemaforo(6).release();
     }
 
     private void andarRua5() throws InterruptedException {
@@ -648,8 +607,6 @@ public class CarroAzul extends Thread {
     }
 
     private void passarCruzamento5() throws InterruptedException {
-        Semaforos.getSemaforo(5).acquire();
-
         while(x != 336) {
             Thread.sleep(velocidade); 
 
@@ -658,8 +615,6 @@ public class CarroAzul extends Thread {
 
             x--; 
         }
-
-        Semaforos.getSemaforo(5).release();
     }
 
     private void andarRua4() throws InterruptedException {
@@ -674,8 +629,6 @@ public class CarroAzul extends Thread {
     }
 
     private void passarCruzamento4() throws InterruptedException {
-        Semaforos.getSemaforo(4).acquire();
-
         while(x != 246) {
             Thread.sleep(velocidade); 
 
@@ -684,8 +637,6 @@ public class CarroAzul extends Thread {
 
             x--; 
         }
-
-        Semaforos.getSemaforo(4).release();
     }
 
     private void andarRua3() throws InterruptedException {
@@ -700,8 +651,6 @@ public class CarroAzul extends Thread {
     }
 
     private void passarCruzamento3() throws InterruptedException {
-        Semaforos.getSemaforo(3).acquire();
-
         while(x != 156) {
             Thread.sleep(velocidade); 
 
@@ -710,8 +659,6 @@ public class CarroAzul extends Thread {
 
             x--; 
         }
-
-        Semaforos.getSemaforo(3).release();
     }
 
     private void andarRua2() throws InterruptedException {
@@ -726,8 +673,6 @@ public class CarroAzul extends Thread {
     }
 
     private void passarCruzamento2() throws InterruptedException {
-        Semaforos.getSemaforo(2).acquire();
-
         while(x != 66) {
             Thread.sleep(velocidade); 
 
@@ -736,8 +681,6 @@ public class CarroAzul extends Thread {
 
             x--; 
         }
-
-        Semaforos.getSemaforo(2).release();
     }
 
     private void andarRua1() throws InterruptedException {
@@ -752,8 +695,6 @@ public class CarroAzul extends Thread {
     }
 
     private void passarCruzamento1() throws InterruptedException {
-        Semaforos.getSemaforo(1).acquire();
-
         while(x != -14) {
             Thread.sleep(velocidade); 
 
@@ -773,8 +714,6 @@ public class CarroAzul extends Thread {
 
             y++; 
         }
-
-        Semaforos.getSemaforo(1).release();
     }
 
     private void andarRua1B() throws InterruptedException {
@@ -789,8 +728,6 @@ public class CarroAzul extends Thread {
     }
 
     private void passarCruzamento7() throws InterruptedException {
-        Semaforos.getSemaforo(7).acquire();
-
         while(y != -348) {
             Thread.sleep(velocidade); 
 
@@ -799,8 +736,6 @@ public class CarroAzul extends Thread {
 
             y++; 
         }
-
-        Semaforos.getSemaforo(7).release();
     }
 
     private void andarRua2B() throws InterruptedException {
@@ -815,8 +750,6 @@ public class CarroAzul extends Thread {
     }
 
     private void passarCruzamento13() throws InterruptedException {
-        Semaforos.getSemaforo(13).acquire();
-
         while(y != -258) {
             Thread.sleep(velocidade); 
 
@@ -825,8 +758,6 @@ public class CarroAzul extends Thread {
 
             y++; 
         }
-
-        Semaforos.getSemaforo(13).release();
     }
 
     private void andarRua3B() throws InterruptedException {
@@ -841,8 +772,6 @@ public class CarroAzul extends Thread {
     }
 
     private void passarCruzamento19() throws InterruptedException {
-        Semaforos.getSemaforo(19).acquire();
-
         while(y != -168) {
             Thread.sleep(velocidade); 
 
@@ -851,8 +780,6 @@ public class CarroAzul extends Thread {
 
             y++; 
         }
-
-        Semaforos.getSemaforo(19).release();
     }
 
     private void andarRua4B() throws InterruptedException {
@@ -867,8 +794,6 @@ public class CarroAzul extends Thread {
     }
 
     private void passarCruzamento25() throws InterruptedException {
-        Semaforos.getSemaforo(25).acquire();
-
         while(y != -78) {
             Thread.sleep(velocidade); 
 
@@ -877,8 +802,6 @@ public class CarroAzul extends Thread {
 
             y++; 
         }
-
-        Semaforos.getSemaforo(25).release();
     }
 
     private void andarRua5B() throws InterruptedException {
@@ -893,8 +816,6 @@ public class CarroAzul extends Thread {
     }
 
     private void passarCruzamento31() throws InterruptedException {
-        Semaforos.getSemaforo(31).acquire();
-
         while(y != 0) {
             Thread.sleep(velocidade); 
 
@@ -914,7 +835,5 @@ public class CarroAzul extends Thread {
 
             x++; 
         }
-
-        Semaforos.getSemaforo(31).release();
     }
 }

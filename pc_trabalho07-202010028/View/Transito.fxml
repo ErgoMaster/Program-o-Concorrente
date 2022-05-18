@@ -32,13 +32,13 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Slider fx:id="SliderCarroAmarelo" GridPane.columnIndex="1" />
-            <Slider fx:id="SliderCarroAzul" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Slider fx:id="SliderCarroLaranja" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Slider fx:id="SliderCarroPreto" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Slider fx:id="SliderCarroRoxo" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Slider fx:id="SliderCarroVerde" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Slider fx:id="SliderCarroVermelho" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Slider fx:id="SliderCarroAmarelo" max="20.0" min="10.0" GridPane.columnIndex="1" />
+            <Slider fx:id="SliderCarroAzul" max="20.0" min="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Slider fx:id="SliderCarroLaranja" max="20.0" min="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Slider fx:id="SliderCarroPreto" max="20.0" min="10.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Slider fx:id="SliderCarroRoxo" max="20.0" min="10.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Slider fx:id="SliderCarroVerde" max="20.0" min="10.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Slider fx:id="SliderCarroVermelho" max="20.0" min="10.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             <Label text="Amarelo" />
             <Label text="Azul" GridPane.rowIndex="1" />
             <Label text="Laranja" GridPane.rowIndex="2" />
