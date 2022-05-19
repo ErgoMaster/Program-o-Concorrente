@@ -60,21 +60,21 @@ public class TransitoController implements Initializable {
 
         Semaforos semaforos = new Semaforos(); // Inicizalizacao da classe estatica semaforos
 
-        CarroAmarelo carroA = new CarroAmarelo(velocidadeCarroAmarelo, ImageViewCarroAmarelo);
-        CarroAzul carroB = new CarroAzul(velocidadeCarroAzul, ImageViewCarroAzul);
-        CarroLaranja carroC = new CarroLaranja(velocidadeCarroLaranja, ImageViewCarroLaranja);
-        //CarroPreto carroD = new CarroPreto(velocidadeCarroPreto, ImageViewCarroPreto);
-        //CarroRoxo carroE = new CarroRoxo(velocidadeCarroRoxo, ImageViewCarroRoxo);
-        //CarroVerde carroF = new CarroVerde(velocidadeCarroVerde, ImageViewCarroVerde);
-        //CarroVermelho carroG = new CarroVermelho(velocidadeCarroVermelho, ImageViewCarroVermelho);
+        CarroAmarelo carroA = new CarroAmarelo(velocidadeCarroAmarelo, ImageViewCarroAmarelo, SliderCarroAmarelo);
+        CarroAzul carroB = new CarroAzul(velocidadeCarroAzul, ImageViewCarroAzul, SliderCarroAzul);
+        CarroLaranja carroC = new CarroLaranja(velocidadeCarroLaranja, ImageViewCarroLaranja, SliderCarroLaranja);
+        CarroPreto carroD = new CarroPreto(velocidadeCarroPreto, ImageViewCarroPreto, SliderCarroPreto);
+        CarroRoxo carroE = new CarroRoxo(velocidadeCarroRoxo, ImageViewCarroRoxo, SliderCarroRoxo);
+        CarroVerde carroF = new CarroVerde(velocidadeCarroVerde, ImageViewCarroVerde, SliderCarroVerde);
+        CarroVermelho carroG = new CarroVermelho(velocidadeCarroVermelho, ImageViewCarroVermelho, SliderCarroVermelho);
 
         carroA.start();
         carroB.start();
         carroC.start();
-        //carroD.start();
-        //.start();
-        //carroF.start();
-        //carroG.start();
+        carroD.start();
+        carroE.start();
+        carroF.start();
+        carroG.start();
     }
 
     /* ***************************************************************

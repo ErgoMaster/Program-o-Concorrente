@@ -17,38 +17,6 @@
             <Image url="@../Img/IMGCircuito.png" />
          </image>
       </ImageView>
-      <GridPane hgap="15.0" layoutX="583.0" layoutY="4.0" prefHeight="397.0" prefWidth="265.0">
-        <columnConstraints>
-          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="131.0" minWidth="10.0" prefWidth="96.3333740234375" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="187.33331298828125" minWidth="10.0" prefWidth="180.6666259765625" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Slider fx:id="SliderCarroAmarelo" max="20.0" min="10.0" GridPane.columnIndex="1" />
-            <Slider fx:id="SliderCarroAzul" max="20.0" min="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Slider fx:id="SliderCarroLaranja" max="20.0" min="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Slider fx:id="SliderCarroPreto" max="20.0" min="10.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Slider fx:id="SliderCarroRoxo" max="20.0" min="10.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Slider fx:id="SliderCarroVerde" max="20.0" min="10.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Slider fx:id="SliderCarroVermelho" max="20.0" min="10.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <Label text="Amarelo" />
-            <Label text="Azul" GridPane.rowIndex="1" />
-            <Label text="Laranja" GridPane.rowIndex="2" />
-            <Label text="Preto" GridPane.rowIndex="3" />
-            <Label text="Roxo" GridPane.rowIndex="4" />
-            <Label text="Verde" GridPane.rowIndex="5" />
-            <Label text="Vermelho" GridPane.rowIndex="6" />
-         </children>
-      </GridPane>
-      <Button fx:id="ButtonStart" layoutX="691.0" layoutY="425.0" mnemonicParsing="false" onAction="#start" text="Start" />
       <ImageView fx:id="ImageViewCarroAmarelo" fitHeight="18.0" fitWidth="19.0" layoutX="106.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Img/IMGCarroAmarelo.png" />
@@ -64,7 +32,7 @@
             <Image url="@../Img/IMGCarroLaranja.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="ImageViewCarroPreto" fitHeight="18.0" fitWidth="19.0" layoutX="319.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ImageViewCarroPreto" fitHeight="18.0" fitWidth="19.0" layoutX="546.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
          <image>
             <Image url="@../Img/IMGCarroPreto.png" />
          </image>
@@ -84,5 +52,37 @@
             <Image url="@../Img/IMGCarroVermelho.png" />
          </image>
       </ImageView>
+      <GridPane hgap="15.0" layoutX="583.0" layoutY="4.0" prefHeight="397.0" prefWidth="265.0">
+        <columnConstraints>
+          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="131.0" minWidth="10.0" prefWidth="96.3333740234375" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="187.33331298828125" minWidth="10.0" prefWidth="180.6666259765625" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Slider fx:id="SliderCarroAmarelo" max="20.0" min="5.0" rotate="180.0" GridPane.columnIndex="1" />
+            <Slider fx:id="SliderCarroAzul" max="20.0" min="5.0" rotate="180.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Slider fx:id="SliderCarroLaranja" max="20.0" min="5.0" rotate="180.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Slider fx:id="SliderCarroPreto" max="20.0" min="5.0" rotate="180.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Slider fx:id="SliderCarroRoxo" max="20.0" min="5.0" rotate="180.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Slider fx:id="SliderCarroVerde" max="20.0" min="5.0" rotate="180.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Slider fx:id="SliderCarroVermelho" max="20.0" min="5.0" rotate="180.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label text="Amarelo" />
+            <Label text="Azul" GridPane.rowIndex="1" />
+            <Label text="Laranja" GridPane.rowIndex="2" />
+            <Label text="Preto" GridPane.rowIndex="3" />
+            <Label text="Roxo" GridPane.rowIndex="4" />
+            <Label text="Verde" GridPane.rowIndex="5" />
+            <Label text="Vermelho" GridPane.rowIndex="6" />
+         </children>
+      </GridPane>
+      <Button fx:id="ButtonStart" layoutX="691.0" layoutY="425.0" mnemonicParsing="false" onAction="#start" text="Start" />
    </children>
 </AnchorPane>

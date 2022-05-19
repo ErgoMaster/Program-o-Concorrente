@@ -10,6 +10,7 @@
 package Model;
 
 import javafx.application.Platform;
+import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
 
 public class CarroLaranja extends Thread {
@@ -17,13 +18,19 @@ public class CarroLaranja extends Thread {
     private double y;
     private int velocidade;
     private ImageView carro;
+    private Slider sliderVelocidade;
 
-    public CarroLaranja(int velocidade, ImageView carro) {
+    public CarroLaranja(int velocidade, ImageView carro, Slider sliderVelocidade) {
         this.velocidade = velocidade;
         this.carro = carro;
+        this.sliderVelocidade = sliderVelocidade;
 
         x = carro.getX();
         y = carro.getY();
+    }
+
+    private void atualizarVelocidade() {
+        velocidade = (int) sliderVelocidade.getValue();
     }
 
     @Override
@@ -32,6 +39,7 @@ public class CarroLaranja extends Thread {
 
         try {
             while(true) {
+                atualizarVelocidade();
                 andarRua30B();
                 passarCruzamento30();
 
