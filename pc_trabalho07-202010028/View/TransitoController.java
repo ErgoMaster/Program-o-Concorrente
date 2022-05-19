@@ -12,8 +12,6 @@ package View;
 import java.net.URL;
 import java.util.ResourceBundle;
 import Model.*;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -93,55 +91,5 @@ public class TransitoController implements Initializable {
         velocidadeCarroRoxo = 5;
         velocidadeCarroVerde = 5;
         velocidadeCarroVermelho = 5;
-    
-        // Listeners para pegar o valor dos sliders de cada carro dentro da simulacao
-        SliderCarroAmarelo.valueProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> arg0, Number arg1, Number arg2) {
-                velocidadeCarroAmarelo = (int) SliderCarroAmarelo.getValue();
-            }
-        });        
-
-        SliderCarroAzul.valueProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> arg0, Number arg1, Number arg2) {
-                velocidadeCarroAzul = (int) SliderCarroAzul.getValue();
-            }
-        });
-
-        SliderCarroLaranja.valueProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> arg0, Number arg1, Number arg2) {
-                velocidadeCarroLaranja = (int) SliderCarroLaranja.getValue();
-            }
-        });
-
-        SliderCarroPreto.valueProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> arg0, Number arg1, Number arg2) {
-                velocidadeCarroPreto = (int) SliderCarroPreto.getValue();
-            }
-        });
-
-        SliderCarroRoxo.valueProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> arg0, Number arg1, Number arg2) {
-                velocidadeCarroRoxo = (int) SliderCarroRoxo.getValue();
-            }
-        });
-
-        SliderCarroVerde.valueProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> arg0, Number arg1, Number arg2) {
-                velocidadeCarroVerde = (int) SliderCarroVerde.getValue();
-            }
-        });
-
-        SliderCarroVermelho.valueProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> arg0, Number arg1, Number arg2) {
-                velocidadeCarroVermelho = (int) SliderCarroVermelho.getValue();
-            }
-        });
     }
 }
