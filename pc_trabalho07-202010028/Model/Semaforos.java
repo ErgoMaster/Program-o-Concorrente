@@ -15,7 +15,9 @@ public class Semaforos {
     private static Semaphore[] semaforosAAM = new Semaphore[2];
     private static Semaphore[] semaforosAL = new Semaphore[3];
     private static Semaphore semaforoAML = new Semaphore(0);
-    
+    private static Semaphore semaforoAP = new Semaphore(1);
+    private static Semaphore[] semaforosAMP = new Semaphore[2];
+     
     public Semaforos() {
         for(int i = 0; i < 2; i++) {
             semaforosAAM[i] = new Semaphore(1);
@@ -24,9 +26,15 @@ public class Semaforos {
         for(int i = 0; i < 3; i++) {
             semaforosAL[i] = new Semaphore(1);
         }
+
+        for(int i = 0; i < 2; i++) {
+            semaforosAMP[i] = new Semaphore(1);
+        }
     }
 
     public static Semaphore getSemaforoAAM(int index) { return semaforosAAM[index - 1]; }
     public static Semaphore getSemaforoAL(int index) { return semaforosAL[index - 1]; }
     public static Semaphore getSemaforoAML() { return semaforoAML; }
+    public static Semaphore getSemaforoAP() { return semaforoAP; }
+    public static Semaphore getSemaforoAMP(int index) { return semaforosAMP[index - 1]; }
 }

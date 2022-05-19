@@ -45,7 +45,10 @@ public class CarroAmarelo extends Thread {
                 andarRua2();
                 passarCruzamento3();
 
-                if(!primeraVez) { Semaforos.getSemaforoAAM(1).release(); }
+                if(!primeraVez) { 
+                    Semaforos.getSemaforoAAM(1).release(); 
+                    Semaforos.getSemaforoAMP(2).release();
+                }
 
                 andarRua11B();
                 passarCruzamento9();
@@ -93,6 +96,9 @@ public class CarroAmarelo extends Thread {
                 Semaforos.getSemaforoAML().release();
 
                 andarRua3B();
+
+                Semaforos.getSemaforoAMP(2).acquire();
+
                 passarCruzamento13();
                 andarRua2B();
                 passarCruzamento7();
@@ -196,6 +202,8 @@ public class CarroAmarelo extends Thread {
     }
 
     private void passarCruzamento15() throws InterruptedException {
+        Semaforos.getSemaforoAMP(1).acquire();
+
         while(y != 196) {
             Thread.sleep(velocidade); 
 
@@ -204,6 +212,8 @@ public class CarroAmarelo extends Thread {
 
             y++; 
         }
+
+        Semaforos.getSemaforoAMP(1).release();
     }
 
     private void andarRua13B() throws InterruptedException {

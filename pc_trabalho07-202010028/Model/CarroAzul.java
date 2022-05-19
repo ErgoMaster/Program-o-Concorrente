@@ -78,6 +78,9 @@ public class CarroAzul extends Thread {
                 Semaforos.getSemaforoAAM(2).release();
 
                 andarRua18B();
+
+                Semaforos.getSemaforoAP().acquire();
+
                 passarCruzamento16();
                 andarRua14();
                 passarCruzamento17();
@@ -105,6 +108,9 @@ public class CarroAzul extends Thread {
                 passarCruzamento7();
                 andarRua2B();
                 passarCruzamento13();
+
+                Semaforos.getSemaforoAP().release();
+                
                 andarRua3B();
                 passarCruzamento19();
                 andarRua4B();
