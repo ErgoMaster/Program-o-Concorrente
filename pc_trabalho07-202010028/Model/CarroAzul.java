@@ -58,58 +58,29 @@ public class CarroAzul extends Thread {
                 // Circuito completo do carro junto com as chamadas dos semaforos necessarios
                 atualizarVelocidade();
                 andarRua26();
-
-                Semaforos.getSemaforosAR(3).acquire();
-
                 passarCruzamento32();
                 andarRua27();
                 passarCruzamento33();
-
-                if(!primeiraVez) { Semaforos.getSemaforoAL(2).release(); }
-
                 andarRua15B();
                 passarCruzamento27();
                 andarRua23();
                 passarCruzamento28();
                 andarRua20B();
                 passarCruzamento34();
-
-                Semaforos.getSemaforosAR(3).release();
-                
                 andarRua29();
                 passarCruzamento35();
                 andarRua30();
                 passarCruzamento36();
                 andarRua30B();
                 passarCruzamento30();
-
-                if(!primeiraVez) { Semaforos.getSemaforoAAM(1).release(); }
-
                 andarRua25();
                 passarCruzamento29();
                 andarRua24B();
-
-                Semaforos.getSemaforoAAM(2).acquire();
-                Semaforos.getSemaforoAL(1).acquire();
-
                 passarCruzamento23();
                 andarRua19();
-
-                Semaforos.getSemaforosAR(1).acquire();
-
                 passarCruzamento22();
-
-                Semaforos.getSemaforoAL(1).release();
-                Semaforos.getSemaforoAAM(2).release();
-
                 andarRua18B();
-
-                Semaforos.getSemaforoAP().acquire();
-
                 passarCruzamento16();
-
-                Semaforos.getSemaforosAR(1).release();
-
                 andarRua14();
                 passarCruzamento17();
                 andarRua15();
@@ -121,30 +92,17 @@ public class CarroAzul extends Thread {
                 andarRua5();
                 passarCruzamento5();
                 andarRua4();
-                
-                Semaforos.getSemaforosAR(2).acquire();
-
                 passarCruzamento4();
                 andarRua3();
-
-                Semaforos.getSemaforoAL(2).acquire();
-                Semaforos.getSemaforoAAM(1).acquire();
-                
                 passarCruzamento3();
                 andarRua2();
                 passarCruzamento2();
-
-                Semaforos.getSemaforosAR(2).release();
-
                 andarRua1();
                 passarCruzamento1();
                 andarRua1B();
                 passarCruzamento7();
                 andarRua2B();
                 passarCruzamento13();
-
-                Semaforos.getSemaforoAP().release();
-                
                 andarRua3B();
                 passarCruzamento19();
                 andarRua4B();

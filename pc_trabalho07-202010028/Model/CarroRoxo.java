@@ -53,35 +53,17 @@ public class CarroRoxo extends Thread {
                 // Circuito completo do carro junto com as chamadas dos semaforos necessarios
                 atualizarVelocidade();
                 andarRua19B();
-
-                Semaforos.getSemaforosAR(1).acquire();
-
                 passarCruzamento22();
                 andarRua18B();
                 passarCruzamento16();
-
-                Semaforos.getSemaforosAR(1).release();
-
                 andarRua17B();
                 passarCruzamento10();
                 andarRua16B();
-
-                Semaforos.getSemaforosAR(2).acquire();
-                Semaforos.getSemaforosPR(3).acquire();
-
                 passarCruzamento4();
                 andarRua3();
-
-                Semaforos.getSemaforosAMR(2).acquire();
-
                 passarCruzamento3();
                 andarRua2();
                 passarCruzamento2();
-
-                Semaforos.getSemaforosPR(3).release();
-                Semaforos.getSemaforosAMR(2).release();
-                Semaforos.getSemaforosAR(2).release();
-
                 andarRua6B();
                 passarCruzamento8();
                 andarRua7B();
@@ -91,24 +73,13 @@ public class CarroRoxo extends Thread {
                 andarRua9B();
                 passarCruzamento26();
                 andarRua10B();
-
-                Semaforos.getSemaforosAR(3).acquire();
-                Semaforos.getSemaforosLR(3).acquire();
-                Semaforos.getSemaforosAMR(3).acquire();
-
                 passarCruzamento32();
                 andarRua27();
                 passarCruzamento33();
                 andarRua28();
                 passarCruzamento34();
-
-                Semaforos.getSemaforosAMR(3).release();
-                Semaforos.getSemaforosLR(3).release();
-
                 andarRua20B();
                 passarCruzamento28();
-
-                Semaforos.getSemaforosAR(3).release();
             } // Fim do while
         } catch(InterruptedException e) {
             e.printStackTrace();
@@ -139,9 +110,6 @@ public class CarroRoxo extends Thread {
     * Retorno: Void
     *************************************************************** */
     private void passarCruzamento22() throws InterruptedException {
-        Semaforos.getSemaforosLR(1).acquire();
-        Semaforos.getSemaforosAMR(1).acquire();
-
         while(y != -92) {
             Thread.sleep(velocidade); 
 
@@ -150,9 +118,6 @@ public class CarroRoxo extends Thread {
 
             y--; 
         }
-
-        Semaforos.getSemaforosAMR(1).release();
-        Semaforos.getSemaforosLR(1).release();
     }
 
     /* ***************************************************************
@@ -179,8 +144,6 @@ public class CarroRoxo extends Thread {
     * Retorno: Void
     *************************************************************** */
     private void passarCruzamento16() throws InterruptedException {
-        Semaforos.getSemaforosPR(2).acquire();
-
         while(y != -182) {
             Thread.sleep(velocidade); 
 
@@ -189,8 +152,6 @@ public class CarroRoxo extends Thread {
 
             y--; 
         }
-
-        Semaforos.getSemaforosPR(2).release();
     }
 
     /* ***************************************************************
@@ -409,8 +370,6 @@ public class CarroRoxo extends Thread {
     * Retorno: Void
     *************************************************************** */
     private void passarCruzamento14() throws InterruptedException {
-        Semaforos.getSemaforosPR(1).acquire();
-
         while(y != -154) {
             Thread.sleep(velocidade); 
 
@@ -419,8 +378,6 @@ public class CarroRoxo extends Thread {
 
             y++; 
         }
-
-        Semaforos.getSemaforosPR(1).release();
     }
 
     /* ***************************************************************
@@ -447,8 +404,6 @@ public class CarroRoxo extends Thread {
     * Retorno: Void
     *************************************************************** */
     private void passarCruzamento20() throws InterruptedException {
-        Semaforos.getSemaforosLR(2).acquire();
-
         while(y != -64) {
             Thread.sleep(velocidade); 
 
@@ -457,8 +412,6 @@ public class CarroRoxo extends Thread {
 
             y++; 
         }
-
-        Semaforos.getSemaforosLR(2).release();
     }
 
     /* ***************************************************************

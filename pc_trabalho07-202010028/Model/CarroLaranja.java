@@ -59,56 +59,28 @@ public class CarroLaranja extends Thread {
                 atualizarVelocidade();
                 andarRua30B();
                 passarCruzamento30();
-
-                if(!primeraVez) { Semaforos.getSemaforoAL(3).release(); }
-
                 andarRua29B();
                 passarCruzamento24();
                 andarRua20();
-
-                Semaforos.getSemaforoAL(1).acquire();
-
                 passarCruzamento23();
-
                 andarRua19();
                 passarCruzamento22();
-
-                Semaforos.getSemaforoAL(1).release();
-
                 andarRua18();
                 passarCruzamento21();
-
-                Semaforos.getSemaforoAML().release(); 
-                
                 andarRua17();
                 passarCruzamento20();
                 andarRua16();
-
-                Semaforos.getSemaforoAL(2).acquire();
-                Semaforos.getSemaforoAML().acquire();
-
                 passarCruzamento19();
                 andarRua4B();
                 passarCruzamento25();
                 andarRua5B();
                 passarCruzamento31();
                 andarRua26();
-
-                Semaforos.getSemaforosLR(3).acquire();
-
                 passarCruzamento32();
                 andarRua27();
                 passarCruzamento33();
-
-                Semaforos.getSemaforoAL(2).release();
-
                 andarRua28();
-
-                Semaforos.getSemaforoAL(3).acquire();
                 passarCruzamento34();
-
-                Semaforos.getSemaforosLR(3).release();
-                
                 andarRua29();
                 passarCruzamento35();
                 andarRua30();
@@ -258,8 +230,6 @@ public class CarroLaranja extends Thread {
     * Retorno: Void
     *************************************************************** */
     private void passarCruzamento22() throws InterruptedException {
-        Semaforos.getSemaforosLR(1).acquire();
-
         while(x != -196) {
             Thread.sleep(velocidade); 
 
@@ -268,8 +238,6 @@ public class CarroLaranja extends Thread {
 
             x--; 
         }
-
-        Semaforos.getSemaforosLR(1).release();
     }
 
     /* ***************************************************************
@@ -330,8 +298,6 @@ public class CarroLaranja extends Thread {
     * Retorno: Void
     *************************************************************** */
     private void passarCruzamento20() throws InterruptedException {
-        Semaforos.getSemaforosLR(2).acquire();
-
         while(x != -378) {
             Thread.sleep(velocidade); 
 
@@ -340,8 +306,6 @@ public class CarroLaranja extends Thread {
 
             x--; 
         }
-
-        Semaforos.getSemaforosLR(2).release();
     }
 
     /* ***************************************************************

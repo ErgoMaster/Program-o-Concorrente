@@ -64,39 +64,22 @@ public class CarroPreto extends Thread {
                 andarRua5();
                 passarCruzamento5();
                 andarRua4();
-
-                Semaforos.getSemaforosPR(3).acquire();
-
                 passarCruzamento4();
                 andarRua3();
-
-                Semaforos.getSemaforoAMP(2).acquire();
-
                 passarCruzamento3();
                 andarRua2();
                 passarCruzamento2();
-
-                Semaforos.getSemaforosPR(3).release();
-                
                 andarRua1();
                 passarCruzamento1();
                 andarRua1B();
                 passarCruzamento7();
                 andarRua2B();
-
-                if(!primeraVez) { Semaforos.getSemaforoAP().release(); }
-
                 passarCruzamento13();
-
-                Semaforos.getSemaforoAMP(2).release();
-                
                 andarRua11();
                 passarCruzamento14();
                 andarRua12();
                 passarCruzamento15();
                 andarRua13();
-
-                Semaforos.getSemaforoAP().acquire();
                 passarCruzamento16();
                 andarRua14();
                 passarCruzamento17();
@@ -473,8 +456,6 @@ public class CarroPreto extends Thread {
     * Retorno: Void
     *************************************************************** */
     private void passarCruzamento14() throws InterruptedException {
-        Semaforos.getSemaforosPR(1).acquire();
-
         while(x != -350) {
             Thread.sleep(velocidade); 
 
@@ -483,8 +464,6 @@ public class CarroPreto extends Thread {
 
             x++; 
         }
-
-        Semaforos.getSemaforosPR(1).release();
     }
 
     /* ***************************************************************
@@ -511,8 +490,6 @@ public class CarroPreto extends Thread {
     * Retorno: Void
     *************************************************************** */
     private void passarCruzamento15() throws InterruptedException {
-        Semaforos.getSemaforoAMP(1).acquire();
-
         while(x != -260) {
             Thread.sleep(velocidade); 
 
@@ -521,8 +498,6 @@ public class CarroPreto extends Thread {
 
             x++; 
         }
-
-        Semaforos.getSemaforoAMP(1).release();
     }
 
     /* ***************************************************************

@@ -12,117 +12,47 @@ package Model;
 import java.util.concurrent.Semaphore;
 
 public class Semaforos {
-    private static Semaphore[] semaforosAAM = new Semaphore[2]; // Semaforos para controlar as regioes criticas dos carros Azul e Amarelo
-    private static Semaphore[] semaforosAL = new Semaphore[3]; // Semaforos para controlar as regioes criticas dos carros Azul e Laranja
-    private static Semaphore semaforoAML = new Semaphore(0); // Semaforos para controlar as regioes criticas dos carros Amarelo e Laranja
-    private static Semaphore semaforoAP = new Semaphore(1); // Semaforos para controlar as regioes criticas dos carros Azul e Preto
-    private static Semaphore[] semaforosAMP = new Semaphore[2]; // Semaforos para controlar as regioes criticas dos carros Amarelo e Preto
-    private static Semaphore[] semaforosAR = new Semaphore[3]; // Semaforos para controlar as regioes criticas dos carros Azul e Roxo
-    private static Semaphore[] semaforosLR = new Semaphore[3]; // Semaforos para controlar as regioes criticas dos carros Laranja e Roxo
-    private static Semaphore[] semaforosAMR = new Semaphore[3]; // Semaforos para controlar as regioes criticas dos carros Amarelo e Roxo
-    private static Semaphore[] semaforosPR = new Semaphore[3]; // Semaforos para controlar as regioes criticas dos carros Preto e Roxo
+    private static Semaphore[] semaforosRuasHorizontais = new Semaphore[30];
+    private static Semaphore[] semaforosRuasVerticais = new Semaphore[30];
+    private static Semaphore[] semaforosCruzamentos = new Semaphore[36];
      
     // Contrutor
     public Semaforos() {
         // Inicializacao dos semaforos
-        for(int i = 0; i < 2; i++) {
-            semaforosAAM[i] = new Semaphore(1);
-        } // Fim do for do semaforo Azul e Amarelo
+        for(int i = 0; i < 30; i++) {
+            semaforosRuasHorizontais[i] = new Semaphore(1);
+        } // Fim do for das ruas horizontais
 
-        for(int i = 0; i < 3; i++) {
-            semaforosAL[i] = new Semaphore(1);
-        } // Fim do for do semaforo Azul e Laranja
+        for(int i = 0; i < 30; i++) {
+            semaforosRuasVerticais[i] = new Semaphore(1);
+        } // Fim do for das ruas verticais
 
-        for(int i = 0; i < 2; i++) {
-            semaforosAMP[i] = new Semaphore(1);
-        } // Fim do for do semaforo Amarelo e Preto
-
-        for(int i = 0; i < 3; i++) {
-            semaforosAR[i] = new Semaphore(1);
-        } // Fim do for do semaforo Azul e Roxo
-
-        for(int i = 0; i < 3; i++) {
-            semaforosLR[i] = new Semaphore(1);
-        } // Fim do for do semaforo Laranja e Roxo
-
-        for(int i = 0; i < 3; i++) {
-            semaforosAMR[i] = new Semaphore(1);
-        } // Fim do for do semaforo Amarelo e Roxo
-
-        for(int i = 0; i < 3; i++) {
-            semaforosPR[i] = new Semaphore(1);
-        } // Fim do for do semaforo Preto e Roxo
+        for(int i = 0; i < 30; i++) {
+            semaforosCruzamentos[i] = new Semaphore(1);
+        } // Fim do for dos cruzamentos
     } // Fim do construtor
 
     /* ***************************************************************
-    * Metodo: getSemaforosAAM
-    * Funcao: Retorna o semaforo das regioes criticas dos carros Azul e Amarelo
+    * Metodo: getSemaforosRuasHorizontais
+    * Funcao: Retorna os semaforos correspondentes as ruas horizontais
     * Parametros: O index que indica o semaforo desejado
     * Retorno: Um semaforo dado o index
     *************************************************************** */
-    public static Semaphore getSemaforoAAM(int index) { return semaforosAAM[index - 1]; }
+    public static Semaphore getSemaforoRuasHorizontais(int index) { return semaforosRuasHorizontais[index - 1]; } 
 
     /* ***************************************************************
-    * Metodo: getSemaforosAL
-    * Funcao: Retorna o semaforo das regioes criticas dos carros Azul e Laranja
+    * Metodo: getSemaforosRuasVerticais
+    * Funcao: Retorna os semaforos correspondentes as ruas verticais
     * Parametros: O index que indica o semaforo desejado
     * Retorno: Um semaforo dado o index
     *************************************************************** */
-    public static Semaphore getSemaforoAL(int index) { return semaforosAL[index - 1]; }
+    public static Semaphore getSemaforoRuasVerticais(int index) { return semaforosRuasVerticais[index - 1]; } 
 
     /* ***************************************************************
-    * Metodo: getSemaforosAML
-    * Funcao: Retorna o semaforo das regioes criticas dos carros Amarelo e Laranja
-    * Parametros: Void
-    * Retorno: O semaforo desejado
-    *************************************************************** */
-    public static Semaphore getSemaforoAML() { return semaforoAML; }
-
-    /* ***************************************************************
-    * Metodo: getSemaforosAP
-    * Funcao: Retorna o semaforo das regioes criticas dos carros Azul e Preto
-    * Parametros: Void
-    * Retorno: O semaforo desejado
-    *************************************************************** */
-    public static Semaphore getSemaforoAP() { return semaforoAP; }
-
-    /* ***************************************************************
-    * Metodo: getSemaforosAMP
-    * Funcao: Retorna o semaforo das regioes criticas dos carros Amarelo e Preto
+    * Metodo: getSemaforosRuasCruzamentos
+    * Funcao: Retorna os semaforos correspondentes aos cruzamentos
     * Parametros: O index que indica o semaforo desejado
     * Retorno: Um semaforo dado o index
     *************************************************************** */
-    public static Semaphore getSemaforoAMP(int index) { return semaforosAMP[index - 1]; }
-
-    /* ***************************************************************
-    * Metodo: getSemaforosAR
-    * Funcao: Retorna o semaforo das regioes criticas dos carros Azul e Roxo
-    * Parametros: O index que indica o semaforo desejado
-    * Retorno: Um semaforo dado o index
-    *************************************************************** */
-    public static Semaphore getSemaforosAR(int index) { return semaforosAR[index - 1]; }
-
-    /* ***************************************************************
-    * Metodo: getSemaforosLR
-    * Funcao: Retorna o semaforo das regioes criticas dos carros Laranja e Roxo
-    * Parametros: O index que indica o semaforo desejado
-    * Retorno: Um semaforo dado o index
-    *************************************************************** */
-    public static Semaphore getSemaforosLR(int index) { return semaforosLR[index - 1]; }
-
-    /* ***************************************************************
-    * Metodo: getSemaforosAMR
-    * Funcao: Retorna o semaforo das regioes criticas dos carros Amarelo e Roxo
-    * Parametros: O index que indica o semaforo desejado
-    * Retorno: Um semaforo dado o index
-    *************************************************************** */
-    public static Semaphore getSemaforosAMR(int index) { return semaforosAMR[index - 1]; }
-
-    /* ***************************************************************
-    * Metodo: getSemaforosPR
-    * Funcao: Retorna o semaforo das regioes criticas dos carros Preto e Roxo
-    * Parametros: O index que indica o semaforo desejado
-    * Retorno: Um semaforo dado o index
-    *************************************************************** */
-    public static Semaphore getSemaforosPR(int index) { return semaforosPR[index - 1]; }
+    public static Semaphore getSemaforoCruzamentos(int index) { return semaforosCruzamentos[index - 1]; } 
 }
