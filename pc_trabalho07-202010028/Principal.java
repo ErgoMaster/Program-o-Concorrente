@@ -2,7 +2,7 @@
 * Autor............: Gabriel Uzel Fonseca
 * Matricula........: 202010028
 * Inicio...........: 16/05/2022
-* Ultima alteracao.: xx
+* Ultima alteracao.: 22/05/2022
 * Nome.............: Transito automato
 * Funcao...........: Simulacao de um transito utilizando threads
 *************************************************************** */

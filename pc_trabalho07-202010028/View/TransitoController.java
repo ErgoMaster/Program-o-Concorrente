@@ -2,7 +2,7 @@
 * Autor............: Gabriel Uzel Fonseca
 * Matricula........: 202010028
 * Inicio...........: 16/05/2022
-* Ultima alteracao.: xx
+* Ultima alteracao.: 22/05/2022
 * Nome.............: Controller do transito
 * Funcao...........: Iniciar as threads do programa
 *************************************************************** */
@@ -20,6 +20,7 @@ import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
 
 public class TransitoController implements Initializable {
+    // Variaveis para controle da velocidade dos carros
     private int velocidadeCarroAmarelo;
     private int velocidadeCarroAzul;
     private int velocidadeCarroLaranja;
@@ -30,6 +31,7 @@ public class TransitoController implements Initializable {
 
     @FXML private Button ButtonStart;
 
+    // Image view dos carros
     @FXML private ImageView ImageViewCarroAmarelo;
     @FXML private ImageView ImageViewCarroAzul;
     @FXML private ImageView ImageViewCarroLaranja;
@@ -38,6 +40,7 @@ public class TransitoController implements Initializable {
     @FXML private ImageView ImageViewCarroVerde;
     @FXML private ImageView ImageViewCarroVermelho;
 
+    // Sliders para controle dessas velocidade
     @FXML private Slider SliderCarroAmarelo;
     @FXML private Slider SliderCarroAzul;
     @FXML private Slider SliderCarroLaranja;
@@ -58,6 +61,7 @@ public class TransitoController implements Initializable {
 
         Semaforos semaforos = new Semaforos(); // Inicizalizacao da classe estatica semaforos
 
+        // Chamada e inicializacao das threads
         CarroAmarelo carroA = new CarroAmarelo(velocidadeCarroAmarelo, ImageViewCarroAmarelo, SliderCarroAmarelo);
         CarroAzul carroB = new CarroAzul(velocidadeCarroAzul, ImageViewCarroAzul, SliderCarroAzul);
         CarroLaranja carroC = new CarroLaranja(velocidadeCarroLaranja, ImageViewCarroLaranja, SliderCarroLaranja);
@@ -73,7 +77,7 @@ public class TransitoController implements Initializable {
         carroE.start();
         carroF.start();
         carroG.start();
-    }
+    } // Fim do metodo start
 
     /* ***************************************************************
     * Metodo: initialize
@@ -91,5 +95,5 @@ public class TransitoController implements Initializable {
         velocidadeCarroRoxo = 5;
         velocidadeCarroVerde = 5;
         velocidadeCarroVermelho = 5;
-    }
+    } // Fim do metodo initialize
 }

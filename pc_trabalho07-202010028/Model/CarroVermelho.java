@@ -13,12 +13,13 @@ import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
 
 public class CarroVermelho extends Thread {
-    private double x;
-    private double y;
-    private int velocidade;
-    private ImageView carro;
-    private Slider sliderVelocidade;
+    private double x; // Posicao x do carro
+    private double y; // Posicao y do carro
+    private int velocidade; // Velocidade do carro
+    private ImageView carro; // Image view correspondente
+    private Slider sliderVelocidade; // Slider correspondente
 
+    // Construtor
     public CarroVermelho(int velocidade, ImageView carro, Slider sliderVelocidade) {
         this.velocidade = velocidade;
         this.carro = carro;
@@ -26,9 +27,38 @@ public class CarroVermelho extends Thread {
 
         x = carro.getX();
         y = carro.getY();
-    }
+    } // Fim do contrutor
 
+    /* ***************************************************************
+    * Metodo: atualizarVelocidade
+    * Funcao: Verificar se houve mudanca no slider de velocidade e atualizar a variavel para a nova velocidade
+    * Parametros: Void
+    * Retorno: Void
+    *************************************************************** */
     private void atualizarVelocidade() {
         velocidade = (int) sliderVelocidade.getValue();
+    } // Fim do metodo atualizar velocidade
+
+    /* ***************************************************************
+    * Metodo: run
+    * Funcao: Inicializa a thread
+    * Parametros: Void
+    * Retorno: Void
+    *************************************************************** */
+    @Override
+    public void run() {
+        try {
+            while(true) {
+                // Circuito completo do carro junto com as chamadas dos semaforos necessarios
+                atualizarVelocidade();
+                andarRuax();
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } // Fim do while
+    } // Fim do metodo run
+
+    private void andarRuax() throws InterruptedException {
+
     }
 }
