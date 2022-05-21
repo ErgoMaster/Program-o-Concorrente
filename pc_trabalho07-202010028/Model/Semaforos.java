@@ -27,7 +27,7 @@ public class Semaforos {
             semaforosRuasVerticais[i] = new Semaphore(1);
         } // Fim do for das ruas verticais
 
-        for(int i = 0; i < 30; i++) {
+        for(int i = 0; i < 36; i++) {
             semaforosCruzamentos[i] = new Semaphore(1);
         } // Fim do for dos cruzamentos
     } // Fim do construtor
