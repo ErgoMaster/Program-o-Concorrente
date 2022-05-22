@@ -2,7 +2,7 @@
 * Autor............: Gabriel Uzel Fonseca
 * Matricula........: 202010028
 * Inicio...........: 16/05/2022
-* Ultima alteracao.: xx
+* Ultima alteracao.: 22/05/2022
 * Nome.............: Carro Vermelho
 * Funcao...........: Controla o carro vermelho da simulacao
 *************************************************************** */
@@ -49,11 +49,11 @@ public class CarroVermelho extends Thread {
     
     @Override
     public void run() {
-        /*
-        Semaforos.getSemaforoRuasHorizontais().acquire();
-        Semaforos.getSemaforoRuasVerticais().acquire();
-        Semaforos.getSemaforoCruzamentos().acquire();
-        */
+        /* Variavel para verificar se eh a primeira vez que o carro esta fazendo o circuito. Isso deve ser
+        feito porque ha momentos em que o carro da um "up" em um semaforo antes de dar um "down", entao 
+        devemos proteger esse semaforo para que ele nao va para valor 2 */
+        boolean primeraVez = true; 
+
         try {
             while(true) {
                 // Circuito completo do carro junto com as chamadas dos semaforos necessarios
@@ -62,42 +62,99 @@ public class CarroVermelho extends Thread {
                 passarCruzamento20();
                 andarRua17();
                 passarCruzamento21();
+
+                if(!primeraVez) {
+                    Semaforos.getSemaforoLaranjaVermelho(1).release();
+                }
+                
                 andarRua14B();
+
+                Semaforos.getSemaforoAzulVermelho(1).acquire();
+
                 passarCruzamento27();
                 andarRua15B();
+
+                Semaforos.getSemaforoAmareloVermelho(2).acquire();
+
                 passarCruzamento33();
+
+                Semaforos.getSemaforoAzulVermelho(1).release();
+
                 andarRua28();
                 passarCruzamento34();
+
+                Semaforos.getSemaforoAzulVermelho(2).acquire();
+                Semaforos.getSemaforoAmareloVermelho(2).release();
+
                 andarRua20B();
                 passarCruzamento28();
+
+                Semaforos.getSemaforoAzulVermelho(2).release();
+
                 andarRua19B();
+
+                Semaforos.getSemaforoAzulVermelho(3).acquire();
+                Semaforos.getSemaforoLaranjaVermelho(2).acquire();
+
                 passarCruzamento22();
                 andarRua19();
                 passarCruzamento23();
+
+                Semaforos.getSemaforoAzulVermelho(3).release();
+
                 andarRua20();
                 passarCruzamento24();
+
+                Semaforos.getSemaforoLaranjaVermelho(2).release();
+
                 andarRua28B();
+
+                Semaforos.getSemaforoAzulVermelho(4).acquire();
+
                 passarCruzamento18();
                 andarRua15();
                 passarCruzamento17();
                 andarRua14();
                 passarCruzamento16();
+
+                Semaforos.getSemaforoAzulVermelho(4).release();
+
                 andarRua17B();
                 passarCruzamento10();
                 andarRua16B();
+
+                Semaforos.getSemaforoRua3().acquire();
+
                 passarCruzamento4();
                 andarRua3();
                 passarCruzamento3();
+
+                Semaforos.getSemaforoRua3().release();
+
                 andarRua11B();
                 passarCruzamento9();
                 andarRua12B();
+
+                Semaforos.getSemaforoPretoVermelho(1).acquire();
+
                 passarCruzamento15();
                 andarRua12();
                 passarCruzamento14();
                 andarRua11();
+
+                Semaforos.getSemaforoAmareloVermelho(1).acquire();
+                Semaforos.getSemaforoLaranjaVermelho(1).acquire();
+
                 passarCruzamento13();
+
+                Semaforos.getSemaforoPretoVermelho(1).release();
+
                 andarRua3B();
                 passarCruzamento19();
+
+                Semaforos.getSemaforoAmareloVermelho(1).release();
+
+                primeraVez = false;
             } // Fim do while
         } catch (InterruptedException e) {
             e.printStackTrace();

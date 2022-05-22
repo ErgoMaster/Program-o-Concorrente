@@ -2,7 +2,7 @@
 * Autor............: Gabriel Uzel Fonseca
 * Matricula........: 202010028
 * Inicio...........: 16/05/2022
-* Ultima alteracao.: xx
+* Ultima alteracao.: 22/05/2022
 * Nome.............: Carro Verde
 * Funcao...........: Controla o carro verde da simulacao
 *************************************************************** */
@@ -57,6 +57,9 @@ public class CarroVerde extends Thread {
                 andarRua27B();
                 passarCruzamento12();
                 andarRua26B();
+
+                Semaforos.getSemaforoRua3().acquire();
+
                 passarCruzamento6();
                 andarRua5();
                 passarCruzamento5();
@@ -64,6 +67,9 @@ public class CarroVerde extends Thread {
                 passarCruzamento4();
                 andarRua3();
                 passarCruzamento3();
+
+                Semaforos.getSemaforoRua3().release();
+
                 andarRua11B();
                 passarCruzamento9();
                 andarRua12B();

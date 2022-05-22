@@ -2,7 +2,7 @@
 * Autor............: Gabriel Uzel Fonseca
 * Matricula........: 202010028
 * Inicio...........: 16/05/2022
-* Ultima alteracao.: xx
+* Ultima alteracao.: 22/05/2022
 * Nome.............: Carro Preto
 * Funcao...........: Controla o carro preto da simulacao
 *************************************************************** */
@@ -57,12 +57,16 @@ public class CarroPreto extends Thread {
                 andarRua26B();
                 passarCruzamento6();
                 andarRua5();
+
+                Semaforos.getSemaforoRua3().acquire();
+
                 passarCruzamento5();
                 andarRua4();
                 passarCruzamento4();
                 andarRua3();
 
                 Semaforos.getSemaforoAmareloPreto().acquire();
+                Semaforos.getSemaforoRua3().release();
 
                 passarCruzamento3();
                 andarRua2();
@@ -72,6 +76,9 @@ public class CarroPreto extends Thread {
                 andarRua1B();
                 passarCruzamento7();
                 andarRua2B();
+
+                Semaforos.getSemaforoPretoVermelho(1).acquire();
+
                 passarCruzamento13();
 
                 Semaforos.getSemaforoAmareloPreto().release();
@@ -80,6 +87,9 @@ public class CarroPreto extends Thread {
                 passarCruzamento14();
                 andarRua12();
                 passarCruzamento15();
+
+                Semaforos.getSemaforoPretoVermelho(1).release();
+
                 andarRua13();
                 passarCruzamento16();
                 andarRua14();

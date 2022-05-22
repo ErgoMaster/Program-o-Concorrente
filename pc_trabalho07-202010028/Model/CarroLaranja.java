@@ -2,7 +2,7 @@
 * Autor............: Gabriel Uzel Fonseca
 * Matricula........: 202010028
 * Inicio...........: 16/05/2022
-* Ultima alteracao.: xx
+* Ultima alteracao.: 22/05/2022
 * Nome.............: Carro Laranja
 * Funcao...........: Controla o carro laranja da simulacao
 *************************************************************** */
@@ -62,13 +62,20 @@ public class CarroLaranja extends Thread {
                 andarRua29B();
 
                 Semaforos.getSemaforoLaranjaVerde().acquire();
+                Semaforos.getSemaforoLaranjaVermelho(2).acquire();
 
                 passarCruzamento24();
                 andarRua20();
                 passarCruzamento23();
                 andarRua19();
                 passarCruzamento22();
+
+                Semaforos.getSemaforoLaranjaVermelho(2).release();
+                
                 andarRua18();
+
+                Semaforos.getSemaforoLaranjaVermelho(1).acquire();
+
                 passarCruzamento21();
 
                 if(!primeraVez) {
@@ -83,6 +90,9 @@ public class CarroLaranja extends Thread {
                 Semaforos.getSemaforoAmareloLaranja().acquire();
 
                 passarCruzamento19();
+
+                Semaforos.getSemaforoLaranjaVermelho(1).release();
+
                 andarRua4B();
                 passarCruzamento25();
                 andarRua5B();

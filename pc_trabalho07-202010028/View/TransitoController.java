@@ -70,12 +70,12 @@ public class TransitoController implements Initializable {
         CarroVerde carroF = new CarroVerde(velocidadeCarroVerde, ImageViewCarroVerde, SliderCarroVerde);
         CarroVermelho carroG = new CarroVermelho(velocidadeCarroVermelho, ImageViewCarroVermelho, SliderCarroVermelho);
 
-        //carroA.start();
-        //carroB.start();
-        //carroC.start();
-        //carroD.start();
-        //carroE.start();
-        //carroF.start();
+        carroA.start();
+        carroB.start();
+        carroC.start();
+        carroD.start();
+        carroE.start();
+        carroF.start();
         carroG.start();
     } // Fim do metodo start
 

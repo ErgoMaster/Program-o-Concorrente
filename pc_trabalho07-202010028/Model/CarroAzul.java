@@ -2,7 +2,7 @@
 * Autor............: Gabriel Uzel Fonseca
 * Matricula........: 202010028
 * Inicio...........: 16/05/2022
-* Ultima alteracao.: xx
+* Ultima alteracao.: 22/05/2022
 * Nome.............: Carro Azul
 * Funcao...........: Controla o carro azul da simulacao
 *************************************************************** */
@@ -58,8 +58,14 @@ public class CarroAzul extends Thread {
                 // Circuito completo do carro junto com as chamadas dos semaforos necessarios
                 atualizarVelocidade();
                 andarRua26();
+
+                Semaforos.getSemaforoAzulRoxo().acquire();
+
                 passarCruzamento32();
                 andarRua27();
+
+                Semaforos.getSemaforoAzulVermelho(1).acquire();
+
                 passarCruzamento33();
 
                 if(!primeraVez) {
@@ -68,9 +74,12 @@ public class CarroAzul extends Thread {
                 
                 andarRua15B();
                 passarCruzamento27();
+
+                Semaforos.getSemaforoAzulVermelho(1).release();
+
                 andarRua23();
 
-                Semaforos.getSemaforoAzulRoxo().acquire();
+                Semaforos.getSemaforoAzulVermelho(2).acquire();
 
                 passarCruzamento28();
                 andarRua20B();
@@ -79,6 +88,7 @@ public class CarroAzul extends Thread {
 
                 passarCruzamento34();
 
+                Semaforos.getSemaforoAzulVermelho(2).release();
                 Semaforos.getSemaforoAzulRoxo().release();
 
                 andarRua29();
@@ -96,20 +106,28 @@ public class CarroAzul extends Thread {
 
                 Semaforos.getSemaforoAzulVerde().acquire();
                 Semaforos.getSemaforosAmareloAzul(3).acquire();
+                Semaforos.getSemaforoAzulVermelho(3).acquire();
 
                 passarCruzamento23();
                 andarRua19();
                 passarCruzamento22();
 
+                Semaforos.getSemaforoAzulVermelho(3).release();
                 Semaforos.getSemaforosAmareloAzul(3).release();
                 Semaforos.getSemaforoAzulVerde().release();
                 
                 andarRua18B();
+
+                Semaforos.getSemaforoAzulVermelho(4).acquire();
+
                 passarCruzamento16();
                 andarRua14();
                 passarCruzamento17();
                 andarRua15();
                 passarCruzamento18();
+
+                Semaforos.getSemaforoAzulVermelho(4).release();
+
                 andarRua27B();
                 passarCruzamento12();
                 andarRua26B();
@@ -117,12 +135,18 @@ public class CarroAzul extends Thread {
                 andarRua5();
                 passarCruzamento5();
                 andarRua4();
+
+                Semaforos.getSemaforoRua3().acquire();
+
                 passarCruzamento4();
                 andarRua3();
 
                 Semaforos.getSemaforosAmareloAzul(1).acquire();
 
                 passarCruzamento3();
+
+                Semaforos.getSemaforoRua3().release();
+
                 andarRua2();
                 passarCruzamento2();
                 andarRua1();

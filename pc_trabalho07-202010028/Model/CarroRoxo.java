@@ -2,7 +2,7 @@
 * Autor............: Gabriel Uzel Fonseca
 * Matricula........: 202010028
 * Inicio...........: 16/05/2022
-* Ultima alteracao.: xx
+* Ultima alteracao.: 22/05/2022
 * Nome.............: Carro Roxo
 * Funcao...........: Controla o carro roxo da simulacao
 *************************************************************** */
@@ -57,6 +57,9 @@ public class CarroRoxo extends Thread {
                 andarRua18B();
                 passarCruzamento16();
                 andarRua17B();
+
+                Semaforos.getSemaforoRua3().acquire();
+
                 passarCruzamento10();
                 andarRua16B();
                 passarCruzamento4();
@@ -65,6 +68,9 @@ public class CarroRoxo extends Thread {
                 Semaforos.getSemaforoAmareloRoxo(2).acquire();
 
                 passarCruzamento3();
+
+                Semaforos.getSemaforoRua3().release();
+
                 andarRua2();
                 passarCruzamento2();
 
@@ -81,13 +87,12 @@ public class CarroRoxo extends Thread {
                 andarRua10B();
 
                 Semaforos.getSemaforoAmareloRoxo(1).acquire();
+                Semaforos.getSemaforoAzulRoxo().acquire();
 
                 passarCruzamento32();
                 andarRua27();
                 passarCruzamento33();
                 andarRua28();
-
-                Semaforos.getSemaforoAzulRoxo().acquire();
 
                 passarCruzamento34();
 

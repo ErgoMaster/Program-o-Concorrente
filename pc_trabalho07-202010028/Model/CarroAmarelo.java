@@ -2,7 +2,7 @@
 * Autor............: Gabriel Uzel Fonseca
 * Matricula........: 202010028
 * Inicio...........: 16/05/2022
-* Ultima alteracao.: xx
+* Ultima alteracao.: 22/05/2022
 * Nome.............: Carro Amarelo
 * Funcao...........: Controla o carro amarelo da simulacao
 *************************************************************** */
@@ -78,6 +78,7 @@ public class CarroAmarelo extends Thread {
                 andarRua13B();
 
                 Semaforos.getSemaforoAmareloLaranja().acquire();
+                Semaforos.getSemaforoAmareloPreto().acquire();
 
                 passarCruzamento21();
                 andarRua18();
@@ -104,6 +105,7 @@ public class CarroAmarelo extends Thread {
                 andarRua29();
 
                 Semaforos.getSemaforoAmareloRoxo(1).acquire();
+                Semaforos.getSemaforoAmareloVermelho(2).acquire();
 
                 passarCruzamento34();
 
@@ -114,6 +116,9 @@ public class CarroAmarelo extends Thread {
                 Semaforos.getSemaforosAmareloAzul(1).acquire();
 
                 passarCruzamento33();
+
+                Semaforos.getSemaforoAmareloVermelho(2).release();
+
                 andarRua27();
                 passarCruzamento32();
 
@@ -127,12 +132,13 @@ public class CarroAmarelo extends Thread {
                 passarCruzamento19();
 
                 Semaforos.getSemaforoAmareloLaranja().release();
+                Semaforos.getSemaforoAmareloVermelho(1).acquire();
 
                 andarRua3B();
-
-                Semaforos.getSemaforoAmareloPreto().acquire();
-
                 passarCruzamento13();
+
+                Semaforos.getSemaforoAmareloVermelho(1).release();
+
                 andarRua2B();
                 passarCruzamento7();
                 andarRua1B();
