@@ -47,7 +47,7 @@
             <Image url="@../Img/IMGCarroVerde.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="ImageViewCarroVermelho" fitHeight="18.0" fitWidth="19.0" layoutX="493.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ImageViewCarroVermelho" fitHeight="18.0" fitWidth="19.0" layoutX="104.0" layoutY="277.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Img/IMGCarroVermelho.png" />
          </image>

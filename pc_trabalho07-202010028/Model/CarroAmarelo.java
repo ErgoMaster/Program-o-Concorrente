@@ -58,47 +58,87 @@ public class CarroAmarelo extends Thread {
                 // Circuito completo do carro junto com as chamadas dos semaforos necessarios
                 atualizarVelocidade();
                 andarRua1();
+
+                Semaforos.getSemaforoAmareloRoxo(2).acquire();
+
                 passarCruzamento2();
                 andarRua2();
                 passarCruzamento3();
+
+                Semaforos.getSemaforoAmareloRoxo(2).release();
+                if(!primeraVez) {
+                    Semaforos.getSemaforoAmareloPreto().release();
+                    Semaforos.getSemaforosAmareloAzul(1).release();
+                }
+
                 andarRua11B();
                 passarCruzamento9();
                 andarRua12B();
                 passarCruzamento15();
                 andarRua13B();
+
+                Semaforos.getSemaforoAmareloLaranja().acquire();
+
                 passarCruzamento21();
                 andarRua18();
+
+                Semaforos.getSemaforosAmareloAzul(3).acquire();
+
                 passarCruzamento22();
                 andarRua19();
                 passarCruzamento23();
+
+                Semaforos.getSemaforosAmareloAzul(3).release();
+
                 andarRua20();
                 passarCruzamento24();
                 andarRua29B();
+
+                Semaforos.getSemaforosAmareloAzul(2).acquire();
+
                 passarCruzamento30();
                 andarRua30B();
                 passarCruzamento36();
                 andarRua30();
                 passarCruzamento35();
                 andarRua29();
+
+                Semaforos.getSemaforoAmareloRoxo(1).acquire();
+
                 passarCruzamento34();
+
+                Semaforos.getSemaforosAmareloAzul(2).release();
+
                 andarRua28();
+
+                Semaforos.getSemaforosAmareloAzul(1).acquire();
+
                 passarCruzamento33();
                 andarRua27();
                 passarCruzamento32();
+
+                Semaforos.getSemaforoAmareloRoxo(1).release();
+
                 andarRua26();
                 passarCruzamento31();
                 andarRua5B();
                 passarCruzamento25();
                 andarRua4B();
                 passarCruzamento19();
+
+                Semaforos.getSemaforoAmareloLaranja().release();
+
                 andarRua3B();
+
+                Semaforos.getSemaforoAmareloPreto().acquire();
+
                 passarCruzamento13();
                 andarRua2B();
                 passarCruzamento7();
                 andarRua1B();
                 passarCruzamento1();
 
-                primeraVez = false; // Seta a variavel como falsa a todo momento do circuito
+                primeraVez = false;
             } // Fim do while
         } catch(InterruptedException e) {
             e.printStackTrace();
@@ -186,7 +226,7 @@ public class CarroAmarelo extends Thread {
             x++; 
         }
 
-        carro.setRotate(90);
+        Platform.runLater( () -> carro.setRotate(90));
 
         while(y != 16) {
             Thread.sleep(velocidade); 
@@ -323,7 +363,7 @@ public class CarroAmarelo extends Thread {
             y++; 
         }
 
-        carro.setRotate(0);
+        Platform.runLater( () -> carro.setRotate(0));
 
         while(x != 182) {
             Thread.sleep(velocidade); 
@@ -460,7 +500,7 @@ public class CarroAmarelo extends Thread {
             x++; 
         }
 
-        carro.setRotate(90);
+        Platform.runLater( () -> carro.setRotate(90));
 
         while(y != 288) {
             Thread.sleep(velocidade); 
@@ -534,7 +574,7 @@ public class CarroAmarelo extends Thread {
             y++; 
         }
 
-        Semaforos.getSemaforoCruzamentos(30).release();
+        Semaforos.getSemaforoRuasVerticais(30).release();
     }
 
     /* ***************************************************************
@@ -555,7 +595,7 @@ public class CarroAmarelo extends Thread {
             y++; 
         }
 
-        carro.setRotate(0);
+        Platform.runLater( () -> carro.setRotate(0));
 
         while(x != 426) {
             Thread.sleep(velocidade); 
@@ -776,7 +816,7 @@ public class CarroAmarelo extends Thread {
             x--; 
         } 
 
-        carro.setRotate(90);
+        Platform.runLater( () -> carro.setRotate(90));
 
         while(y != 442) {
             Thread.sleep(velocidade); 
@@ -997,7 +1037,7 @@ public class CarroAmarelo extends Thread {
             y--; 
         } 
 
-        carro.setRotate(0);
+        Platform.runLater( () -> carro.setRotate(0));
 
         while(x != 0) {
             Thread.sleep(velocidade); 
