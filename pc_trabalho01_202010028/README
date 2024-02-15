@@ -1,12 +1,2 @@
 Primeiro trabalho da disciplina de Programação Concorrente. É uma calculadora de IMC (Índice de Massa Corporal), dado uma altura e um peso,
 retorna o índice do IMC e a categoria que se encontra o usuário, que vai de magreza a obesidade grave
-
-Para compilar:
-
-- Java 8 
-    javac Principal.java
-    java Principal
-
-- Java 17
-    javac --module-path /home/gabriel/Java/openjfx-17.0.2_linux-x64_bin-sdk/javafx-sdk-17.0.2/lib --add-modules javafx.controls,javafx.fxml Principal.java
-    java --module-path /home/gabriel/Java/openjfx-17.0.2_linux-x64_bin-sdk/javafx-sdk-17.0.2/lib --add-modules javafx.controls,javafx.fxml Principal
