@@ -2,7 +2,7 @@
   <h1 align="center">Programação concorrente com Java</h1>
 </div>
 
-Nesse repositório estão algumas soluções para problemas de concorrência famosos da área de programação. Foi utilizada a linguagem Java junto com a ferramenta de interface Javafx.
+Nesse repositório estão algumas soluções para problemas de concorrência famosos da área de programação. Foi utilizada a linguagem Java junto com a ferramenta de interface Javafx. Esses trabalhos foram desenvolvidos por mim na disciplina de Programação Concorrente do curso de Ciência da Computação na UESB.
 
 ## Simulação entre trens
 Nesse problema há 2 trens, os quais irão passar por uma intersecção entre seus trilhos. O programa utiliza um semáforo para travar a região crítica (a intersecção) com o intuito de evitar que os trens colidam.
