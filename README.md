@@ -24,5 +24,10 @@ Aqui, há 1 escritor que será uma thread que irá disponibilizar livros para qu
 Esse foi o último trabalho a ser desenvolvido, se trata de uma simulação de um trânsito autônomo onde numa cidade com várias ruas interconectadas onde há 7 carros que trafegam por essa cidade com percursos diferentes. Esses carros não podem passar um por cima do outro, ou seja, nas ruas em que compartilham seu percuso esses carros não podem passar ao mesmo tempo. Assim, foram utilizados semáforos para fazer com que um carro espere o outro passar por aquela rua, mas de forma que ele não espere demais.
 <img></img>
 
+## Ferramentas
+- Linguagem: Java
+- Interface: Javafx
+- Style: SceneBuilder
+
 ## Para testar os projetos
 Será necessária a instalação do Java e do Javafx. Além disso será necessário também o caminho absoluto para a pasta "lib" do Javafx com o intuito de importar as classes que serão utilizadas na interface gráfica. OS detalhes serão descritos no README de cada projeto.
