@@ -25,4 +25,4 @@ Esse foi o último trabalho a ser desenvolvido, se trata de uma simulação de u
 <img></img>
 
 ## Para testar os projetos
-Será necessária a instalação do Java e do Javafx. Além disso será necessário também o caminho absoluto para a pasta "lib" do Javafx com o intuito de importar as classes 
+Será necessária a instalação do Java e do Javafx. Além disso será necessário também o caminho absoluto para a pasta "lib" do Javafx com o intuito de importar as classes que serão utilizadas na interface gráfica. OS detalhes serão descritos no README de cada projeto.
