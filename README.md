@@ -17,5 +17,12 @@ Aqui, há 5 filósofos sentados a mesa, prontos para comerem seus respectivos pr
 <img></img>
 
 ## Problema dos leitores e escritores
+Aqui, há 1 escritor que será uma thread que irá disponibilizar livros para que 5 leitores possam sentar e ler. O escritor só pode modiicar a base de dados (os livros) quando não há leitores para se sentar e há um limite para a quantidade de leitores que podem ler simultâneamente. Foram utilizados 2 semáforos, um para travar a base de dados para que o escritor pare quando há um leitor lendo e outro para controlar a fila de leitores, para que não haja leitores demais. 
+<img></img>
 
 ## Trânsito autônomo
+Esse foi o último trabalho a ser desenvolvido, se trata de uma simulação de um trânsito autônomo onde numa cidade com várias ruas interconectadas onde há 7 carros que trafegam por essa cidade com percursos diferentes. Esses carros não podem passar um por cima do outro, ou seja, nas ruas em que compartilham seu percuso esses carros não podem passar ao mesmo tempo. Assim, foram utilizados semáforos para fazer com que um carro espere o outro passar por aquela rua, mas de forma que ele não espere demais.
+<img></img>
+
+## Para testar os projetos
+Será necessária a instalação do Java e do Javafx. Além disso será necessário também o caminho absoluto para a pasta "lib" do Javafx com o intuito de importar as classes 
