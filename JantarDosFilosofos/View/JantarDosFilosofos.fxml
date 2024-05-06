@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="544.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.JantarDosFilosofosController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="544.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.DinningPhilosophersController">
    <children>
       <Button fx:id="StartButton" layoutX="249.0" layoutY="428.0" mnemonicParsing="false" onAction="#start" style="-fx-background-color: black; -fx-background-radius: 10;" text="Iniciar" textFill="WHITE" />
       <ImageView fitHeight="310.0" fitWidth="300.0" layoutX="127.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">

@@ -2,9 +2,9 @@
 * Autor............: Gabriel Uzel Fonseca
 * Matricula........: 202010028
 * Inicio...........: 10/04/2022
-* Ultima alteracao.: 17/04/2022
-* Nome.............: Mesa
-* Funcao...........: Controlar os aspectos gerais da simulacao
+* Ultima alteracao.: 06/05/2024
+* Nome.............: Table
+* Funcao...........: Control animations
 *************************************************************** */
 
 package Model;
@@ -13,109 +13,94 @@ import java.util.concurrent.Semaphore;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class Mesa {
-    /* Constantes que representam o estado atual de um filosofo, o qual pode estar com fome (quer entrar na area critica), 
-    comendo (esta na area critica) ou pensando (esta fora da area critica) */
-    private final static int PENSANDO = 0;
-    private final static int COMENDO = 1;
-    private final static int FOME = 2;
+public class Table {
+    // Constants the represent possible philosophers states
+    private final static int THINKING = 0;
+    private final static int EATING = 1;
+    private final static int STARVING = 2;
 
-    private static Semaphore mutex = new Semaphore(1); // Semaforo para travar a area critica
-    private static int[] estadosDosFilosofos = {PENSANDO, PENSANDO, PENSANDO, PENSANDO, PENSANDO}; // Vetor que representa os estados dos 5 filosofos 
-    private static Semaphore semaforosParaFilosofos[] = {new Semaphore(1), new Semaphore(1), new Semaphore(1), new Semaphore(1), new Semaphore(1)}; // Semaforo para cada filosofo
+    private static int[] philosophersStates = { THINKING, THINKING, THINKING, THINKING, THINKING }; // The 5 philosophers state
 
-    private static ImageView garfo0, garfo1, garfo2, garfo3, garfo4; // Image view de cada garfo
-    private static ImageView estadoFilosofo0, estadoFilosofo1, estadoFilosofo2, estadoFilosofo3, estadoFilosofo4; // Image view para indicar se o filosofo esta comendo ou pensando
+    // Semaphores
+    private static Semaphore mutex = new Semaphore(1); 
+    private static Semaphore philosopherSemaphores[] = { new Semaphore(1), new Semaphore(1), new Semaphore(1), new Semaphore(1), new Semaphore(1) };
 
-    /* Aqui temos algumas imagens que servirao para indicar o estado de comendo ou de pensando. Assim como se um dos garfos esta livre ou nao.
-    Quando um garfo esta livre, estara na cor branca (indicado pelo image "garfoLivre") e quando esta ocupado, ele estara vermelho 
-    (indicado pelo image garfoOcupado). Caso um filosofo esteja comendo, seu image view representante sera um ponto de exclamacao 
-    (indicado pelo image "estadoComendo") e quando ele esta pensando, seu image view representante sera uma reticencias (indicado pelo 
-    image "estadoPensando") */
-    private static Image garfoOcupado = new Image("Img/IMGGarfoOcupado.png");
-    private static Image garfoLivre = new Image("Img/IMGGarfoLivre.png");
-    private static Image estadoPensando = new Image("Img/IMGFilosofoPensando.png");
-    private static Image estadoComendo = new Image("Img/IMGFilosofoComendo.png");
+    private static ImageView fork0, fork1, fork2, fork3, fork4; 
+    private static ImageView philosopherState0, philosopherState1, philosopherState2, philosopherState3, philosopherState4; 
 
-    // Construtor com as atribuicoes dos image view
-    public Mesa(ImageView garfo0Novo, ImageView garfo1Novo, ImageView garfo2Novo, ImageView garfo3Novo, ImageView garfo4Novo, 
-    ImageView estadoFilosofo0Novo, ImageView estadoFilosofo1Novo, ImageView estadoFilosofo2Novo, ImageView estadoFilosofo3Novo, 
-    ImageView estadoFilosofo4Novo) {
-        garfo0 = garfo0Novo;
-        garfo1 = garfo1Novo;
-        garfo2 = garfo2Novo;
-        garfo3 = garfo3Novo;
-        garfo4 = garfo4Novo;
+    // Constructor
+    public Table(ImageView newFork0, ImageView newFork1, ImageView newFork2, ImageView newFork3, ImageView newFork4, 
+    ImageView newPhilosopherState0, ImageView newPhilosopherState1, ImageView newPhilosopherState2, 
+    ImageView newPhilosopherState3, ImageView newPhilosopherState4) {
+        fork0 = newFork0;
+        fork1 = newFork1;
+        fork2 = newFork2;
+        fork3 = newFork3;
+        fork4 = newFork4;
 
-        estadoFilosofo0 = estadoFilosofo0Novo;
-        estadoFilosofo1 = estadoFilosofo1Novo;
-        estadoFilosofo2 = estadoFilosofo2Novo;
-        estadoFilosofo3 = estadoFilosofo3Novo;
-        estadoFilosofo4 = estadoFilosofo4Novo;
+        philosopherState0 = newPhilosopherState0;
+        philosopherState1 = newPhilosopherState1;
+        philosopherState2 = newPhilosopherState2;
+        philosopherState3 = newPhilosopherState3;
+        philosopherState4 = newPhilosopherState4;
 
-        // Da um down nos semaforos de cada filosofo
+        // Down all philosophers semaphore
         for(int i = 0; i < 5; i++) {
-            try { semaforosParaFilosofos[i].acquire(); } 
+            try { philosopherSemaphores[i].acquire(); } 
             catch (InterruptedException e) { e.printStackTrace(); }
-        }
-    }
+        } // End for
+    } // End constructor
 
     /* ***************************************************************
-    * Metodo: pensar
-    * Funcao: Dado um filosofo, modifica elementos do programa para indicar que o filosofo esta pensando
-    * Parametros: O id do filosofo que chama o metodo
+    * Metodo: think
+    * Funcao: Change the philosopher image view
+    * Parametros: id= Philosopher id
     * Retorno: Void
     *************************************************************** */
-    public static void pensar(int id) throws InterruptedException {
-        mutex.acquire(); // Trava a regiao critica
+    public static void think(int id) throws InterruptedException {
+        mutex.acquire(); // Close critical region
 
-        // Verifica o valor do id e modifica o elemento grafico do filosofo correspondente
         switch(id) {
             case 0: {
-                estadoFilosofo0.setImage(estadoPensando); // Modifica o image view do filosofo de id 0 para as reticencias 
-
+                philosopherState0.setImage(Gallery.thinkingState); // Change the image view
                 break;
             }
             case 1: {
-                estadoFilosofo1.setImage(estadoPensando); // Modifica o image view do filosofo de id 1 para as reticencias
-
+                philosopherState1.setImage(Gallery.thinkingState); // Change the image view
                 break;
             }
             case 2: {
-                estadoFilosofo2.setImage(estadoPensando); // Modifica o image view do filosofo de id 2 para as reticencias
-
+                philosopherState2.setImage(Gallery.thinkingState); // Change the image view
                 break;
             }
             case 3: {
-                estadoFilosofo3.setImage(estadoPensando); // Modifica o image view do filosofo de id 3 para as reticencias
-
+                philosopherState3.setImage(Gallery.thinkingState); // Change the image view
                 break;
             }
             case 4: {
-                estadoFilosofo4.setImage(estadoPensando); // Modifica o image view do filosofo de id 4 para as reticencias
-
+                philosopherState4.setImage(Gallery.thinkingState); // Change the image view
                 break;
             }
-        } // Fim do switch
+        } // End switch
 
-        mutex.release(); // Destrava a regiao critica
-    }
+        mutex.release(); // Release critical region
+    } // End think
 
     /* ***************************************************************
-    * Metodo: pegarGarfos
-    * Funcao: Dado um filosofo, verifica se os garfos adjacentes estao livres ou nao
-    * Parametros: 3 ids, 1 que representa o filosofo que chama o metodo e outros 2 que representam os filosofos adjacentes
+    * Metodo: takeForks
+    * Funcao: Take adjacent forks
+    * Parametros: Current, left and right philosophers ids
     * Retorno: Void
     *************************************************************** */
-    public static void pegarGarfos(int id, int idFiloEsquerda, int idFiloDireita) throws InterruptedException {
-        mutex.acquire(); // Trava a regiao critica
+    public static void takeForks(int id, int leftPhilosopherId, int rightPhilosopherId) throws InterruptedException {
+        mutex.acquire(); // Close critical region
 
-        estadosDosFilosofos[id] = FOME; // Seta o estado do filosofo para "com fome"
-        tentarObterGarfos(id, idFiloEsquerda, idFiloDireita); // Verifica se os garfos estao livres
+        philosophersStates[id] = STARVING; // Set current philosopher state to starving
+        verifyForks(id, leftPhilosopherId, rightPhilosopherId); // Verify if the adjacent forks are free
 
-        mutex.release(); // Destrava a regiao critica
-        semaforosParaFilosofos[id].acquire(); // Da um down no semaforo do filosofo que chama o metodo
-    }
+        mutex.release(); // release critical region
+        philosopherSemaphores[id].acquire(); // Down current philosopher semaphore
+    } // End takeForks
 
     /* ***************************************************************
     * Metodo: tentarObterGarfos 
@@ -123,7 +108,7 @@ public class Mesa {
     * Parametros: 3 ids, 1 que representa o filosofo que chama o metodo e outros 2 que representam os filosofos adjacentes
     * Retorno: Void
     *************************************************************** */
-    private static void tentarObterGarfos(int id, int idFiloEsquerda, int idFiloDireita) {
+    private static void verifyForks(int id, int idFiloEsquerda, int idFiloDireita) {
         /* Aqui se verifica se os filosofos da esqueda e da direita estao comendo ou nao, caso pelo menos um deles esteja, o filosofo que chamou
         devera eseperar. Faz tambem uma verificacao se esse filosofo esta ou nao com fome (nesse caso, servira para quando um filosofo liberar os
         seus garfos e assim, liberar os seus vizinhos para comer) */
@@ -234,4 +219,4 @@ public class Mesa {
         
         mutex.release(); // Destrava a regiao critica
     }
-}
+} // End class Table
