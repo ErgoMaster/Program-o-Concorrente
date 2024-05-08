@@ -38,9 +38,9 @@ public class Philosopher extends Thread {
                 Table.think(id); // Philosopher start thinking (Change image view)
                 Thread.sleep(thinkingSpeed); // Philosopher is thinking
                 Table.takeForks(id, leftPhilosopherId, rightPhilosopherId); // Verify its forks
-                Table.comer(id); // Philosopher start eating (Change image view)
+                Table.eat(id); // Philosopher start eating (Change image view)
                 Thread.sleep(eatingSpeed); // Philosopher is eating
-                Table.devolverGarfos(id, leftPhilosopherId, rightPhilosopherId); // Release forks
+                Table.releaseForks(id, leftPhilosopherId, rightPhilosopherId); // Release forks
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
