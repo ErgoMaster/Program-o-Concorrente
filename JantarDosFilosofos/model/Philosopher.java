@@ -7,22 +7,18 @@
 * Funcao...........: Eat and think
 *************************************************************** */
 
-package Model;
+package model;
 
 public class Philosopher extends Thread {
     private int id;
     private int leftPhilosopherId;
     private int rightPhilosopherId;
-    private int thinkingSpeed;
-    private int eatingSpeed;
 
     // Constructor
-    public Philosopher(int id, int leftPhilosopherId, int rightPhilosopherId, int thinkingSpeed, int eatingSpeed) {
+    public Philosopher(int id, int leftPhilosopherId, int rightPhilosopherId) {
         this.id = id;
         this.leftPhilosopherId = leftPhilosopherId;
         this.rightPhilosopherId = rightPhilosopherId;
-        this.thinkingSpeed = thinkingSpeed;
-        this.eatingSpeed = eatingSpeed;
     } // End constructor
 
     /* ***************************************************************
@@ -36,10 +32,10 @@ public class Philosopher extends Thread {
         while(true) {
             try {
                 Table.think(id); // Philosopher start thinking (Change image view)
-                Thread.sleep(thinkingSpeed); // Philosopher is thinking
+                Thread.sleep(2000); // Philosopher is thinking
                 Table.takeForks(id, leftPhilosopherId, rightPhilosopherId); // Verify its forks
                 Table.eat(id); // Philosopher start eating (Change image view)
-                Thread.sleep(eatingSpeed); // Philosopher is eating
+                Thread.sleep(3000); // Philosopher is eating
                 Table.releaseForks(id, leftPhilosopherId, rightPhilosopherId); // Release forks
             } catch (InterruptedException e) {
                 e.printStackTrace();

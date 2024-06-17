@@ -37,7 +37,7 @@ public class Principal extends Application {
         DinningPhilosophersController controller = new DinningPhilosophersController(); 
 
         // Open file and set scene
-        Parent root = FXMLLoader.load(getClass().getResource("view/JantarDosFilosofos.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("view/DinningPhilosophers.fxml"));
         Scene scene = new Scene(root);
 
         // Show UI

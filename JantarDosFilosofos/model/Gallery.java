@@ -6,7 +6,7 @@
 * Nome.............: Gallery
 * Funcao...........: Import images
 *************************************************************** */
-package Model;
+package model;
 
 import javafx.scene.image.Image;
 

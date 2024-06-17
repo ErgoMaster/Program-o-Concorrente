@@ -7,7 +7,7 @@
 * Funcao...........: Control animations
 *************************************************************** */
 
-package Model;
+package model;
 
 import java.util.concurrent.Semaphore;
 import javafx.scene.image.ImageView;
