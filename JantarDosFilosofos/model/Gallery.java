@@ -12,11 +12,7 @@ import javafx.scene.image.Image;
 
 public class Gallery {
     // Define occupied fork image
-    public static Image occupiedFork = new Image("Img/IMGGarfoOcupado.png");
+    public static Image occupiedFork = new Image("Img/OccupiedFork.png");
     // Define free fork image
-    public static Image freeFork = new Image("Img/IMGGarfoLivre.png");
-    // Define philosopher is thinking image
-    public static Image thinkingState = new Image("Img/IMGFilosofoPensando.png");
-    // Define philosopher is eating image
-    public static Image eatingState = new Image("Img/IMGFilosofoComendo.png");
+    public static Image freeFork = new Image("Img/FreeFork.png");
 } // End class Gallery

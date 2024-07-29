@@ -10,6 +10,8 @@
 package model;
 
 import java.util.concurrent.Semaphore;
+
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
 public class Table {
@@ -25,12 +27,12 @@ public class Table {
     private static Semaphore philosopherSemaphores[] = { new Semaphore(1), new Semaphore(1), new Semaphore(1), new Semaphore(1), new Semaphore(1) };
 
     private static ImageView fork0, fork1, fork2, fork3, fork4; 
-    private static ImageView philosopherState0, philosopherState1, philosopherState2, philosopherState3, philosopherState4; 
+    private static Label philosopherState0, philosopherState1, philosopherState2, philosopherState3, philosopherState4; 
 
     // Constructor
     public Table(ImageView newFork0, ImageView newFork1, ImageView newFork2, ImageView newFork3, ImageView newFork4, 
-    ImageView newPhilosopherState0, ImageView newPhilosopherState1, ImageView newPhilosopherState2, 
-    ImageView newPhilosopherState3, ImageView newPhilosopherState4) {
+    Label newPhilosopherState0, Label newPhilosopherState1, Label newPhilosopherState2, 
+    Label newPhilosopherState3, Label newPhilosopherState4) {
         fork0 = newFork0;
         fork1 = newFork1;
         fork2 = newFork2;
@@ -61,23 +63,23 @@ public class Table {
 
         switch(id) {
             case 0: {
-                philosopherState0.setImage(Gallery.thinkingState); // Change the image view
+                philosopherState0.setText("Comendo..."); // Change the label
                 break;
             }
             case 1: {
-                philosopherState1.setImage(Gallery.thinkingState); // Change the image view
+                philosopherState1.setText("Comendo..."); // Change the label
                 break;
             }
             case 2: {
-                philosopherState2.setImage(Gallery.thinkingState); // Change the image view
+                philosopherState2.setText("Comendo..."); // Change the label
                 break;
             }
             case 3: {
-                philosopherState3.setImage(Gallery.thinkingState); // Change the image view
+                philosopherState3.setText("Comendo..."); // Change the label
                 break;
             }
             case 4: {
-                philosopherState4.setImage(Gallery.thinkingState); // Change the image view
+                philosopherState4.setText("Comendo..."); // Change the label
                 break;
             }
         } // End switch
@@ -129,31 +131,31 @@ public class Table {
             case 0: {
                 fork0.setImage(Gallery.occupiedFork); 
                 fork1.setImage(Gallery.occupiedFork); 
-                philosopherState0.setImage(Gallery.eatingState); 
+                philosopherState0.setText("Pensando..."); 
                 break;
             }
             case 1: {
                 fork1.setImage(Gallery.occupiedFork); 
-                fork2.setImage(Gallery.occupiedFork); 
-                philosopherState1.setImage(Gallery.eatingState); 
+                fork2.setImage(Gallery.occupiedFork);
+                philosopherState1.setText("Pensando..."); 
                 break;
             }
             case 2: {
                 fork2.setImage(Gallery.occupiedFork); 
-                fork3.setImage(Gallery.occupiedFork); 
-                philosopherState2.setImage(Gallery.eatingState); 
+                fork3.setImage(Gallery.occupiedFork);
+                philosopherState2.setText("Pensando..."); 
                 break;
             }
             case 3: {
                 fork3.setImage(Gallery.occupiedFork); 
                 fork4.setImage(Gallery.occupiedFork); 
-                philosopherState3.setImage(Gallery.eatingState); 
+                philosopherState3.setText("Pensando..."); 
                 break;
             }
             case 4: {
                 fork4.setImage(Gallery.occupiedFork); 
-                fork0.setImage(Gallery.occupiedFork); 
-                philosopherState4.setImage(Gallery.eatingState); 
+                fork0.setImage(Gallery.occupiedFork);
+                philosopherState4.setText("Pensando..."); 
                 break;
             }
         } // End switch

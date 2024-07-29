@@ -15,7 +15,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Slider;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import model.*;
 
@@ -27,14 +27,11 @@ public class DinningPhilosophersController implements Initializable {
     @FXML private ImageView fork3Image;
     @FXML private ImageView fork4Image;
 
-    @FXML private ImageView philosopherState0;
-    @FXML private ImageView philosopherState1;
-    @FXML private ImageView philosopherState2;
-    @FXML private ImageView philosopherState3;
-    @FXML private ImageView philosopherState4;
-
-    @FXML private Slider thinkingSpeedSlider;
-    @FXML private Slider eatingSpeedSlider;
+    @FXML private Label philosopherState0;
+    @FXML private Label philosopherState1;
+    @FXML private Label philosopherState2;
+    @FXML private Label philosopherState3;
+    @FXML private Label philosopherState4;
     
     @FXML private Button StartButton;
 
