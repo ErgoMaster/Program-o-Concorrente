@@ -9,40 +9,40 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="544.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.DinningPhilosophersController">
    <children>
       <Button fx:id="StartButton" layoutX="249.0" layoutY="428.0" mnemonicParsing="false" onAction="#start" style="-fx-background-color: black; -fx-background-radius: 10;" text="Iniciar" textFill="WHITE" />
-      <ImageView fitHeight="412.0" fitWidth="449.0" layoutX="110.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="412.0" fitWidth="412.0" layoutX="95.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../img/Table1.png" />
+            <Image url="@../img/Table.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="fork1Image" fitHeight="34.0" fitWidth="29.0" layoutX="155.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/FreeFork.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="fork2Image" fitHeight="34.0" fitWidth="29.0" layoutX="228.0" layoutY="291.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="fork1Image" fitHeight="34.0" fitWidth="29.0" layoutX="150.0" layoutY="214.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/FreeFork.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="fork3Image" fitHeight="34.0" fitWidth="29.0" layoutX="336.0" layoutY="249.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="fork2Image" fitHeight="34.0" fitWidth="29.0" layoutX="229.0" layoutY="326.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/FreeFork.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="fork4Image" fitHeight="34.0" fitWidth="29.0" layoutX="351.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="fork3Image" fitHeight="34.0" fitWidth="29.0" layoutX="363.0" layoutY="277.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/FreeFork.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="fork0Image" fitHeight="34.0" fitWidth="29.0" layoutX="243.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="fork4Image" fitHeight="34.0" fitWidth="29.0" layoutX="368.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/FreeFork.png" />
          </image>
       </ImageView>
-      <Label fx:id="philosopherState0" layoutX="110.0" layoutY="43.0" text="Stand by" />
-      <Label fx:id="philosopherState4" layoutX="338.0" layoutY="25.0" text="Stand by" />
-      <Label fx:id="philosopherState1" layoutX="110.0" layoutY="340.0" text="Stand by" />
-      <Label fx:id="philosopherState3" layoutX="411.0" layoutY="240.0" text="Stand by" />
-      <Label fx:id="philosopherState2" layoutX="324.0" layoutY="387.0" text="Stand by" />
+      <ImageView fx:id="fork0Image" fitHeight="34.0" fitWidth="29.0" layoutX="258.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/FreeFork.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="philosopherState0" layoutX="97.0" layoutY="43.0" text="Stand by" />
+      <Label fx:id="philosopherState4" layoutX="363.0" layoutY="14.0" text="Stand by" />
+      <Label fx:id="philosopherState1" layoutX="97.0" layoutY="375.0" text="Stand by" />
+      <Label fx:id="philosopherState3" layoutX="445.0" layoutY="258.0" text="Stand by" />
+      <Label fx:id="philosopherState2" layoutX="414.0" layoutY="395.0" text="Stand by" />
    </children>
 </AnchorPane>
