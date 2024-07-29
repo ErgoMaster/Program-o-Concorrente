@@ -11,6 +11,7 @@ package model;
 
 import java.util.concurrent.Semaphore;
 
+import javafx.application.Platform;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
@@ -61,28 +62,30 @@ public class Table {
     public static void think(int id) throws InterruptedException {
         mutex.acquire(); // Close critical region
 
-        switch(id) {
-            case 0: {
-                philosopherState0.setText("Comendo..."); // Change the label
-                break;
-            }
-            case 1: {
-                philosopherState1.setText("Comendo..."); // Change the label
-                break;
-            }
-            case 2: {
-                philosopherState2.setText("Comendo..."); // Change the label
-                break;
-            }
-            case 3: {
-                philosopherState3.setText("Comendo..."); // Change the label
-                break;
-            }
-            case 4: {
-                philosopherState4.setText("Comendo..."); // Change the label
-                break;
-            }
-        } // End switch
+        Platform.runLater(() -> {
+            switch(id) {
+                case 0: {
+                    philosopherState0.setText("Pensando..."); // Change the label
+                    break;
+                }
+                case 1: {
+                    philosopherState1.setText("Pensando..."); // Change the label
+                    break;
+                }
+                case 2: {
+                    philosopherState2.setText("Pensando..."); // Change the label
+                    break;
+                }
+                case 3: {
+                    philosopherState3.setText("Pensando..."); // Change the label
+                    break;
+                }
+                case 4: {
+                    philosopherState4.setText("Pensando..."); // Change the label
+                    break;
+                }
+            } // End switch
+        });
 
         mutex.release(); // Release critical region
     } // End think
@@ -127,38 +130,40 @@ public class Table {
     public static void eat(int id) throws InterruptedException {
         mutex.acquire(); // Close critical region
         
-        switch(id) {
-            case 0: {
-                fork0.setImage(Gallery.occupiedFork); 
-                fork1.setImage(Gallery.occupiedFork); 
-                philosopherState0.setText("Pensando..."); 
-                break;
-            }
-            case 1: {
-                fork1.setImage(Gallery.occupiedFork); 
-                fork2.setImage(Gallery.occupiedFork);
-                philosopherState1.setText("Pensando..."); 
-                break;
-            }
-            case 2: {
-                fork2.setImage(Gallery.occupiedFork); 
-                fork3.setImage(Gallery.occupiedFork);
-                philosopherState2.setText("Pensando..."); 
-                break;
-            }
-            case 3: {
-                fork3.setImage(Gallery.occupiedFork); 
-                fork4.setImage(Gallery.occupiedFork); 
-                philosopherState3.setText("Pensando..."); 
-                break;
-            }
-            case 4: {
-                fork4.setImage(Gallery.occupiedFork); 
-                fork0.setImage(Gallery.occupiedFork);
-                philosopherState4.setText("Pensando..."); 
-                break;
-            }
-        } // End switch
+        Platform.runLater(() -> {
+            switch(id) {
+                case 0: {
+                    fork0.setImage(Gallery.occupiedFork); 
+                    fork1.setImage(Gallery.occupiedFork); 
+                    philosopherState0.setText("Comendo..."); 
+                    break;
+                }
+                case 1: {
+                    fork1.setImage(Gallery.occupiedFork); 
+                    fork2.setImage(Gallery.occupiedFork);
+                    philosopherState1.setText("Comendo..."); 
+                    break;
+                }
+                case 2: {
+                    fork2.setImage(Gallery.occupiedFork); 
+                    fork3.setImage(Gallery.occupiedFork);
+                    philosopherState2.setText("Comendo..."); 
+                    break;
+                }
+                case 3: {
+                    fork3.setImage(Gallery.occupiedFork); 
+                    fork4.setImage(Gallery.occupiedFork); 
+                    philosopherState3.setText("Comendo..."); 
+                    break;
+                }
+                case 4: {
+                    fork4.setImage(Gallery.occupiedFork); 
+                    fork0.setImage(Gallery.occupiedFork);
+                    philosopherState4.setText("Comendo..."); 
+                    break;
+                }
+            } // End switch
+        });
 
         mutex.release(); // Release critical region
     } // End eat
@@ -174,34 +179,36 @@ public class Table {
 
         philosophersStates[id] = THINKING; // Set the current philosopher to thinking
 
-        switch(id) {
-            case 0: {
-                fork0.setImage(Gallery.freeFork); 
-                fork1.setImage(Gallery.freeFork); 
-                break;
-            }
-            case 1: {
-                fork1.setImage(Gallery.freeFork); 
-                fork2.setImage(Gallery.freeFork); 
-                break;
-            }
-            case 2: {
-                fork2.setImage(Gallery.freeFork); 
-                fork3.setImage(Gallery.freeFork); 
-                break;
-            }
-            case 3: {
-                fork3.setImage(Gallery.freeFork); 
-                fork4.setImage(Gallery.freeFork); 
-                break;
-            }
-            case 4: {
-                fork4.setImage(Gallery.freeFork); 
-                fork0.setImage(Gallery.freeFork); 
-                break;
-            }
-        } // End switch
-
+        Platform.runLater(() -> {
+            switch(id) {
+                case 0: {
+                    fork0.setImage(Gallery.freeFork); 
+                    fork1.setImage(Gallery.freeFork); 
+                    break;
+                }
+                case 1: {
+                    fork1.setImage(Gallery.freeFork); 
+                    fork2.setImage(Gallery.freeFork); 
+                    break;
+                }
+                case 2: {
+                    fork2.setImage(Gallery.freeFork); 
+                    fork3.setImage(Gallery.freeFork); 
+                    break;
+                }
+                case 3: {
+                    fork3.setImage(Gallery.freeFork); 
+                    fork4.setImage(Gallery.freeFork); 
+                    break;
+                }
+                case 4: {
+                    fork4.setImage(Gallery.freeFork); 
+                    fork0.setImage(Gallery.freeFork); 
+                    break;
+                }
+            } // End switch
+        });
+    
         verifyForks(leftPhilosopherId, ((id + 3) % 5), id); // Call left philosopher
         verifyForks(rightPhilosopherId, id, ((id + 2) % 5)); // Call right philosopher
         

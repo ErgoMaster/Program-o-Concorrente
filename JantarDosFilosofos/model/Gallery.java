@@ -12,7 +12,7 @@ import javafx.scene.image.Image;
 
 public class Gallery {
     // Define occupied fork image
-    public static Image occupiedFork = new Image("Img/OccupiedFork.png");
+    public static Image occupiedFork = new Image("img/OccupiedFork.png");
     // Define free fork image
-    public static Image freeFork = new Image("Img/FreeFork.png");
+    public static Image freeFork = new Image("img/FreeFork.png");
 } // End class Gallery

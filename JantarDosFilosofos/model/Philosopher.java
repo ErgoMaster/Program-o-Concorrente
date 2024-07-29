@@ -32,10 +32,10 @@ public class Philosopher extends Thread {
         while(true) {
             try {
                 Table.think(id); // Philosopher start thinking (Change image view)
-                Thread.sleep(2000); // Philosopher is thinking
+                Thread.sleep(4000); // Philosopher is thinking
                 Table.takeForks(id, leftPhilosopherId, rightPhilosopherId); // Verify its forks
                 Table.eat(id); // Philosopher start eating (Change image view)
-                Thread.sleep(3000); // Philosopher is eating
+                Thread.sleep(4000); // Philosopher is eating
                 Table.releaseForks(id, leftPhilosopherId, rightPhilosopherId); // Release forks
             } catch (InterruptedException e) {
                 e.printStackTrace();
