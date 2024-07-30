@@ -7,7 +7,7 @@
 * Funcao...........: Controla o programa de forma a criar as threads
 *************************************************************** */
 
-package View;
+package view;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -21,7 +21,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
 
-public class SimulacaoTremController implements Initializable {
+public class TrainSimulationController implements Initializable {
     // Variaveis de controle da velocidade das threads
     private int velocidadeTrem1;
     private int velocidadeTrem2;

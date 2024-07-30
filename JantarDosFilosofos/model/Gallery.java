@@ -2,7 +2,7 @@
 * Autor............: Gabriel Uzel Fonseca
 * Matricula........: 202010028
 * Inicio...........: 06/05/2024
-* Ultima alteracao.: 06/05/2024
+* Ultima alteracao.: 30/07/2024
 * Nome.............: Gallery
 * Funcao...........: Import images
 *************************************************************** */
