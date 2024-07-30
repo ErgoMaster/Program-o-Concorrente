@@ -1,2 +1,0 @@
-Terceiro trabalho da disciplina de Programação Concorrente. Esse é o problema clássico do trem, onde 2 trens devem passar por um túnel
-em comum sem passar um em cima do outro. O trem que chegar por último deverá esperar até que o túnel esteja livre.
