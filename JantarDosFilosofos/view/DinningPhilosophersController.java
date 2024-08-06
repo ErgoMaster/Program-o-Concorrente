@@ -47,7 +47,7 @@ public class DinningPhilosophersController implements Initializable {
         Table table = new Table(fork0Image, fork1Image, fork2Image, fork3Image, fork4Image,
         philosopherState0, philosopherState1, philosopherState2, philosopherState3, philosopherState4);
 
-        // Chamada e inicializacao das threads
+        // initialize threads
         Philosopher filosofo0 = new Philosopher(0, 4, 1);
         Philosopher filosofo1 = new Philosopher(1, 0, 2);
         Philosopher filosofo2 = new Philosopher(2, 1, 3);

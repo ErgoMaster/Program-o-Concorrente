@@ -16,7 +16,7 @@ import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
 
 public class TrainSimulationController {
-    // Speed controle variables
+    // Speed control variables
     private int speedTrain1;
     private int speedTrain2;
     
