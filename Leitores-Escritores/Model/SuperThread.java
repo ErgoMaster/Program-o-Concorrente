@@ -7,7 +7,7 @@
 * Funcao...........: Thread que chama todas as outras
 *************************************************************** */
 
-package Model;
+package model;
 
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;

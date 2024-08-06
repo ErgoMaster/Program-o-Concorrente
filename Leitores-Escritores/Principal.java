@@ -6,18 +6,23 @@
 * Nome.............: Leitores/Escritores
 * Funcao...........: Solucao do problema do Leitores/Escritores usando semaforos
 *************************************************************** */
-
-import View.EscritoresLeitoresController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import view.ReaderWriterController;
 
 public class Principal extends Application {
+    /* ***************************************************************
+    * Metodo: main
+    * Funcao: Execute the program
+    * Parametros: args= Arguments to start the program
+    * Retorno: void
+    *************************************************************** */
     public static void main(String[] args) {
         launch(args);
-    }
+    } // End main
 
     /* ***************************************************************
     * Metodo: start
@@ -27,14 +32,16 @@ public class Principal extends Application {
     *************************************************************** */
     @Override
     public void start(Stage primaryStage) throws Exception {
-        // Esse eh o processo basico para rodar um programa feito em javafx 
-        EscritoresLeitoresController controller = new EscritoresLeitoresController(); // Chamada do controller para evitar erro no programa
+       // Controller declaration to prevent exception
+        ReaderWriterController controller = new ReaderWriterController(); 
 
-        Parent root = FXMLLoader.load(getClass().getResource("View/EscritoresLeitores.fxml"));
+        // Open file and set scene
+        Parent root = FXMLLoader.load(getClass().getResource("view/ReaderWriter.fxml"));
         Scene scene = new Scene(root);
 
+        // Show UI
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();        
-    }
-}
+    } // End start
+} // End class Principal

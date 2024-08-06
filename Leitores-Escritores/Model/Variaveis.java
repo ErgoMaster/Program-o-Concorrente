@@ -7,7 +7,7 @@
 * Funcao...........: Guarda as variaveis e semaforos que irao ser usados no programa
 *************************************************************** */
 
-package Model;
+package model;
 
 import java.util.LinkedList;
 import java.util.Queue;

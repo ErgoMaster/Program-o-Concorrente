@@ -7,7 +7,7 @@
 * Funcao...........: Modificar os elementos gráficos do programa
 *************************************************************** */
 
-package Model;
+package model;
 
 public class Escritor extends Thread {
     /* ***************************************************************

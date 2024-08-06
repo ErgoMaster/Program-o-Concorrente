@@ -6,51 +6,50 @@
 * Nome.............: Controller do Leitores/Escritores
 * Funcao...........: Iniciar as threads do programa
 *************************************************************** */
+package view;
 
-package View;
-
-import Model.SuperThread;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import model.SuperThread;
 
-public class EscritoresLeitoresController {
-    // Declaracao dos image views e botoes do programa
-    @FXML private Button ButtonIniciar;
+public class ReaderWriterController {
+    // Fxml variables
+    @FXML private Button startButton;
 
-    @FXML private Label LabelLeitor0;
-    @FXML private Label LabelLeitor1;
-    @FXML private Label LabelLeitor2;
-    @FXML private Label LabelLeitor3;
-    @FXML private Label LabelEscritor;
+    @FXML private Label reader1Label;
+    @FXML private Label reader2Label;
+    @FXML private Label reader3Label;
+    @FXML private Label reader4Label;
+    @FXML private Label reader5Label;
 
-    @FXML private ImageView cadeira0;
-    @FXML private ImageView cadeira1;
-    @FXML private ImageView cadeira2;
-    @FXML private ImageView cadeira3;
-    @FXML private ImageView cadeira4;
-    @FXML private ImageView cadeira5;
-    @FXML private ImageView cadeira6;
-    @FXML private ImageView cadeira7;
-    @FXML private ImageView cadeira8;
-    @FXML private ImageView cadeira9;
-    @FXML private ImageView cadeira10;
-    @FXML private ImageView cadeira11;
-    @FXML private ImageView cadeira12;
-    @FXML private ImageView cadeira13;
-    @FXML private ImageView cadeira14;
-    @FXML private ImageView cadeira15;
-    @FXML private ImageView cadeira16;
-    @FXML private ImageView cadeira17;
-    @FXML private ImageView cadeira18;
-    @FXML private ImageView cadeira19;
+    @FXML private ImageView chair1;
+    @FXML private ImageView chair2;
+    @FXML private ImageView chair3;
+    @FXML private ImageView chair4;
+    @FXML private ImageView chair5;
+    @FXML private ImageView chair6;
+    @FXML private ImageView chair7;
+    @FXML private ImageView chair8;
+    @FXML private ImageView chair9;
+    @FXML private ImageView chair10;
+    @FXML private ImageView chair11;
+    @FXML private ImageView chair12;
+    @FXML private ImageView chair13;
+    @FXML private ImageView chair14;
+    @FXML private ImageView chair15;
+    @FXML private ImageView chair16;
+    @FXML private ImageView chair17;
+    @FXML private ImageView chair18;
+    @FXML private ImageView chair19;
+    @FXML private ImageView chair20;
 
     /* ***************************************************************
     * Metodo: start
-    * Funcao: Iniciar a simulacao do problema Leitores/Escritores
-    * Parametros: Recebe um ActionEvent relacionado ao apertar de um botao
+    * Funcao: Start the reader-writer simulation
+    * Parametros: event= Click event
     * Retorno: Void
     *************************************************************** */
     @FXML

@@ -7,7 +7,7 @@
 * Funcao...........: Lê da base de dados e reserva uma cadeira
 *************************************************************** */
 
-package Model;
+package model;
 
 public class Leitor3 extends Thread {
     /* ***************************************************************
