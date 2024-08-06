@@ -11,6 +11,7 @@ package view;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
 import model.*;
@@ -25,6 +26,7 @@ public class ProducerConsumerController {
     @FXML private Slider sliderProducer;
     @FXML private ImageView producerImageView;
     @FXML private ImageView consumerImageView;
+    @FXML private Label packagesCounter;
 
     /* ***************************************************************
     * Metodo: start
@@ -40,9 +42,11 @@ public class ProducerConsumerController {
 
         // Initialize threads
         Producer producer = new Producer(speedProducer);
-        Consumer consumer = new Consumer(speedConsumer);  
+        Consumer consumer = new Consumer(speedConsumer);
+        sjfjsfn
 
         // Passagem dos semaforos e elementos graficos do programa para a classe estatica buffer
+        Buffer simulation = new Buffer(producerImageView, consumerImageView, packagesCounter);
         // Buffer simulacao = new Buffer(ImageLivro1, ImageLivro2, ImageLivro3, ImageLivro4, ImageProdutorProduziu, ImageConsumidorConsumiu);
 
         producer.start();

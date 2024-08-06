@@ -25,17 +25,34 @@ public class Consumer extends Thread {
     @Override
     public void run() {
         while(true) {
-            try { sleep(velocidade + 100); } 
-            catch (InterruptedException e) { e.printStackTrace(); }
-            Buffer.consumir(); // Consome item
-
-            Buffer.changeConsumiuImage(1); // Modifica o image view da exclacao para opacidade 100%
-            try { sleep(1000); } 
-            catch (InterruptedException e) { e.printStackTrace(); }
-            Buffer.changeConsumiuImage(2); // Modifica o image view da exclacao para opacidade 20%
-
-            try { sleep(velocidade); } 
-            catch (InterruptedException e) { e.printStackTrace(); }
-        }
+            try {
+                sleep(speed);
+                consume();
+                sleep(speed);
+            } catch (InterruptedException e) { 
+                e.printStackTrace(); 
+            } // End try/catch
+        } // End while
     } // End run
+
+    /* ***************************************************************
+    * Metodo: consume
+    * Funcao: Update UI and remove a package from stack
+    * Parametros: Void
+    * Retorno: Void
+    *************************************************************** */
+    public static void consume() {
+        try { 
+            Buffer.getFullSemaphore().acquire(); // Reduce a value from semaphore to block the producer if necessary
+            Buffer.getMutexSemaphore().acquire(); // Block critical region
+
+            Buffer.getStack().pop();
+            Buffer.animateConsumption();
+        } catch (InterruptedException e) { 
+            e.printStackTrace(); 
+        } finally {
+            Buffer.getEmptySemaphore().release(); // Increase a value from semaphore to block itself if necessary
+            Buffer.getMutexSemaphore().release(); // Release critical region
+        } // End try/catch  
+    } // End consume
 } // End class Consumer

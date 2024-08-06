@@ -10,6 +10,8 @@ package model;
 
 import java.util.Stack;
 import java.util.concurrent.Semaphore;
+
+import javafx.application.Platform;
 import javafx.scene.image.ImageView;
 
 public class Buffer {
@@ -24,33 +26,14 @@ public class Buffer {
     // Image views that will be used for animation
     private ImageView producerImageView;
     private ImageView consumerImageView;
+    private Label packagesCounter;
 
     // Constructor
-    public Buffer(ImageView producerImageView, ImageView consumerImageView) {
+    public Buffer(ImageView producerImageView, ImageView consumerImageView, Label packagesCounter) {
         this.producerImageView = producerImageView;
         this.consumerImageView = consumerImageView;
+        this.packagesCounter = packagesCounter;
     }
-
-    /* ***************************************************************
-    * Metodo: produce
-    * Funcao: Update UI and add a package to stack
-    * Parametros: Void
-    * Retorno: Void
-    *************************************************************** */
-    public static void produce() {
-        try {
-            empty.acquire(); // Diminui um valor do semaforo vazio para travar um consumidor caso seja necessario
-            mutex.acquire(); // Trava o acesso a regiao critica
-
-            stack.push(1);
-            animateProduction();
-        } catch (InterruptedException e) { 
-            e.printStackTrace(); 
-        } finally { 
-            full.release(); // Aumenta um valor do semaforo cheio para travar a si proprio caso seja necessario
-            mutex.release(); // Libera o acesso a regiao critica
-        } // End try/catch       
-    } // End produce
 
     /* ***************************************************************
     * Metodo: animateProduction
@@ -59,30 +42,10 @@ public class Buffer {
     * Retorno: Void
     *************************************************************** */
     public static void animateProduction() {
+        Platform.runLater(() -> {
 
+        });
     } // End animateProduction
-
-    /* ***************************************************************
-    * Metodo: consume
-    * Funcao: Update UI and remove a package from stack
-    * Parametros: Void
-    * Retorno: Void
-    *************************************************************** */
-    public static void consume() {
-        try { 
-            full.acquire(); // Diminui um valor do semaforo cheio para travar um produtor caso seja necessario
-            mutex.acquire(); // Trava o acesso a regiao critica
-
-            stack.pop();
-            animateConsumption();
-            // consumiu(); // Consome item
-        } catch (InterruptedException e) { 
-            e.printStackTrace(); 
-        } finally {
-            empty.release(); // Aumenta um valor do semaforo vazio para travar a si proprio caso seja necessario
-            mutex.release(); // Libera o acesso a regiao critica
-        } // End try/catch  
-    } // End consume
 
     /* ***************************************************************
     * Metodo: animateConsumption
@@ -91,6 +54,48 @@ public class Buffer {
     * Retorno: Void
     *************************************************************** */
     public static void animateConsumption() {
+        Platform.runLater(() -> {
 
+        });
     } // End animateConsumption
+
+    /* ***************************************************************
+    * Metodo: getEmptySemaphore
+    * Funcao: Return the empty semaphore 
+    * Parametros: void
+    * Retorno: The semaphore
+    *************************************************************** */
+    public static Semaphore getEmptySemaphore() {
+        return empty;
+    } // End getEmptySemaphore
+
+    /* ***************************************************************
+    * Metodo: getFullSemaphore
+    * Funcao: Return the full semaphore 
+    * Parametros: void
+    * Retorno: The semaphore
+    *************************************************************** */
+    public static Semaphore getFullSemaphore() {
+        return full;
+    } // End getFullSemaphore
+
+    /* ***************************************************************
+    * Metodo: getMutexSemaphore
+    * Funcao: Return the mutex semaphore 
+    * Parametros: void
+    * Retorno: The semaphore
+    *************************************************************** */
+    public static Semaphore getMutexSemaphore() {
+        return mutex;
+    } // End getMutexSemaphore
+
+    /* ***************************************************************
+    * Metodo: getStack
+    * Funcao: Return the stack for simulation 
+    * Parametros: void
+    * Retorno: The stack
+    *************************************************************** */
+    public static Stack<Integer> getStack() {
+        return stack;
+    } // End getStack
 } // End class Buffer

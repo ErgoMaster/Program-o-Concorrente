@@ -47,5 +47,6 @@
       <Label layoutX="679.0" layoutY="131.0" text="Consumidor" />
       <ImageView fx:id="producerImageView" fitHeight="40.0" fitWidth="45.0" layoutX="106.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="consumerImageView" fitHeight="40.0" fitWidth="45.0" layoutX="393.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="packagesCounter" layoutX="360.0" layoutY="131.0" text="Pacotes no buffer" />
    </children>
 </AnchorPane>

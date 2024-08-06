@@ -24,18 +24,35 @@ public class Producer extends Thread {
     *************************************************************** */
     @Override
     public void run() {
-        for(int i = 0; i < numeroDeLivros; i++) {
-            try { sleep(velocidade); } 
-            catch (InterruptedException e) { e.printStackTrace(); }
-            Buffer.produzir(); // Produz item
-            
-            Buffer.changeProduziuImage(1); // Modifica o image view da exclacao para opacidade 100%
-            try { sleep(1000); } 
-            catch (InterruptedException e) { e.printStackTrace(); }
-            Buffer.changeProduziuImage(2); // Modifica o image view da exclacao para opacidade 20%
-            
-            try { sleep(velocidade); } 
-            catch (InterruptedException e) { e.printStackTrace(); }
-        }
+        while(true) {
+            try {
+                sleep(speed);
+                produce();
+                sleep(speed);
+            } catch (InterruptedException e) { 
+                e.printStackTrace(); 
+            } // End try/catch
+        } // End while
     } // End run
+
+    /* ***************************************************************
+    * Metodo: produce
+    * Funcao: Update UI and add a package to stack
+    * Parametros: Void
+    * Retorno: Void
+    *************************************************************** */
+    public static void produce() {
+        try {
+            Buffer.getEmptySemaphore().acquire(); // Reduce a value from semaphore to block the consumer if necessary
+            Buffer.getMutexSemaphore().acquire(); // Block critical region
+
+            Buffer.getStack().push(1);
+            Buffer.animateProduction();
+        } catch (InterruptedException e) { 
+            e.printStackTrace(); 
+        } finally { 
+            Buffer.getFullSemaphore().release(); // Increase a value from semaphore to block itself if necessary
+            Buffer.getMutexSemaphore().release(); // Release critical region
+        } // End try/catch       
+    } // End produce
 } // End class producer
