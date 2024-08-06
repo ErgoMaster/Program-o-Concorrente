@@ -11,9 +11,6 @@ package model;
 import java.util.Stack;
 import java.util.concurrent.Semaphore;
 
-import javafx.application.Platform;
-import javafx.scene.image.ImageView;
-
 public class Buffer {
     // Semaphores
     private static Semaphore mutex = new Semaphore(1);
@@ -22,42 +19,6 @@ public class Buffer {
 
     // stack that stores the packages that were created by producer
     private static Stack<Integer> stack = new Stack<Integer>() {}; 
-    
-    // Image views that will be used for animation
-    private ImageView producerImageView;
-    private ImageView consumerImageView;
-    private Label packagesCounter;
-
-    // Constructor
-    public Buffer(ImageView producerImageView, ImageView consumerImageView, Label packagesCounter) {
-        this.producerImageView = producerImageView;
-        this.consumerImageView = consumerImageView;
-        this.packagesCounter = packagesCounter;
-    }
-
-    /* ***************************************************************
-    * Metodo: animateProduction
-    * Funcao: Move the package from the productor to the stack
-    * Parametros: Void
-    * Retorno: Void
-    *************************************************************** */
-    public static void animateProduction() {
-        Platform.runLater(() -> {
-
-        });
-    } // End animateProduction
-
-    /* ***************************************************************
-    * Metodo: animateConsumption
-    * Funcao: Move the package from the stack to the consumer
-    * Parametros: Void
-    * Retorno: Void
-    *************************************************************** */
-    public static void animateConsumption() {
-        Platform.runLater(() -> {
-
-        });
-    } // End animateConsumption
 
     /* ***************************************************************
     * Metodo: getEmptySemaphore
