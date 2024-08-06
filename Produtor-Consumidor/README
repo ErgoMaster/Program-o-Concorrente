@@ -1,3 +1,0 @@
-Quarto trabalho da disciplina de Programação Concorrente. Esse é o problema clássico do Produtor/Consumidor onde uma thread tem a função de 
-criar valores (produtor) para uma base de dados e outra tem a função de modificar esses valores. Nesse programa, temos o exemplo de uma
-livraria, onde uma bibliotecária disponibiliza livros e um leitor retira esse livro.

@@ -1,2 +1,0 @@
-Sexto trabalho da disciplina de Programação Concorrente. Esse é o problema clássico do Leitores/Escritores onde uma thread tem a função de
-criar valores ou modifica-los em uma base de dados (escritor) e uma ou mais threads tem a função de ler esses valores, sem modifica-los.
