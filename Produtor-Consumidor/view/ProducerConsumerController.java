@@ -34,7 +34,7 @@ public class ProducerConsumerController implements Initializable {
 
     /* ***************************************************************
     * Metodo: start
-    * Funcao: Start the prducer-consumer simulation
+    * Funcao: Start the producer-consumer simulation
     * Parametros: event= Click event
     * Retorno: Void
     *************************************************************** */
