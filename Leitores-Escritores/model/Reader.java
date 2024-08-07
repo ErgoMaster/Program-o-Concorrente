@@ -59,6 +59,12 @@ public class Reader extends Thread {
         } // End while
     } // End run
 
+    /* ***************************************************************
+    * Metodo: updateLabel
+    * Funcao: Update a correspodent reader lebel
+    * Parametros: text= The string the label will receive
+    * Retorno: void
+    *************************************************************** */
     public void updateLabel(String text) {
         Platform.runLater(() -> {
             labels.get(id - 1).setText(text);

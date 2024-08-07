@@ -32,9 +32,9 @@ public class Writer extends Thread {
                 updateLabel("Escritor está escrevendo");
                 sleep(4000);
 
-                Buffer.getDataSemaphore().acquire();
-                Buffer.updateDatabase();
-                Buffer.getDataSemaphore().release();
+                Buffer.getDataSemaphore().acquire(); // Lock database
+                Buffer.updateDatabase(); // Write in it
+                Buffer.getDataSemaphore().release(); // Realease database
 
                 updateLabel("Banco de dados atualizado");
                 sleep(2000);
@@ -46,6 +46,12 @@ public class Writer extends Thread {
         }  // End while
     } // End run
 
+    /* ***************************************************************
+    * Metodo: updateLabel
+    * Funcao: Update a correspodent reader lebel
+    * Parametros: text= The string the label will receive
+    * Retorno: void
+    *************************************************************** */
     public void updateLabel(String text) {
         Platform.runLater(() -> {
             label.setText(text);

@@ -2,7 +2,7 @@
 * Autor............: Gabriel Uzel Fonseca
 * Matricula........: 202010028
 * Inicio...........: 27/04/2022
-* Ultima alteracao.: 06/08/2024
+* Ultima alteracao.: 07/08/2024
 * Nome.............: Buffer
 * Funcao...........: Store the semaphores that will be used in simulation
 *************************************************************** */
@@ -11,17 +11,16 @@ package model;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.concurrent.Semaphore;
-
 import javafx.application.Platform;
 import javafx.scene.image.ImageView;
 
 public class Buffer {
-    private static int readersControl;
-    private static Semaphore mutex = new Semaphore(1);
-    private static Semaphore data = new Semaphore(1);
-    private static ArrayList<Integer> requests = new ArrayList<>();
-    private static ArrayList<Chair> chairsObjects = new ArrayList<>();
-    private static ArrayList<ImageView> chairsImages = new ArrayList<>();
+    private static int readersControl; // Controls who many readers are reading the database
+    private static Semaphore mutex = new Semaphore(1); // Locks critical region
+    private static Semaphore data = new Semaphore(1); // Locks database
+    private static ArrayList<Integer> requests = new ArrayList<>(); // Stores readers chairs requests
+    private static ArrayList<Chair> chairsObjects = new ArrayList<>(); // Stores all chairs current states
+    private static ArrayList<ImageView> chairsImages = new ArrayList<>(); // Stores all chairs image views
 
     // Constructor
     public Buffer(ArrayList<ImageView> newChairsImages) {
@@ -49,14 +48,32 @@ public class Buffer {
         chairsObjects.add(new Chair(20));
     }
 
+    /* ***************************************************************
+    * Metodo: increaseReadersControl
+    * Funcao: Add 1 to control variable when a reader starts to read
+    * Parametros: void
+    * Retorno: void
+    *************************************************************** */
     public static void increaseReadersControl() {
         readersControl++;
     } // End increaseReadersControl
 
+    /* ***************************************************************
+    * Metodo: decreaseReadersControl
+    * Funcao: Sub 1 to control variable when a reader finished reading
+    * Parametros: void
+    * Retorno: void
+    *************************************************************** */
     public static void decreaseReadersControl() {
         readersControl--;
     } // End decreaseReadersControl
 
+    /* ***************************************************************
+    * Metodo: createRequest
+    * Funcao: Generate a random id of a free chair so the reader can make a chair request
+    * Parametros: void
+    * Retorno: void
+    *************************************************************** */
     public static void createRequest() {
         ArrayList<Chair> freeChairs = new ArrayList<>();
 
@@ -77,6 +94,12 @@ public class Buffer {
         requests.add(chairId);
     } // End createRequest
 
+    /* ***************************************************************
+    * Metodo: updateDatabase
+    * Funcao: Iterate over requests list so the writer updates the database locking free chairs
+    * Parametros: void
+    * Retorno: void
+    *************************************************************** */
     public static void updateDatabase() {
         Platform.runLater(() -> {
             for(int request : requests) {
