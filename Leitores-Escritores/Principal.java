@@ -2,9 +2,9 @@
 * Autor............: Gabriel Uzel Fonseca
 * Matricula........: 202010028
 * Inicio...........: 27/04/2022
-* Ultima alteracao.: 06/05/2022
-* Nome.............: Leitores/Escritores
-* Funcao...........: Solucao do problema do Leitores/Escritores usando semaforos
+* Ultima alteracao.: 07/08/2024
+* Nome.............: Principal
+* Funcao...........: Start the interface
 *************************************************************** */
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

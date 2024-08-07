@@ -2,28 +2,34 @@
 * Autor............: Gabriel Uzel Fonseca
 * Matricula........: 202010028
 * Inicio...........: 27/04/2022
-* Ultima alteracao.: 06/05/2022
-* Nome.............: Controller do Leitores/Escritores
-* Funcao...........: Iniciar as threads do programa
+* Ultima alteracao.: 07/08/2024
+* Nome.............: ReaderWriterController
+* Funcao...........: Start program threads
 *************************************************************** */
 package view;
 
+import java.util.ArrayList;
+import java.util.ResourceBundle;
+import java.net.URL;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import model.SuperThread;
+import model.Buffer;
+import model.Reader;
+import model.Writer;
 
-public class ReaderWriterController {
+public class ReaderWriterController implements Initializable {
     // Fxml variables
     @FXML private Button startButton;
 
-    @FXML private Label reader1Label;
-    @FXML private Label reader2Label;
-    @FXML private Label reader3Label;
-    @FXML private Label reader4Label;
-    @FXML private Label reader5Label;
+    @FXML private Label writerLabel;
+    @FXML private Label readerLabel1;
+    @FXML private Label readerLabel2;
+    @FXML private Label readerLabel3;
+    @FXML private Label readerLabel4;
 
     @FXML private ImageView chair1;
     @FXML private ImageView chair2;
@@ -54,34 +60,80 @@ public class ReaderWriterController {
     *************************************************************** */
     @FXML
     void start(ActionEvent event) {
-        // Chamada e inicializacao das threads
-        SuperThread thread = new SuperThread(criarArrayImageViews(), criarArrayLabels(), LabelEscritor);
+        ArrayList<Label> labelsArray = createArrayLabels();
 
-        thread.start();
-    }
+        // Initialize threads
+        Writer writer = new Writer(writerLabel);
+        Reader reader1 = new Reader(1, labelsArray);
+        Reader reader2 = new Reader(2, labelsArray);
+        Reader reader3 = new Reader(3, labelsArray);
+        Reader reader4 = new Reader(4, labelsArray);
 
-    /* ***************************************************************
-    * Metodo: criarArrayImageViews
-    * Funcao: Cria um array com os image view correspondentes a cada cadeira na simulacao
-    * Parametros: Void
-    * Retorno: Um array de image views
-    *************************************************************** */
-    private ImageView[] criarArrayImageViews() {
-        ImageView[] arrayImageView = { cadeira0, cadeira1, cadeira2, cadeira3, cadeira4, cadeira5, cadeira6, cadeira7, cadeira8, cadeira9,
-            cadeira10, cadeira11, cadeira12, cadeira13, cadeira14, cadeira15, cadeira16, cadeira17, cadeira18, cadeira19 };
-
-        return arrayImageView;
-    }
+        writer.start();
+        reader1.start();
+        reader2.start();
+        reader3.start();
+        reader4.start();
+    } // End start
 
     /* ***************************************************************
-    * Metodo: criarArrayLabels
-    * Funcao: Cria um array com os labels correspondentes a cada leitor na simulacao
-    * Parametros: Void
-    * Retorno: Um array de labels
+    * Metodo: initialize
+    * Funcao: Define methods that executes when the current window opens
+    * Parametros: location&resources= Fxml arguments
+    * Retorno: void
     *************************************************************** */
-    private Label[] criarArrayLabels() {
-        Label[] arrayLabels = { LabelLeitor0, LabelLeitor1, LabelLeitor2, LabelLeitor3 };
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
+        Buffer buffer = new Buffer(createArrayImageViews());
+    } // End initialize
 
-        return arrayLabels;
-    } 
-}
+    /* ***************************************************************
+    * Metodo: createArrayImageViews
+    * Funcao: Create a array with all chairs
+    * Parametros: Void
+    * Retorno: A ArrayList
+    *************************************************************** */
+    private ArrayList<ImageView> createArrayImageViews() {
+        ArrayList<ImageView> array = new ArrayList<>();
+
+        array.add(chair1);
+        array.add(chair2);
+        array.add(chair3);
+        array.add(chair4);
+        array.add(chair5);
+        array.add(chair6);
+        array.add(chair7);
+        array.add(chair8);
+        array.add(chair9);
+        array.add(chair10);
+        array.add(chair11);
+        array.add(chair12);
+        array.add(chair13);
+        array.add(chair14);
+        array.add(chair15);
+        array.add(chair16);
+        array.add(chair17);
+        array.add(chair18);
+        array.add(chair19);
+        array.add(chair20);
+
+        return array;
+    } // End createArrayImageViews
+
+    /* ***************************************************************
+    * Metodo: createArrayLabels
+    * Funcao: Create a array with all labels
+    * Parametros: Void
+    * Retorno: A ArrayList
+    *************************************************************** */
+    private ArrayList<Label> createArrayLabels() {
+        ArrayList<Label> array = new ArrayList<>();
+
+        array.add(readerLabel1);
+        array.add(readerLabel2);
+        array.add(readerLabel3);
+        array.add(readerLabel4);
+
+        return array;
+    } // End createArrayLabels
+} // End class ReaderWriterController

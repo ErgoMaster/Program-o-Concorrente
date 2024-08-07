@@ -9,115 +9,115 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="993.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ReaderWriterController">
    <children>
-      <Label layoutX="281.0" layoutY="17.0" text="Cadeiras de uma sessao de cinema" textFill="WHITE">
+      <Label layoutX="333.0" layoutY="14.0" text="Cadeiras de uma sessao de cinema" textFill="WHITE">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <ImageView fx:id="cadeira0" fitHeight="61.0" fitWidth="80.0" layoutX="280.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="chair1" fitHeight="61.0" fitWidth="80.0" layoutX="280.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Img/IMGCadeiraLivre.png" />
+            <Image url="@../img/FreeChair.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="cadeira1" fitHeight="61.0" fitWidth="80.0" layoutX="341.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="chair2" fitHeight="61.0" fitWidth="80.0" layoutX="341.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Img/IMGCadeiraLivre.png" />
+            <Image url="@../img/FreeChair.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="cadeira2" fitHeight="61.0" fitWidth="80.0" layoutX="402.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="chair3" fitHeight="61.0" fitWidth="80.0" layoutX="402.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Img/IMGCadeiraLivre.png" />
+            <Image url="@../img/FreeChair.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="cadeira3" fitHeight="61.0" fitWidth="80.0" layoutX="463.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="chair4" fitHeight="61.0" fitWidth="80.0" layoutX="463.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Img/IMGCadeiraLivre.png" />
+            <Image url="@../img/FreeChair.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="cadeira4" fitHeight="61.0" fitWidth="80.0" layoutX="524.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="chair5" fitHeight="61.0" fitWidth="80.0" layoutX="524.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Img/IMGCadeiraLivre.png" />
+            <Image url="@../img/FreeChair.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="cadeira5" fitHeight="61.0" fitWidth="80.0" layoutX="280.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="chair6" fitHeight="61.0" fitWidth="80.0" layoutX="280.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Img/IMGCadeiraLivre.png" />
+            <Image url="@../img/FreeChair.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="cadeira6" fitHeight="61.0" fitWidth="80.0" layoutX="341.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="chair7" fitHeight="61.0" fitWidth="80.0" layoutX="341.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Img/IMGCadeiraLivre.png" />
+            <Image url="@../img/FreeChair.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="cadeira7" fitHeight="61.0" fitWidth="80.0" layoutX="402.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="chair8" fitHeight="61.0" fitWidth="80.0" layoutX="402.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Img/IMGCadeiraLivre.png" />
+            <Image url="@../img/FreeChair.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="cadeira8" fitHeight="61.0" fitWidth="80.0" layoutX="463.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="chair9" fitHeight="61.0" fitWidth="80.0" layoutX="463.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Img/IMGCadeiraLivre.png" />
+            <Image url="@../img/FreeChair.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="cadeira9" fitHeight="61.0" fitWidth="80.0" layoutX="524.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="chair10" fitHeight="61.0" fitWidth="80.0" layoutX="524.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Img/IMGCadeiraLivre.png" />
+            <Image url="@../img/FreeChair.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="cadeira10" fitHeight="61.0" fitWidth="80.0" layoutX="280.0" layoutY="247.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="chair11" fitHeight="61.0" fitWidth="80.0" layoutX="280.0" layoutY="247.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Img/IMGCadeiraLivre.png" />
+            <Image url="@../img/FreeChair.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="cadeira11" fitHeight="61.0" fitWidth="80.0" layoutX="341.0" layoutY="247.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="chair12" fitHeight="61.0" fitWidth="80.0" layoutX="341.0" layoutY="247.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Img/IMGCadeiraLivre.png" />
+            <Image url="@../img/FreeChair.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="cadeira12" fitHeight="61.0" fitWidth="80.0" layoutX="402.0" layoutY="247.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="chair13" fitHeight="61.0" fitWidth="80.0" layoutX="402.0" layoutY="247.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Img/IMGCadeiraLivre.png" />
+            <Image url="@../img/FreeChair.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="cadeira13" fitHeight="61.0" fitWidth="80.0" layoutX="463.0" layoutY="247.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="chair14" fitHeight="61.0" fitWidth="80.0" layoutX="463.0" layoutY="247.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Img/IMGCadeiraLivre.png" />
+            <Image url="@../img/FreeChair.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="cadeira14" fitHeight="61.0" fitWidth="80.0" layoutX="524.0" layoutY="247.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="chair15" fitHeight="61.0" fitWidth="80.0" layoutX="524.0" layoutY="247.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Img/IMGCadeiraLivre.png" />
+            <Image url="@../img/FreeChair.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="cadeira15" fitHeight="61.0" fitWidth="80.0" layoutX="280.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="chair16" fitHeight="61.0" fitWidth="80.0" layoutX="280.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Img/IMGCadeiraLivre.png" />
+            <Image url="@../img/FreeChair.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="cadeira16" fitHeight="61.0" fitWidth="80.0" layoutX="341.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="chair17" fitHeight="61.0" fitWidth="80.0" layoutX="341.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Img/IMGCadeiraLivre.png" />
+            <Image url="@../img/FreeChair.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="cadeira17" fitHeight="61.0" fitWidth="80.0" layoutX="402.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="chair18" fitHeight="61.0" fitWidth="80.0" layoutX="402.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Img/IMGCadeiraLivre.png" />
+            <Image url="@../img/FreeChair.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="cadeira18" fitHeight="61.0" fitWidth="80.0" layoutX="463.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="chair19" fitHeight="61.0" fitWidth="80.0" layoutX="463.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Img/IMGCadeiraLivre.png" />
+            <Image url="@../img/FreeChair.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="cadeira19" fitHeight="61.0" fitWidth="80.0" layoutX="524.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="chair20" fitHeight="61.0" fitWidth="80.0" layoutX="524.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Img/IMGCadeiraLivre.png" />
+            <Image url="@../img/FreeChair.png" />
          </image>
       </ImageView>
-      <Button fx:id="ButtonIniciar" layoutX="408.0" layoutY="425.0" mnemonicParsing="false" onAction="#start" style="-fx-background-color: grey; -fx-background-radius: 15;" text="Iniciar" textFill="WHITE" />
+      <Button fx:id="startButton" layoutX="408.0" layoutY="425.0" mnemonicParsing="false" onAction="#start" style="-fx-background-color: grey; -fx-background-radius: 15; -fx-cursor: hand;" text="Iniciar" textFill="WHITE" />
       <ImageView fitHeight="106.0" fitWidth="112.0" layoutX="86.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Img/IMGPerson.png" />
+            <Image url="@../img/Person.png" />
          </image>
       </ImageView>
       <Label layoutX="112.0" layoutY="156.0" text="Escritor" textFill="WHITE">
@@ -127,22 +127,22 @@
       </Label>
       <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="648.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Img/IMGPerson.png" />
+            <Image url="@../img/Person.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="650.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Img/IMGPerson.png" />
+            <Image url="@../img/Person.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="648.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Img/IMGPerson.png" />
+            <Image url="@../img/Person.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="649.0" layoutY="361.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Img/IMGPerson.png" />
+            <Image url="@../img/Person.png" />
          </image>
       </ImageView>
       <Label layoutX="665.0" layoutY="27.0" text="Leitores" textFill="WHITE">
@@ -150,10 +150,10 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <Label fx:id="LabelLeitor0" layoutX="766.0" layoutY="93.0" text="..." textFill="WHITE" />
-      <Label fx:id="LabelLeitor1" layoutX="766.0" layoutY="196.0" text="..." textFill="WHITE" />
-      <Label fx:id="LabelLeitor3" layoutX="768.0" layoutY="404.0" text="..." textFill="WHITE" />
-      <Label fx:id="LabelLeitor2" layoutX="767.0" layoutY="294.0" text="..." textFill="WHITE" />
-      <Label fx:id="LabelEscritor" layoutX="107.0" layoutY="310.0" text="..." textFill="WHITE" />
+      <Label fx:id="readerLabel1" layoutX="766.0" layoutY="93.0" text="Stand by" textFill="WHITE" />
+      <Label fx:id="readerLabel2" layoutX="766.0" layoutY="196.0" text="Stand by" textFill="WHITE" />
+      <Label fx:id="readerLabel4" layoutX="768.0" layoutY="404.0" text="Stand by" textFill="WHITE" />
+      <Label fx:id="readerLabel3" layoutX="767.0" layoutY="294.0" text="Stand by" textFill="WHITE" />
+      <Label fx:id="writerLabel" layoutX="107.0" layoutY="310.0" text="Stand by" textFill="WHITE" />
    </children>
 </AnchorPane>
