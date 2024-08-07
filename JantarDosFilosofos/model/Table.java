@@ -6,7 +6,6 @@
 * Nome.............: Table
 * Funcao...........: Control animations
 *************************************************************** */
-
 package model;
 
 import java.util.concurrent.Semaphore;
@@ -137,26 +136,22 @@ public class Table {
                     fork1.setImage(Gallery.occupiedFork); 
                     philosopherState0.setText("Comendo..."); 
                     break;
-                }
-                case 1: {
+                } case 1: {
                     fork1.setImage(Gallery.occupiedFork); 
                     fork2.setImage(Gallery.occupiedFork);
                     philosopherState1.setText("Comendo..."); 
                     break;
-                }
-                case 2: {
+                } case 2: {
                     fork2.setImage(Gallery.occupiedFork); 
                     fork3.setImage(Gallery.occupiedFork);
                     philosopherState2.setText("Comendo..."); 
                     break;
-                }
-                case 3: {
+                } case 3: {
                     fork3.setImage(Gallery.occupiedFork); 
                     fork4.setImage(Gallery.occupiedFork); 
                     philosopherState3.setText("Comendo..."); 
                     break;
-                }
-                case 4: {
+                } case 4: {
                     fork4.setImage(Gallery.occupiedFork); 
                     fork0.setImage(Gallery.occupiedFork);
                     philosopherState4.setText("Comendo..."); 
@@ -185,23 +180,19 @@ public class Table {
                     fork0.setImage(Gallery.freeFork); 
                     fork1.setImage(Gallery.freeFork); 
                     break;
-                }
-                case 1: {
+                } case 1: {
                     fork1.setImage(Gallery.freeFork); 
                     fork2.setImage(Gallery.freeFork); 
                     break;
-                }
-                case 2: {
+                } case 2: {
                     fork2.setImage(Gallery.freeFork); 
                     fork3.setImage(Gallery.freeFork); 
                     break;
-                }
-                case 3: {
+                } case 3: {
                     fork3.setImage(Gallery.freeFork); 
                     fork4.setImage(Gallery.freeFork); 
                     break;
-                }
-                case 4: {
+                } case 4: {
                     fork4.setImage(Gallery.freeFork); 
                     fork0.setImage(Gallery.freeFork); 
                     break;

@@ -22,7 +22,7 @@ public class Consumer extends Thread {
     public Consumer(int speed,  ImageView consumerImageView) {
         this.speed = (int) Math.ceil(-100.0 / 3.0 * speed + 16000.0 / 3.0);
         this.consumerImageView = consumerImageView;
-    }
+    } // End constructor
 
     /* ***************************************************************
     * Metodo: run

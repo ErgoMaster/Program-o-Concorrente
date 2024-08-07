@@ -6,7 +6,6 @@
 * Nome.............: Philosopher thread
 * Funcao...........: Eat and think
 *************************************************************** */
-
 package model;
 
 public class Philosopher extends Thread {

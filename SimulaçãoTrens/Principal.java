@@ -6,7 +6,6 @@
 * Nome.............: Principal
 * Funcao...........: Start the interface
 *************************************************************** */
-
 import view.TrainSimulationController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

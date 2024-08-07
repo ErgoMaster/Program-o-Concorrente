@@ -33,24 +33,24 @@ public class TrainSimulationController {
     * Parametros: event= Click event
     * Retorno: Void
     *************************************************************** */
-        @FXML
-        void start(ActionEvent event) {
-            // Set each train speed
-            speedTrain1 =  (int) sliderTrain1.getValue();
-            speedTrain2 =  (int) sliderTrain2.getValue();
+    @FXML
+    void start(ActionEvent event) {
+        // Set each train speed
+        speedTrain1 =  (int) sliderTrain1.getValue();
+        speedTrain2 =  (int) sliderTrain2.getValue();
 
-            // Set the train position to its initial
-            train1ImageView.setLayoutX(94);
-            train1ImageView.setLayoutY(54);
-            train1ImageView.setTranslateX(0); 
-            train1ImageView.setTranslateY(0);
+        // Set the train position to its initial
+        train1ImageView.setLayoutX(94);
+        train1ImageView.setLayoutY(54);
+        train1ImageView.setTranslateX(0); 
+        train1ImageView.setTranslateY(0);
 
-            train2ImageView.setLayoutX(706);
-            train2ImageView.setLayoutY(54);
-            train2ImageView.setTranslateX(0); 
-            train2ImageView.setTranslateY(0);
+        train2ImageView.setLayoutX(706);
+        train2ImageView.setLayoutY(54);
+        train2ImageView.setTranslateX(0); 
+        train2ImageView.setTranslateY(0);
 
-            SuperThread thread = new SuperThread(train1ImageView, train2ImageView, speedTrain1, speedTrain2, startButton); // Start the simulation
-            thread.start();
-        } // End start  
+        SuperThread thread = new SuperThread(train1ImageView, train2ImageView, speedTrain1, speedTrain2, startButton); // Start the simulation
+        thread.start();
+    } // End start  
 } // End class TrainSimulationController

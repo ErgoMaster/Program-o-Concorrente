@@ -46,7 +46,7 @@ public class Buffer {
         chairsObjects.add(new Chair(18));
         chairsObjects.add(new Chair(19));
         chairsObjects.add(new Chair(20));
-    }
+    } // End constructor
 
     /* ***************************************************************
     * Metodo: increaseReadersControl

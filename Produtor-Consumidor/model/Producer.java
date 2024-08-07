@@ -22,7 +22,7 @@ public class Producer extends Thread {
     public Producer(int speed, ImageView producerImageView) {
         this.speed = (int) Math.ceil(-100.0 / 3.0 * speed + 16000.0 / 3.0);
         this.producerImageView = producerImageView;
-    }
+    } // End constructor
 
     /* ***************************************************************
     * Metodo: run

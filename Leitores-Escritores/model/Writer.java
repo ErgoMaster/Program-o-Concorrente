@@ -17,7 +17,7 @@ public class Writer extends Thread {
     // Constructor
     public Writer(Label label) {
         this.label = label;
-    }
+    } // End constructor
 
     /* ***************************************************************
     * Metodo: run

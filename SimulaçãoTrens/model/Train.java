@@ -24,7 +24,7 @@ public class Train extends Thread {
         this.speed = speed;
 
         x = model.getLayoutX();
-    }
+    } // End constructor
 
     /* ***************************************************************
     * Metodo: run

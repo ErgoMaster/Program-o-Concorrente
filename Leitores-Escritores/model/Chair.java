@@ -15,7 +15,7 @@ public class Chair {
     // Constructor
     public Chair(int id) {
         this.id = id;
-    }
+    } // End constructor
 
     /* ***************************************************************
     * Metodo: changeState

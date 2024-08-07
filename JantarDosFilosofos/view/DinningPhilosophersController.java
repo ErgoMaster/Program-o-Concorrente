@@ -6,7 +6,6 @@
 * Nome.............: DinningPhilosophersController
 * Funcao...........: Start program threads
 *************************************************************** */
-
 package view;
 
 import java.net.URL;
@@ -19,7 +18,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import model.*;
 
-public class DinningPhilosophersController implements Initializable {
+public class DinningPhilosophersController {
     // Fxml variables
     @FXML private ImageView fork0Image;
     @FXML private ImageView fork1Image;
@@ -47,7 +46,7 @@ public class DinningPhilosophersController implements Initializable {
         Table table = new Table(fork0Image, fork1Image, fork2Image, fork3Image, fork4Image,
         philosopherState0, philosopherState1, philosopherState2, philosopherState3, philosopherState4);
 
-        // initialize threads
+        // Initialize threads
         Philosopher filosofo0 = new Philosopher(0, 4, 1);
         Philosopher filosofo1 = new Philosopher(1, 0, 2);
         Philosopher filosofo2 = new Philosopher(2, 1, 3);
@@ -60,15 +59,4 @@ public class DinningPhilosophersController implements Initializable {
         filosofo3.start();
         filosofo4.start();
     } // End start
-
-    /* ***************************************************************
-    * Metodo: initialize
-    * Funcao: Define methods that executes when the current window opens
-    * Parametros: location&resources= Fxml arguments
-    * Retorno: void
-    *************************************************************** */
-    @Override
-    public void initialize(URL arg0, ResourceBundle arg1) {
-
-    } // End initialize
 } // End class DinningPhilosophersController

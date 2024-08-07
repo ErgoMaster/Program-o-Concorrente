@@ -16,7 +16,7 @@ public class DisableButton extends Thread {
     // Constructor
     public DisableButton(Button button) {
         this.button = button;
-    }
+    } // End constructor
 
     /* ***************************************************************
     * Metodo: run

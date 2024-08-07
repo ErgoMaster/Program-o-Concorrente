@@ -20,7 +20,7 @@ public class Reader extends Thread {
     public Reader(int id, ArrayList<Label> labels) {
         this.id = id;
         this.labels = labels;
-    }
+    } // End constructor
 
     /* ***************************************************************
     * Metodo: run

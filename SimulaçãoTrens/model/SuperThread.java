@@ -30,7 +30,7 @@ public class SuperThread extends Thread {
         this.speedTrain1 = speedTrain1;
         this.speedTrain2 = speedTrain2;
         this.startButton = startButton;
-    }
+    } // End constructor
 
     /* ***************************************************************
     * Metodo: run
